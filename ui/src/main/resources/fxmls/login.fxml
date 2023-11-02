@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #8553AC;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="252.0" layoutY="306.0" mnemonicParsing="false" style="-fx-background-color: #BDACCF;" text="Sign in" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logoNoBG.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="174.0" layoutY="191.0" text="Username:" textFill="WHITE" />
+            <Label layoutX="174.0" layoutY="233.0" text="Password:" textFill="WHITE" />
+            <TextField layoutX="243.0" layoutY="187.0" />
+            <Label layoutX="228.0" layoutY="268.0" text="New user?" textFill="#f9e0ff" />
+            <Label layoutX="300.0" layoutY="268.0" text="Forgot password?" textFill="#f9e0ff" />
+            <PasswordField id="password" layoutX="243.0" layoutY="229.0" />
+            <Label id="wrongCreadentials" layoutX="263.0" layoutY="156.0" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
