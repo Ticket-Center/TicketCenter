@@ -113,8 +113,8 @@
                             <mainClass>
                                 oop.ticketcenter.ui.Application
                             </mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
+                            <launcher>ticketcenter</launcher>
+                            <jlinkZipName>ticketcenter</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
