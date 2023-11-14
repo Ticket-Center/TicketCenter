@@ -1,13 +1,16 @@
-package oop.ticketcenter.persistence;
+package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.sql.Timestamp;
-import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
-
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Events")
 public class Event {

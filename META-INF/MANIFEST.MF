@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: oop.ticketcenter.ui.Application
+Main-Class: oop.ticketcenter.ui.JavaFxApplication
 

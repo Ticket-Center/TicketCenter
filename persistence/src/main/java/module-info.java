@@ -1,9 +1,12 @@
 module oop.ticketcenter.persistence {
     requires jakarta.persistence;
-    requires hibernate.annotations;
-    requires hibernate.core;
     requires org.hibernate.validator;
     requires lombok;
+    requires spring.data.jpa;
+    requires org.hibernate.orm.core;
 
-    exports oop.ticketcenter.persistence;
+    opens oop.ticketcenter.persistence.entities;
+    opens oop.ticketcenter.persistence.repositories;
+    exports oop.ticketcenter.persistence.entities;
+    exports oop.ticketcenter.persistence.repositories;
 }

@@ -1,10 +1,15 @@
-package oop.ticketcenter.persistence;
+package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.UUID;
-
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "EventOrganizators")
 public class EventOrganizator {

@@ -1,12 +1,18 @@
-package oop.ticketcenter.persistence;
+package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
 
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table
+@Table(name = "Clients")
 public class Client {
 
     @Id
