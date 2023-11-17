@@ -1,5 +1,6 @@
 package oop.ticketcenter.persistence.repositories;
 
+//import oop.ticketcenter.persistence.entities.Client;
 import oop.ticketcenter.persistence.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 

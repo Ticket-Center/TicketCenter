@@ -1,14 +1,15 @@
-module oop.ticketcenter.ui {
+module ui {
     requires javafx.controls;
     requires javafx.fxml;
     requires spring.boot.autoconfigure;
     requires spring.context;
     requires spring.data.jpa;
-    requires oop.ticketcenter.persistence;
+    requires persistence;
     requires lombok;
     requires spring.boot;
     requires spring.beans;
     requires spring.core;
+    //requires oop.ticketcenter.persistence;
 //    requires javafx.web;
 //
 //    requires org.controlsfx.controls;

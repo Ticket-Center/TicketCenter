@@ -1,4 +1,5 @@
-module oop.ticketcenter.persistence {
+module persistence {
+    requires java.base;
     requires jakarta.persistence;
     requires org.hibernate.validator;
     requires lombok;
@@ -9,4 +10,5 @@ module oop.ticketcenter.persistence {
     opens oop.ticketcenter.persistence.repositories;
     exports oop.ticketcenter.persistence.entities;
     exports oop.ticketcenter.persistence.repositories;
+
 }

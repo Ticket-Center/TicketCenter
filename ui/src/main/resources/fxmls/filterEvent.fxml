@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane fx:id="FilterEvent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="34.0" prefWidth="353.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lbFilter" layoutX="147.0" layoutY="6.0" prefHeight="36.0" prefWidth="56.0" text="Filter by">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="308.0" prefWidth="134.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lbMax" layoutX="105.0" layoutY="84.0" text="Max">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbMin" layoutX="105.0" layoutY="45.0" text="Min">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbStart" layoutX="105.0" layoutY="169.0" text="Start ">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbEnd" layoutX="105.0" layoutY="208.0" text="End">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="checkBPrice" layoutX="56.0" layoutY="13.0" mnemonicParsing="false" text="Price">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="checkBDate" layoutX="56.0" layoutY="136.0" mnemonicParsing="false" text="Date">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="checkBGenre" layoutX="56.0" layoutY="258.0" mnemonicParsing="false" text="Genre">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtFMin" layoutY="38.0" prefWidth="150.0" />
+            <TextField fx:id="txtFMax" layoutY="77.0" prefWidth="150.0" />
+            <DatePicker fx:id="datePEnd" layoutY="206.0" prefWidth="150.0" />
+            <DatePicker fx:id="datePStart" layoutY="167.0" prefHeight="26.0" prefWidth="150.0" />
+            <ComboBox fx:id="cbBoxGenre" layoutY="253.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
