@@ -20,4 +20,8 @@ public class EventOwner {
 
     @Length(max=60, message = "Name should be 60 characters")
     private String name;
+
+    @Length(max = 20, message = "Username must be less than {max} symbols")
+    private String username;
+
 }
