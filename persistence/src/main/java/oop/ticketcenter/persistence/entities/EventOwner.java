@@ -2,6 +2,7 @@ package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.UUID;
 @Builder
@@ -18,4 +19,8 @@ public class EventOwner {
     private UUID id;
 
     private String name;
+
+    @Length(max = 20, message = "Username must be less than {max} symbols")
+    private String username;
+
 }
