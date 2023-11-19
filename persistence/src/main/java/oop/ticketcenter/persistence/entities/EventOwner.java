@@ -3,6 +3,7 @@ package oop.ticketcenter.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
+import oop.ticketcenter.persistence.enums.Roles;
 
 import java.util.UUID;
 @Builder
@@ -20,6 +21,9 @@ public class EventOwner {
 
     @Length(max=60, message = "Name should be 60 characters")
     private String name;
+
+    @Enumerated(value = EnumType.STRING)
+    private Roles role = Roles.OWNER;
 
     @Length(min = 8, max = 255, message = "Password should be between 8 and 255 characters")
     private String password;

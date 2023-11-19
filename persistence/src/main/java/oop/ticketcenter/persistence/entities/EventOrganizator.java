@@ -2,6 +2,7 @@ package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import oop.ticketcenter.persistence.enums.Roles;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.UUID;
@@ -37,4 +38,7 @@ public class EventOrganizator {
 
     @Length(min = 10, max = 10, message = "Mol phone should be 10 characters")
     private String molPhone;
+
+    @Enumerated(value = EnumType.STRING)
+    private Roles role = Roles.ORGANIZER;
 }

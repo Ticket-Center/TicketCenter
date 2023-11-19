@@ -1,4 +1,4 @@
-module ui {
+module oop.ticketcenter.ui {
     requires javafx.controls;
     requires javafx.fxml;
     requires spring.boot.autoconfigure;
@@ -9,7 +9,7 @@ module ui {
     requires spring.boot;
     requires spring.beans;
     requires spring.core;
-    //requires oop.ticketcenter.persistence;
+    requires core;
 //    requires javafx.web;
 //
 //    requires org.controlsfx.controls;
@@ -20,6 +20,7 @@ module ui {
 //    requires eu.hansolo.tilesfx;
 //    requires com.almasb.fxgl.all;
 
+    opens oop.ticketcenter.ui.controllers to javafx.fxml, spring.core;
     opens oop.ticketcenter.ui to javafx.fxml, spring.core;
     exports oop.ticketcenter.ui;
     exports oop.ticketcenter.ui.controllers;

@@ -1,4 +1,4 @@
-package oop.ticketcenter.persistence.entities;
+package oop.ticketcenter.persistence.enums;
 
 public enum Rating {
     ONE_STAR,
