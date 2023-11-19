@@ -16,7 +16,6 @@ public class EventOrganizator {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Length(min = 16, max = 16, message = "Invalid id length")
     private UUID id;
 
     @Length(max=80, message = "Name should be max 80 characters")

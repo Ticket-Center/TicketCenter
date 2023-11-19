@@ -18,7 +18,6 @@ public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Length(min = 16, max = 16, message = "Invalid id length")
     private UUID id;
 
     private Integer maxTicketsPerPerson;
