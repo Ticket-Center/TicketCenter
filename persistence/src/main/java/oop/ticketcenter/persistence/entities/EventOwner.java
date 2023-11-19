@@ -16,7 +16,6 @@ public class EventOwner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Length(min = 16, max = 16, message = "Invalid id length")
     private UUID id;
 
     @Length(max=60, message = "Name should be 60 characters")
@@ -24,4 +23,8 @@ public class EventOwner {
 
     @Length(min = 8, max = 255, message = "Password should be between 8 and 255 characters")
     private String password;
+
+    @Length(max = 20, message = "Username must be less than {max} symbols")
+    private String username;
+
 }

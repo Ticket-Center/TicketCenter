@@ -3,6 +3,7 @@ package oop.ticketcenter.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
+import oop.ticketcenter.persistence.entities.Rating;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,7 +18,6 @@ public class EventSeller {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Length(min = 16, max = 16, message = "Invalid id length")
     private UUID id;
 
     @Length(max=80, message = "Name should be max 80 characters")
@@ -33,6 +33,9 @@ public class EventSeller {
     private String mol;
 
     private Double fee;
+    @Length(max = 20, message = "Username must be less than {max} symbols")
+    private String username;
+
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
