@@ -2,6 +2,7 @@ package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.UUID;
 @Builder
@@ -17,5 +18,6 @@ public class EventPlace {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Length(max=60, message = "Name should be 10 characters")
     private String name;
 }

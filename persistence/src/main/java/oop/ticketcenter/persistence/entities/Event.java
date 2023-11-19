@@ -2,6 +2,7 @@ package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.sql.Timestamp;
 import java.util.UUID;
@@ -26,6 +27,7 @@ public class Event {
     // to generate from database
     private Timestamp date;
 
+    @Length(max = 80, message = "Title should be max 80 characters")
     private String title;
 
     @ManyToOne

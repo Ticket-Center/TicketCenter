@@ -2,6 +2,7 @@ package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
 import java.util.UUID;
@@ -19,9 +20,16 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Length(max=60, message = "First name should be max 60 characters")
     private String firstname;
+
+    @Length(max=60, message = "Last name should be max 60 characters")
     private String lastname;
+
+    @Length(max=100, message ="Address should be max 100 characters")
     private String address;
+
+    @Length(min=10,max=10,message = "Phone number should be 10 characters")
     private String phone;
 
     @ManyToMany
