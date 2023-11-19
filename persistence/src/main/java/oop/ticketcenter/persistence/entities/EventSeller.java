@@ -3,6 +3,7 @@ package oop.ticketcenter.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import oop.ticketcenter.persistence.entities.Rating;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
 import java.util.UUID;
@@ -23,6 +24,9 @@ public class EventSeller {
     private String uic;
     private String mol;
     private Double fee;
+    @Length(max = 20, message = "Username must be less than {max} symbols")
+    private String username;
+
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

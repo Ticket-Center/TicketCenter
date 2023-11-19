@@ -20,6 +20,9 @@ public class EventOrganizator {
 
     private String name;
 
+    @Length(max = 20, message = "Username must be less than {max} symbols")
+    private String username;
+
     private String uic;
 
     private String mol;
