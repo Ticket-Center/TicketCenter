@@ -23,6 +23,9 @@ public class EventSeller {
     @Length(max=80, message = "Name should be max 80 characters")
     private String name;
 
+    @Length(min = 8, max = 255, message = "Password should be between 8 and 255 characters")
+    private String password;
+
     @Length(min=10,max=10, message = "Uic should be 10 characters")
     private String uic;
 
