@@ -32,9 +32,12 @@ public class Client {
     @Length(max=100, message ="Address should be max 100 characters")
     private String address;
 
+    @Length(max=60, message = "Username should be max 60 characters")
     private String username;
 
+    @Length(min = 8, max = 255, message = "Password should be between 8 and 255 characters")
     private String password;
+
     @Enumerated(value = EnumType.STRING)
     private Roles role = Roles.CLIENT;
 
