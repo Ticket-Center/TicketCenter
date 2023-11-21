@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
+@Component
 public class LoginController{
 
     @FXML
@@ -37,6 +38,7 @@ public class LoginController{
     @FXML
     private Button signin;
 
+    @Autowired
     private LoginCore login;
 
     @FXML
