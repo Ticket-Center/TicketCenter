@@ -2,24 +2,34 @@ package oop.ticketcenter.ui;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+
 import java.io.IOException;
 
 
 public class JavaFxApplication extends javafx.application.Application {
 
     private ConfigurableApplicationContext context;
-    @Override
-    public void init() throws Exception{
+    private Parent rootNode;
 
-        this.context = new SpringApplicationBuilder(SpringApplication.class)
-            .run();
+    @Override
+    public void init() throws Exception {
+
+        this.context = SpringApplication.run(oop.ticketcenter.ui.SpringApplication.class);
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFxApplication.class.getResource("/fxmls/login.fxml"));
+        fxmlLoader.setControllerFactory(this.context::getBean);
+        rootNode = fxmlLoader.load();
     }
+
     @Override
     public void stop() {
         this.context.close();
@@ -28,19 +38,11 @@ public class JavaFxApplication extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        this.context.publishEvent(new StagereadyEvent(stage));
+        stage.setScene(new Scene(rootNode));
+        stage.show();
     }
 
     public static void main(String[] args) {
         launch();
-    }
-}
-class StagereadyEvent extends ApplicationEvent{
-
-    public Stage getStage(){
-        return (Stage) getSource();
-    }
-    public StagereadyEvent(Stage source) {
-        super(source);
     }
 }

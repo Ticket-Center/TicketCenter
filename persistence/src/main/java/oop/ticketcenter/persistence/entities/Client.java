@@ -3,9 +3,12 @@ package oop.ticketcenter.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
+import oop.ticketcenter.persistence.enums.Roles;
 
 import java.util.List;
 import java.util.UUID;
+
+// admin is a new table
 
 @Builder
 @Getter
@@ -28,6 +31,12 @@ public class Client {
 
     @Length(max=100, message ="Address should be max 100 characters")
     private String address;
+
+    private String username;
+
+    private String password;
+    @Enumerated(value = EnumType.STRING)
+    private Roles role = Roles.CLIENT;
 
     @Length(min=10,max=10,message = "Phone number should be 10 characters")
     private String phone;
