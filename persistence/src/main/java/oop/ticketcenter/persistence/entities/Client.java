@@ -8,6 +8,8 @@ import oop.ticketcenter.persistence.enums.Roles;
 import java.util.List;
 import java.util.UUID;
 
+// admin is a new table
+
 @Builder
 @Getter
 @Setter

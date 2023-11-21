@@ -27,7 +27,7 @@ public class LoginCore implements Login {
     @Override
     public LoginResult process(LoginInput input) {
 
-        Optional<Client> client = clientRepository.findClientByPasswordAndUsername(input.getUsername(), input.getPassword());
+        Optional<Client> client = clientRepository.findClientByUsernameAndPassword(input.getUsername(), input.getPassword());
         Optional<EventOwner> eventOwner = eventOwnerRepository.findEventOwnerByUsernameAndPassword(input.getUsername(), input.getPassword());
         Optional<EventOrganizator> eventOrganizator = eventOrganizatorRepository.findEventOrganizatorByUsernameAndPassword(input.getUsername(), input.getPassword());
         Optional<EventSeller> eventSeller = eventSellerRepository.findEventSellerByUsernameAndPassword(input.getUsername(), input.getPassword());
