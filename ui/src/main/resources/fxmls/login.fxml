@@ -28,7 +28,7 @@
             <Label layoutX="174.0" layoutY="233.0" text="Password:" textFill="WHITE" />
             <TextField fx:id="username" layoutX="243.0" layoutY="187.0" />
             <Label id="" fx:id="newuser" layoutX="228.0" layoutY="268.0" text="New user?" textFill="#f9e0ff" />
-            <Label fx:id="forgotpass" layoutX="300.0" layoutY="268.0" text="Forgot password?" textFill="#f9e0ff" />
+            <Label fx:id="forgotpass" layoutX="300.0" layoutY="268.0" onMouseClicked="#forgotpassword" text="Forgot password?" textFill="#f9e0ff" />
             <PasswordField id="password" fx:id="password" layoutX="243.0" layoutY="229.0" />
             <Label id="wrongCreadentials" fx:id="wrongcredentials" layoutX="263.0" layoutY="156.0" textFill="WHITE" />
          </children>
