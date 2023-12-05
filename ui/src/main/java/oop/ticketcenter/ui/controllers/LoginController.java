@@ -16,6 +16,7 @@ import oop.ticketcenter.core.interfaces.login.Login;
 import oop.ticketcenter.core.interfaces.login.LoginInput;
 import oop.ticketcenter.core.interfaces.login.LoginResult;
 import oop.ticketcenter.core.services.LoginCore;
+import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -64,6 +65,6 @@ public class LoginController {
 
     @FXML
     private void forgotpassword() throws IOException {
-        SceneSwitcher.switchScene((Stage) forgotpass.getScene().getWindow() ,"/fxmls/forgotpassword.fxml");
+        SceneSwitcher.switchScene((Stage) forgotpass.getScene().getWindow() , FXMLPaths.FORGOT_PASS_FORM.getPath()); // all magic strings to be enum
     }
 }

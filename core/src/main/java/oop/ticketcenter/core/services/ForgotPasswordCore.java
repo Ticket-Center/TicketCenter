@@ -18,13 +18,16 @@ public class ForgotPasswordCore implements ForgotPassword {
     private final ClientRepository clientRepository;
     @Override
     public ForgotPasswordResult process(ForgotPasswordInput input) {
-        Client client = clientRepository.findById(ActiveUserSingleton.getInstance().getActiveUser())
+        Client client = clientRepository.findClientByUsernameAndPasswordKey(input.getUsername(), input.getPasswordkey())
                 .orElseThrow(() -> new UserNotFoundException("User with this credentials not found"));
         if(!input.getPasswordkey().equals(client.getPasswordKey())){
             throw new IncorrectInputException("Incorrect input");
         }
+        String newPas = generateTempPass();
+        client.setPassword(newPas);
+        clientRepository.save(client);
         return ForgotPasswordResult.builder()
-                .newPassword(generateTempPass())
+                .newPassword(newPas)
                 .build();
     }
     private String generateTempPass(){

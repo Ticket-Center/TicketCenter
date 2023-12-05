@@ -18,21 +18,23 @@ import java.io.IOException;
 
 public class JavaFxApplication extends javafx.application.Application {
 
-    private ConfigurableApplicationContext context;
+
+//    private ConfigurableApplicationContext context;
+
+    private AppContext context;
     private Parent rootNode;
 
     @Override
     public void init() throws Exception {
-
-        this.context = SpringApplication.run(oop.ticketcenter.ui.SpringApplication.class);
+        AppContext.getInstance().setContext(SpringApplication.run(oop.ticketcenter.ui.SpringApplication.class));
         FXMLLoader fxmlLoader = new FXMLLoader(JavaFxApplication.class.getResource("/fxmls/login.fxml"));
-        fxmlLoader.setControllerFactory(this.context::getBean);
+        fxmlLoader.setControllerFactory(AppContext.getInstance().getContext()::getBean);
         rootNode = fxmlLoader.load();
     }
 
     @Override
     public void stop() {
-        this.context.close();
+        context.getContext().close();
         Platform.exit();
     }
 
