@@ -44,6 +44,8 @@ public class Client {
     @Length(min=10,max=10,message = "Phone number should be 10 characters")
     private String phone;
 
+    private String passwordKey;
+
     @ManyToMany
     @JoinTable(
             name = "Client_Tickets",
