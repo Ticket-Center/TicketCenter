@@ -37,13 +37,13 @@ public class EventSeller {
     @Length(max = 20, message = "Username must be less than {max} symbols")
     private String username;
 
-
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Rating rating;
 
     @Length(min = 10, max = 10, message = "Mol phone should be 10 characters")
     private String molPhone;
+
     @Enumerated(value = EnumType.STRING)
     private Roles role = Roles.SELLER;
 
