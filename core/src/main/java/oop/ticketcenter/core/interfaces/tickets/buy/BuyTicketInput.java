@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.login;
+package oop.ticketcenter.core.interfaces.tickets.buy;
 
 import lombok.*;
 import oop.ticketcenter.core.interfaces.base.ProcessorInput;
@@ -8,7 +8,7 @@ import oop.ticketcenter.core.interfaces.base.ProcessorInput;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginInput implements ProcessorInput {
+public class BuyTicketInput implements ProcessorInput {
     private String username;
     private String password;
 }

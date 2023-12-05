@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.forgotpassword;
+package oop.ticketcenter.core.interfaces.events.delete;
 
 import lombok.*;
 import oop.ticketcenter.core.interfaces.base.ProcessorResult;
@@ -10,6 +10,6 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ForgotPasswordResult implements ProcessorResult {
-    private String newPassword;
+public class DeleteEventResult implements ProcessorResult {
+    private UUID userId;
 }

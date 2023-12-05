@@ -7,10 +7,17 @@ module core {
 
     opens oop.ticketcenter.core.services to spring.beans;
     exports oop.ticketcenter.core;
-    exports oop.ticketcenter.core.interfaces.login;
-    exports oop.ticketcenter.core.interfaces.register;
-    exports oop.ticketcenter.core.interfaces.logout;
-    exports oop.ticketcenter.core.interfaces.forgotpassword;
+    exports oop.ticketcenter.core.interfaces.users.login;
+    exports oop.ticketcenter.core.interfaces.users.register;
+    exports oop.ticketcenter.core.interfaces.users.logout;
+    exports oop.ticketcenter.core.interfaces.users.forgotpassword;
+    exports oop.ticketcenter.core.interfaces.events.create;
+    exports oop.ticketcenter.core.interfaces.events.delete;
+    exports oop.ticketcenter.core.interfaces.events.edit;
+    exports oop.ticketcenter.core.interfaces.tickets.get.byevent;
+    exports oop.ticketcenter.core.interfaces.tickets.get.byowner;
+    exports oop.ticketcenter.core.interfaces.tickets.buy;
+    exports oop.ticketcenter.core.interfaces.tickets.free;
     exports oop.ticketcenter.core.services;
     exports oop.ticketcenter.core.exceptions;
 }

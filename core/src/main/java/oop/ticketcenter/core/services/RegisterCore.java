@@ -1,8 +1,8 @@
 package oop.ticketcenter.core.services;
 
-import oop.ticketcenter.core.interfaces.register.Register;
-import oop.ticketcenter.core.interfaces.register.RegisterInput;
-import oop.ticketcenter.core.interfaces.register.RegisterResult;
+import oop.ticketcenter.core.interfaces.users.register.Register;
+import oop.ticketcenter.core.interfaces.users.register.RegisterInput;
+import oop.ticketcenter.core.interfaces.users.register.RegisterResult;
 
 public class RegisterCore implements Register {
     @Override

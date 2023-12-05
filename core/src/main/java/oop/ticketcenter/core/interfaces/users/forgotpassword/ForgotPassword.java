@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.forgotpassword;
+package oop.ticketcenter.core.interfaces.users.forgotpassword;
 
 import oop.ticketcenter.core.interfaces.base.Processor;
 

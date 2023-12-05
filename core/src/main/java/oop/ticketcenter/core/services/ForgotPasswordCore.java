@@ -3,13 +3,12 @@ package oop.ticketcenter.core.services;
 import lombok.RequiredArgsConstructor;
 import oop.ticketcenter.core.exceptions.IncorrectInputException;
 import oop.ticketcenter.core.exceptions.UserNotFoundException;
-import oop.ticketcenter.core.interfaces.forgotpassword.ForgotPassword;
-import oop.ticketcenter.core.interfaces.forgotpassword.ForgotPasswordInput;
-import oop.ticketcenter.core.interfaces.forgotpassword.ForgotPasswordResult;
+import oop.ticketcenter.core.interfaces.users.forgotpassword.ForgotPassword;
+import oop.ticketcenter.core.interfaces.users.forgotpassword.ForgotPasswordInput;
+import oop.ticketcenter.core.interfaces.users.forgotpassword.ForgotPasswordResult;
 import oop.ticketcenter.persistence.entities.Client;
 import oop.ticketcenter.persistence.repositories.ClientRepository;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service

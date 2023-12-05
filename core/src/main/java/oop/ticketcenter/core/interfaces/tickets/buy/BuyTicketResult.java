@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.login;
+package oop.ticketcenter.core.interfaces.tickets.buy;
 
 import lombok.*;
 import oop.ticketcenter.core.interfaces.base.ProcessorResult;
@@ -10,6 +10,6 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginResult implements ProcessorResult {
+public class BuyTicketResult implements ProcessorResult {
     private UUID userId;
 }

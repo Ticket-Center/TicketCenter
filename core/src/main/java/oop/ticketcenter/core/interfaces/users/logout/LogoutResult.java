@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.logout;
+package oop.ticketcenter.core.interfaces.users.logout;
 
 import lombok.*;
 import oop.ticketcenter.core.interfaces.base.ProcessorResult;

@@ -2,9 +2,9 @@ package oop.ticketcenter.core.services;
 
 import lombok.RequiredArgsConstructor;
 import oop.ticketcenter.core.exceptions.UserNotFoundException;
-import oop.ticketcenter.core.interfaces.login.Login;
-import oop.ticketcenter.core.interfaces.login.LoginInput;
-import oop.ticketcenter.core.interfaces.login.LoginResult;
+import oop.ticketcenter.core.interfaces.users.login.Login;
+import oop.ticketcenter.core.interfaces.users.login.LoginInput;
+import oop.ticketcenter.core.interfaces.users.login.LoginResult;
 import oop.ticketcenter.persistence.entities.*;
 import oop.ticketcenter.persistence.repositories.*;
 import org.springframework.stereotype.Service;
