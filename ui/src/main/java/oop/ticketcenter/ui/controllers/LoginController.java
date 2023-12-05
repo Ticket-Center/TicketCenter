@@ -55,9 +55,10 @@ public class LoginController {
                 .password(password.getText())
                 .username(username.getText())
                 .build();
+        wrongcredentials.setText("");
         try {
             LoginResult result = login.process(input);
-            // TODO add switch form to home page
+             // TODO add switch form to home page
         } catch (UserNotFoundException e) {
             wrongcredentials.setText(e.getMessage());
         }
