@@ -35,11 +35,14 @@ public class Client {
     private String username;
 
     private String password;
+
     @Enumerated(value = EnumType.STRING)
     private Roles role = Roles.CLIENT;
 
     @Length(min=10,max=10,message = "Phone number should be 10 characters")
     private String phone;
+
+    private String passwordKey;
 
     @ManyToMany
     @JoinTable(

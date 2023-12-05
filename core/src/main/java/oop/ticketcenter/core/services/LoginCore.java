@@ -5,14 +5,8 @@ import oop.ticketcenter.core.exceptions.UserNotFoundException;
 import oop.ticketcenter.core.interfaces.login.Login;
 import oop.ticketcenter.core.interfaces.login.LoginInput;
 import oop.ticketcenter.core.interfaces.login.LoginResult;
-import oop.ticketcenter.persistence.entities.Client;
-import oop.ticketcenter.persistence.entities.EventOrganizator;
-import oop.ticketcenter.persistence.entities.EventOwner;
-import oop.ticketcenter.persistence.entities.EventSeller;
-import oop.ticketcenter.persistence.repositories.ClientRepository;
-import oop.ticketcenter.persistence.repositories.EventOrganizatorRepository;
-import oop.ticketcenter.persistence.repositories.EventOwnerRepository;
-import oop.ticketcenter.persistence.repositories.EventSellerRepository;
+import oop.ticketcenter.persistence.entities.*;
+import oop.ticketcenter.persistence.repositories.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -24,6 +18,7 @@ public class LoginCore implements Login {
     private final EventOwnerRepository eventOwnerRepository;
     private final EventOrganizatorRepository eventOrganizatorRepository;
     private final EventSellerRepository eventSellerRepository;
+    private final AdminRepository adminRepository;
     @Override
     public LoginResult process(LoginInput input) {
 
@@ -31,6 +26,7 @@ public class LoginCore implements Login {
         Optional<EventOwner> eventOwner = eventOwnerRepository.findEventOwnerByUsernameAndPassword(input.getUsername(), input.getPassword());
         Optional<EventOrganizator> eventOrganizator = eventOrganizatorRepository.findEventOrganizatorByUsernameAndPassword(input.getUsername(), input.getPassword());
         Optional<EventSeller> eventSeller = eventSellerRepository.findEventSellerByUsernameAndPassword(input.getUsername(), input.getPassword());
+        Optional<Admin> admin = adminRepository.findAdminByUsernameAndPassword(input.getUsername(), input.getPassword());
 
         if (client.isPresent()){
             ActiveUserSingleton.getInstance().setActiveUser(client.get().getId());
@@ -40,6 +36,8 @@ public class LoginCore implements Login {
             ActiveUserSingleton.getInstance().setActiveUser(eventOrganizator.get().getId());
         }else if(eventSeller.isPresent()){
             ActiveUserSingleton.getInstance().setActiveUser(eventSeller.get().getId());
+        }else if(admin.isPresent()){
+            ActiveUserSingleton.getInstance().setActiveUser(admin.get().getId());
         }else{
             throw new UserNotFoundException("User with this credentials not found");
         }
