@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import oop.ticketcenter.core.exceptions.IncorrectInputException;
+import oop.ticketcenter.core.exceptions.UserAlreadyExistsException;
 import oop.ticketcenter.core.interfaces.register.RegisterInput;
 import oop.ticketcenter.core.interfaces.register.RegisterResult;
 import oop.ticketcenter.core.services.RegisterCore;
@@ -94,8 +96,12 @@ public class RegisterController {
                 .address(txtFAddress.getText())
                 .passwordKey(txtKeyFP.getText())
                 .build();
-        RegisterResult result = register.process(input);
-        lbResult.setText(result.getStr());
+        try{
+            RegisterResult result = register.process(input);
+            lbResult.setText(result.getStr());
+        }catch(UserAlreadyExistsException | IncorrectInputException e){
+            lbResult.setText(e.getMessage());
+        }
     }
 
     @FXML
