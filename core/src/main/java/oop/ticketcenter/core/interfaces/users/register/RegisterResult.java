@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.register;
+package oop.ticketcenter.core.interfaces.users.register;
 
 import oop.ticketcenter.core.interfaces.base.ProcessorResult;
 

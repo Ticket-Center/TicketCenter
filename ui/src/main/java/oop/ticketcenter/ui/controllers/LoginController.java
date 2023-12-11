@@ -1,20 +1,14 @@
 package oop.ticketcenter.ui.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import oop.ticketcenter.core.exceptions.UserNotFoundException;
-import oop.ticketcenter.core.interfaces.login.Login;
-import oop.ticketcenter.core.interfaces.login.LoginInput;
-import oop.ticketcenter.core.interfaces.login.LoginResult;
+import oop.ticketcenter.core.interfaces.users.login.LoginInput;
+import oop.ticketcenter.core.interfaces.users.login.LoginResult;
 import oop.ticketcenter.core.services.LoginCore;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;

@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.login;
+package oop.ticketcenter.core.interfaces.users.login;
 
 import oop.ticketcenter.core.interfaces.base.Processor;
 
