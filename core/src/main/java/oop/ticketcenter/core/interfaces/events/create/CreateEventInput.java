@@ -4,6 +4,8 @@ import lombok.*;
 import oop.ticketcenter.core.interfaces.base.ProcessorInput;
 import oop.ticketcenter.persistence.entities.*;
 
+import java.util.List;
+
 
 @Builder
 @Getter
@@ -18,4 +20,5 @@ public class CreateEventInput implements ProcessorInput {
     private String eventOwnerUsername;
     private String eventOrganizatorUsername;
     private String eventPlace;
+    private List<String> eventSellers;
 }

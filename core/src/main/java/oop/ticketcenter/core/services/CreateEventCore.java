@@ -10,6 +10,8 @@ import oop.ticketcenter.persistence.entities.*;
 import oop.ticketcenter.persistence.repositories.*;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class CreateEventCore implements CreateEvent {
@@ -25,7 +27,7 @@ public class CreateEventCore implements CreateEvent {
         if(input.getEventGenre().isEmpty() || input.getEventPlace().isEmpty() ||
         input.getEventType().isEmpty() || input.getTitle().isEmpty() ||
         input.getEventOwnerUsername().isEmpty() || input.getEventOrganizatorUsername().isEmpty() ||
-        input.getMaxTicketsPerPerson() == 0 || input.getTitle().isBlank()){
+        input.getMaxTicketsPerPerson() == 0 || input.getTitle().isBlank() || input.getEventSellers().isEmpty()){
             throw new IncorrectInputException("Not all required fields have values");
         }
         EventOwner owner = eventOwnerRepository.findEventOwnerByUsername(input.getEventOwnerUsername())
@@ -43,6 +45,7 @@ public class CreateEventCore implements CreateEvent {
         EventType type = eventTypeRepository.findEventTypeByName(input.getEventType())
                 .orElseThrow(() -> new UserNotFoundException("Event type with this name not found"));
 
+
         Event event = Event.builder()
                 .eventPlace(place)
                 .eventOrganizator(organizator)
@@ -55,6 +58,11 @@ public class CreateEventCore implements CreateEvent {
                 .build();
 
         eventRepository.save(event);
+
+        for (String eventSeller: input.getEventSellers() ) {
+            Optional<EventSeller> seller = eventSellerRepository.findEventSellerByUsername(eventSeller);
+            seller.ifPresent(value -> value.getEvents().add(event));
+        }
         return CreateEventResult.builder()
                 .id(event.getId())
                 .build();
