@@ -12,7 +12,6 @@ import oop.ticketcenter.persistence.entities.*;
 @AllArgsConstructor
 public class CreateEventInput implements ProcessorInput {
     private Integer maxTicketsPerPerson;
-    private Integer soldTickets;
     private String title;
     private String eventGenre;
     private String eventType;

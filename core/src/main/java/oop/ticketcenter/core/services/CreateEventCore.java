@@ -25,7 +25,7 @@ public class CreateEventCore implements CreateEvent {
         if(input.getEventGenre().isEmpty() || input.getEventPlace().isEmpty() ||
         input.getEventType().isEmpty() || input.getTitle().isEmpty() ||
         input.getEventOwnerUsername().isEmpty() || input.getEventOrganizatorUsername().isEmpty() ||
-        input.getMaxTicketsPerPerson() == 0){
+        input.getMaxTicketsPerPerson() == 0 || input.getTitle().isBlank()){
             throw new IncorrectInputException("Not all required fields have values");
         }
         EventOwner owner = eventOwnerRepository.findEventOwnerByUsername(input.getEventOwnerUsername())
