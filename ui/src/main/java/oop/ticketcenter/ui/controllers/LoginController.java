@@ -1,21 +1,19 @@
 package oop.ticketcenter.ui.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import oop.ticketcenter.core.exceptions.IncorrectInputException;
 import oop.ticketcenter.core.exceptions.UserNotFoundException;
-import oop.ticketcenter.core.interfaces.login.Login;
-import oop.ticketcenter.core.interfaces.login.LoginInput;
-import oop.ticketcenter.core.interfaces.login.LoginResult;
+import oop.ticketcenter.core.interfaces.users.login.LoginInput;
+import oop.ticketcenter.core.interfaces.users.login.LoginResult;
+import oop.ticketcenter.core.services.ActiveUserSingleton;
 import oop.ticketcenter.core.services.LoginCore;
+import oop.ticketcenter.persistence.enums.Roles;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +43,10 @@ public class LoginController {
     @FXML
     private Button signin;
 
+
+    @FXML
+    private AnchorPane anchor;
+
     @Autowired
     private LoginCore login;
 
@@ -58,9 +60,11 @@ public class LoginController {
         wrongcredentials.setText("");
         try {
             LoginResult result = login.process(input);
-             // TODO add switch form to home page
-        } catch (UserNotFoundException e) {
+            SceneSwitcher.switchScene((Stage) forgotpass.getScene().getWindow() , FXMLPaths.HOME_PAGE.getPath());
+        } catch (UserNotFoundException | IncorrectInputException e) {
             wrongcredentials.setText(e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

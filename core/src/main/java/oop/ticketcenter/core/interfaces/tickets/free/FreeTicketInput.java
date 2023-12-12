@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.forgotpassword;
+package oop.ticketcenter.core.interfaces.tickets.free;
 
 import lombok.*;
 import oop.ticketcenter.core.interfaces.base.ProcessorInput;
@@ -8,7 +8,7 @@ import oop.ticketcenter.core.interfaces.base.ProcessorInput;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ForgotPasswordInput implements ProcessorInput {
+public class FreeTicketInput implements ProcessorInput {
     private String username;
-    private String passwordkey;
+    private String password;
 }

@@ -1,9 +1,9 @@
 package oop.ticketcenter.core.services;
 
 import lombok.RequiredArgsConstructor;
-import oop.ticketcenter.core.interfaces.logout.Logout;
-import oop.ticketcenter.core.interfaces.logout.LogoutInput;
-import oop.ticketcenter.core.interfaces.logout.LogoutResult;
+import oop.ticketcenter.core.interfaces.users.logout.Logout;
+import oop.ticketcenter.core.interfaces.users.logout.LogoutInput;
+import oop.ticketcenter.core.interfaces.users.logout.LogoutResult;
 import org.springframework.stereotype.Service;
 
 @Service
