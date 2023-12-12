@@ -1,0 +1,7 @@
+2023-12-12 18:04:39 INFO  JavaFxApplication:51 - Started application
+2023-12-12 18:06:43 INFO  JavaFxApplication:43 - Ended application
+2023-12-12 18:10:08 INFO  JavaFxApplication:51 - Started application
+2023-12-12 18:10:11 ERROR LoginController:69 - Username and password cannot be empty
+2023-12-12 18:10:16 ERROR LoginController:69 - User with this credentials not found
+2023-12-12 18:10:22 INFO  LoginController:66 - Successful logging in
+2023-12-12 18:10:23 INFO  JavaFxApplication:43 - Ended application

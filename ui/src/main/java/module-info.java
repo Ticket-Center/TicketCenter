@@ -10,6 +10,7 @@ module oop.ticketcenter.ui {
     requires spring.beans;
     requires spring.core;
     requires core;
+    requires log4j;
 //    requires javafx.web;
 //
 //    requires org.controlsfx.controls;
