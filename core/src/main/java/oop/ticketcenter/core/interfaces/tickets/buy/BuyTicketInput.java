@@ -9,6 +9,8 @@ import oop.ticketcenter.core.interfaces.base.ProcessorInput;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BuyTicketInput implements ProcessorInput {
-    private String username;
-    private String password;
+    private String eventTitle;
+    private String eventSellerUsername;
+    private Integer numberTickets;
+    private String ticketType;
 }
