@@ -5,6 +5,7 @@ import oop.ticketcenter.core.interfaces.base.ProcessorInput;
 import oop.ticketcenter.persistence.entities.*;
 
 import java.util.List;
+import java.util.Set;
 
 
 @Builder
@@ -21,4 +22,5 @@ public class CreateEventInput implements ProcessorInput {
     private String eventOrganizatorUsername;
     private String eventPlace;
     private List<String> eventSellers;
+    private Set<SeatTypes> seatTypes;
 }

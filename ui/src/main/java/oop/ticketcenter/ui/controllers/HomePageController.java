@@ -7,7 +7,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import oop.ticketcenter.core.interfaces.users.logout.Logout;
 import oop.ticketcenter.core.interfaces.users.logout.LogoutInput;
-import oop.ticketcenter.core.services.ActiveUserSingleton;
+import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.persistence.enums.Roles;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
