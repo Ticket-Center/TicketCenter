@@ -92,7 +92,7 @@
                               <TextField fx:id="eventTitle" />
                               <ChoiceBox fx:id="eventGenre" prefWidth="150.0" />
                               <TextField fx:id="eventOrganizator" />
-                              <TextField fx:id="eventPlace" />
+                              <TextField fx:id="eventPlace" onInputMethodTextChanged="#enteredEventPlace" />
                               <TextField fx:id="eventOwner" />
                               <ChoiceBox fx:id="eventType" prefWidth="150.0" />
                            </children>
@@ -134,14 +134,14 @@
                                  </padding>
                               </HBox>
                               <TextField fx:id="maxTicketsPerPerson" />
-                              <HBox fx:id="seatTypes" prefHeight="107.0" prefWidth="127.0" spacing="10.0">
+                              <HBox fx:id="seatTypes" prefHeight="123.0" prefWidth="142.0" spacing="10.0">
                                  <children>
-                                    <VBox prefHeight="107.0" prefWidth="110.0">
+                                    <VBox fx:id="seatTypesLabels" prefHeight="107.0" prefWidth="110.0">
                                        <children>
                                           <Label fx:id="Type1" text="Label" />
                                        </children>
                                     </VBox>
-                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                    <VBox fx:id="seatTypesQuantity" prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <TextField fx:id="quantity1" />
                                        </children>
@@ -152,6 +152,7 @@
                         </VBox>
                      </children>
                   </HBox>
+                  <Label fx:id="wrongInput" layoutX="253.0" layoutY="60.0" prefHeight="18.0" prefWidth="177.0" />
                </children>
             </AnchorPane>
          </center>
