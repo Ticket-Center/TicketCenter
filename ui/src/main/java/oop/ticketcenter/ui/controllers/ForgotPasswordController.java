@@ -9,6 +9,8 @@ import oop.ticketcenter.core.interfaces.users.forgotpassword.ForgotPasswordResul
 import oop.ticketcenter.core.services.implementations.ForgotPasswordCore;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -37,12 +39,14 @@ public class ForgotPasswordController {
     private ForgotPasswordCore forgotPasswordCore;
     @FXML
     private void generatetemppass(){
+        Logger logger = Logger.getLogger(this.getClass().getName());
         ForgotPasswordInput input = ForgotPasswordInput.builder()
                 .username(username.getText())
                 .passwordkey(forgotpassword.getText())
                 .build();
         ForgotPasswordResult result = forgotPasswordCore.process(input);
         newpass.setText(result.getNewPassword());
+        logger.log(Level.INFO, "Successful generated new password");
     }
 
     @FXML

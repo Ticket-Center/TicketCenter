@@ -14,6 +14,8 @@ import oop.ticketcenter.core.interfaces.users.login.LoginResult;
 import oop.ticketcenter.core.services.implementations.LoginCore;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -50,7 +52,7 @@ public class LoginController {
 
     @FXML
     private void signingin() {
-        //final Login login;
+        Logger logger = Logger.getLogger(this.getClass().getName());
         LoginInput input = LoginInput.builder()
                 .password(password.getText())
                 .username(username.getText())
@@ -59,9 +61,12 @@ public class LoginController {
         try {
             LoginResult result = login.process(input);
             SceneSwitcher.switchScene((Stage) forgotpass.getScene().getWindow() , FXMLPaths.HOME_PAGE.getPath());
+            logger.log(Level.INFO, "Successful logging in");
         } catch (UserNotFoundException | IncorrectInputException e) {
             wrongcredentials.setText(e.getMessage());
+            logger.log(Level.ERROR, e.getMessage());
         } catch (IOException e) {
+            logger.log(Level.ERROR, e.getMessage());
             throw new RuntimeException(e);
         }
     }
