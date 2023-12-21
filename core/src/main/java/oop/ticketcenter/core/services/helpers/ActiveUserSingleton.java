@@ -1,8 +1,7 @@
-package oop.ticketcenter.core.services;
+package oop.ticketcenter.core.services.helpers;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.Singular;
 import oop.ticketcenter.persistence.enums.Roles;
 
 import java.util.UUID;

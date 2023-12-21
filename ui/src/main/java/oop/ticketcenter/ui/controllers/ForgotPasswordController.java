@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import oop.ticketcenter.core.interfaces.users.forgotpassword.ForgotPasswordInput;
 import oop.ticketcenter.core.interfaces.users.forgotpassword.ForgotPasswordResult;
-import oop.ticketcenter.core.services.ForgotPasswordCore;
+import oop.ticketcenter.core.services.implementations.ForgotPasswordCore;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
 import org.springframework.beans.factory.annotation.Autowired;

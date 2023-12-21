@@ -13,20 +13,4 @@ import java.util.UUID;
 @NoArgsConstructor
 public class CreateEventResult implements ProcessorResult {
     private UUID id;
-
-    private Integer maxTicketsPerPerson;
-
-    private Integer soldTickets;
-
-    private String title;
-
-    private String eventGenre;
-
-    private String eventType;
-
-    private String eventOwnerUsername;
-
-    private String eventOrganizatorUsername;
-
-    private String eventPlace;
 }

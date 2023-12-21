@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.services;
+package oop.ticketcenter.core.services.implementations;
 
 import oop.ticketcenter.core.interfaces.users.register.Register;
 import oop.ticketcenter.core.interfaces.users.register.RegisterInput;
