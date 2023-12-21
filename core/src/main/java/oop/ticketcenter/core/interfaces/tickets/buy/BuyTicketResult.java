@@ -11,5 +11,5 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BuyTicketResult implements ProcessorResult {
-    private UUID userId;
+    private UUID ticketsId;
 }

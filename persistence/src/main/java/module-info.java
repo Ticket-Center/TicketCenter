@@ -5,6 +5,7 @@ module persistence {
     requires lombok;
     requires spring.data.jpa;
     requires org.hibernate.orm.core;
+    requires jakarta.validation;
 
     opens oop.ticketcenter.persistence.enums;
     opens oop.ticketcenter.persistence.entities;
