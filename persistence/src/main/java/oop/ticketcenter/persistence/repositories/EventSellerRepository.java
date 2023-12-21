@@ -8,4 +8,5 @@ import java.util.UUID;
 
 public interface EventSellerRepository extends JpaRepository<EventSeller, UUID> {
     Optional<EventSeller> findEventSellerByUsernameAndPassword(String username, String password);
+    Optional<EventSeller> findEventSellerByUsername(String username);
 }

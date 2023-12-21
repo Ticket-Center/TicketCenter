@@ -20,4 +20,8 @@ module core {
     exports oop.ticketcenter.core.interfaces.tickets.free;
     exports oop.ticketcenter.core.services;
     exports oop.ticketcenter.core.exceptions;
+    exports oop.ticketcenter.core.services.helpers;
+    opens oop.ticketcenter.core.services.helpers to spring.beans;
+    exports oop.ticketcenter.core.services.implementations;
+    opens oop.ticketcenter.core.services.implementations to spring.beans;
 }
