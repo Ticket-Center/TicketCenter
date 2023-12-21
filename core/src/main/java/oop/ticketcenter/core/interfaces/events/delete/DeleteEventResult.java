@@ -11,5 +11,5 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DeleteEventResult implements ProcessorResult {
-    private UUID userId;
+    private boolean sucessfull;
 }
