@@ -5,6 +5,7 @@ import oop.ticketcenter.core.exceptions.*;
 import oop.ticketcenter.core.interfaces.tickets.buy.BuyTicket;
 import oop.ticketcenter.core.interfaces.tickets.buy.BuyTicketInput;
 import oop.ticketcenter.core.interfaces.tickets.buy.BuyTicketResult;
+import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.persistence.entities.*;
 import oop.ticketcenter.persistence.repositories.*;
 import org.springframework.stereotype.Service;
