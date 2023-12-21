@@ -72,6 +72,10 @@ public class LoginController {
     }
 
     @FXML
+    private void newUser() throws IOException {
+        SceneSwitcher.switchScene((Stage) newuser.getScene().getWindow() , FXMLPaths.REGISTER_NEW_USER.getPath());
+    }
+    @FXML
     private void forgotpassword() throws IOException {
         SceneSwitcher.switchScene((Stage) forgotpass.getScene().getWindow() , FXMLPaths.FORGOT_PASS_FORM.getPath()); // all magic strings to be enum
     }
