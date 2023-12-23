@@ -29,10 +29,10 @@ public class BuyTicketCore implements BuyTicket {
         SoldTickets sold = soldTicketsRepository.findSoldTicketsByEventPlaceAndAndSeatType(event.getEventPlace(), type.getId())
                 .orElseThrow(() -> new SoldTicketsNotFoundException("Sold tickets not found"));
 
-        int quantityLeft = type.getQuantity() - sold.getQuantity();
+        /*int quantityLeft = type.getQuantity() - sold.getQuantity();
         if(quantityLeft < input.getNumberTickets()){
             throw new NotEnoughTicketsException("Not enough tickets for this event");
-        }
+        }*/
         event.setSoldTickets(event.getSoldTickets() + input.getNumberTickets());
         eventRepository.save(event);
 
@@ -41,8 +41,8 @@ public class BuyTicketCore implements BuyTicket {
 
         Ticket ticket = Ticket.builder()
                 .quantity(input.getNumberTickets())
-                .event(event)
-                .seatType(type)
+                //.event(event)
+                //.seatType(type)
                 .build();
         ticketRepository.save(ticket);
         Client client = clientRepository.findClientById(ActiveUserSingleton.getInstance().getActiveUser())

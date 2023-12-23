@@ -1,16 +1,12 @@
 package oop.ticketcenter.core.services.helpers;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import oop.ticketcenter.persistence.entities.SeatType;
-import oop.ticketcenter.persistence.repositories.EventSellerRepository;
 import oop.ticketcenter.persistence.repositories.SeatTypeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class GetEventSeatTypes {
     private static GetEventSeatTypes getEventSeatTypes = null;
@@ -31,9 +27,9 @@ public class GetEventSeatTypes {
     public Map<String, Integer> getSeatTypes(String eventPlace) {
         Map<String, Integer> result = new HashMap<>();
         seatTypes.forEach(seatType ->{
-            if(seatType.getEventPlace().getName().equals(eventPlace)){
+            /*if(seatType.getEventPlace().getName().equals(eventPlace)){
                 result.put(seatType.getType(), seatType.getQuantity());
-            }
+            }*/
         });
         return result;
     }

@@ -21,8 +21,8 @@ public class SeatType {
     @Length(max=60, message = "Type should be max 60 characters")
     private String type;
 
-    private Integer quantity;
+    //private Integer quantity;
 
-    @ManyToOne
-    private EventPlace eventPlace;
+    /*@ManyToOne
+    private EventPlace eventPlace;*/
 }
