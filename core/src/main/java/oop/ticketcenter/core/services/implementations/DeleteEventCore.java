@@ -1,6 +1,7 @@
-package oop.ticketcenter.core.services;
+package oop.ticketcenter.core.services.implementations;
 
 import lombok.RequiredArgsConstructor;
+import oop.ticketcenter.core.exceptions.EventDoesNotExistException;
 import oop.ticketcenter.core.exceptions.IncorrectInputException;
 import oop.ticketcenter.core.interfaces.events.create.CreateEvent;
 import oop.ticketcenter.core.interfaces.events.create.CreateEventInput;

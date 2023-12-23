@@ -19,7 +19,7 @@ public class GetEventGenres {
         this.genres = eventGenreRepository.findAll().stream().map(eventGenre -> eventGenre.getName()).toList();
     }
 
-    public GetEventGenres getInstance(){
+    public static GetEventGenres getInstance(){
         if(getEventGenres == null){
             getEventGenres = new GetEventGenres();
         }

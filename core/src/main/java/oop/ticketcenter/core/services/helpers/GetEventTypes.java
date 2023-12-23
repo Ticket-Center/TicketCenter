@@ -15,7 +15,7 @@ public class GetEventTypes {
     private GetEventTypes(){
         this.types = eventTypeRepository.findAll().stream().map(eventType -> eventType.getName()).toList();
     }
-    public GetEventTypes getInstance(){
+    public static GetEventTypes getInstance(){
         if(getEventTypes == null){
             getEventTypes = new GetEventTypes();
         }
