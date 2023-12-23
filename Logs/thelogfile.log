@@ -5,3 +5,14 @@
 2023-12-12 18:10:16 ERROR LoginController:69 - User with this credentials not found
 2023-12-12 18:10:22 INFO  LoginController:66 - Successful logging in
 2023-12-12 18:10:23 INFO  JavaFxApplication:43 - Ended application
+2023-12-23 10:58:27 INFO  JavaFxApplication:51 - Started application
+2023-12-23 11:00:56 INFO  LoginController:64 - Successful logging in
+2023-12-23 11:01:05 INFO  JavaFxApplication:43 - Ended application
+2023-12-23 11:02:04 INFO  JavaFxApplication:51 - Started application
+2023-12-23 11:03:04 INFO  JavaFxApplication:51 - Started application
+2023-12-23 11:03:18 INFO  LoginController:64 - Successful logging in
+2023-12-23 11:03:32 INFO  ForgotPasswordController:49 - Successful generated new password
+2023-12-23 11:03:42 INFO  LoginController:64 - Successful logging in
+2023-12-23 11:04:01 INFO  JavaFxApplication:43 - Ended application
+2023-12-23 11:09:47 INFO  JavaFxApplication:51 - Started application
+2023-12-23 11:13:37 INFO  JavaFxApplication:43 - Ended application

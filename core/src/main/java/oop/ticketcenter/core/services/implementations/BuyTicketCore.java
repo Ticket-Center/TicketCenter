@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.services;
+package oop.ticketcenter.core.services.implementations;
 
 import lombok.RequiredArgsConstructor;
 import oop.ticketcenter.core.exceptions.*;

@@ -85,13 +85,14 @@ public class CreateNewEventController {
     @Autowired
     private CreateEvent createEvent;
 
-    private GetEventSellers getEventSellers;
-    private GetEventTypes getEventTypes;
-    private GetEventSeatTypes getEventSeatTypes = GetEventSeatTypes.getInstance();
-    private GetEventGenres getEventGenres;
+
 
     @FXML
     public void initialize() {
+        GetEventSellers getEventSellers = GetEventSellers.getInstance();
+        GetEventTypes getEventTypes = GetEventTypes.getInstance();
+        GetEventGenres getEventGenres = GetEventGenres.getInstance();
+
        // TODO: load availiable event genres, event sellers, seat types, event types ? could persistence layer be invoked here??????
         ObservableList<String> listGenres = FXCollections.observableArrayList();
         getEventGenres.getGenres().forEach(genre->{
@@ -144,6 +145,8 @@ public class CreateNewEventController {
 
     @FXML
     void enteredEventPlace(){
+        GetEventSeatTypes getEventSeatTypes = GetEventSeatTypes.getInstance();
+
         ObservableList<Map<String, Integer>> listSeatTypes = FXCollections.observableArrayList();
         listSeatTypes.add(getEventSeatTypes.getSeatTypes(eventPlace.getText()));
         listSeatTypes.forEach(seatType ->{

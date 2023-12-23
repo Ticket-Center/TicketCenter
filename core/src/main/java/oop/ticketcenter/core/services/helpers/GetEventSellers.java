@@ -19,7 +19,7 @@ public class GetEventSellers {
     private GetEventSellers(){
         this.sellers = eventSellerRepository.findAll().stream().map(eventSeller -> eventSeller.getUsername()).toList();
     }
-    public GetEventSellers getInstance(){
+    public static GetEventSellers getInstance(){
         if(getEventSellers == null){
             getEventSellers = new GetEventSellers();
         }
