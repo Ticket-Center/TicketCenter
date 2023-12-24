@@ -7,6 +7,7 @@ import oop.ticketcenter.core.interfaces.events.create.CreateEvent;
 import oop.ticketcenter.core.interfaces.events.create.CreateEventInput;
 import oop.ticketcenter.core.interfaces.events.create.CreateEventResult;
 import oop.ticketcenter.persistence.entities.*;
+import oop.ticketcenter.persistence.entities.EventSeatPrice;
 import oop.ticketcenter.persistence.repositories.*;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,9 @@ public class CreateEventCore implements CreateEvent {
     private final EventPlaceRepository eventPlaceRepository;
     private final EventGenreRepository eventGenreRepository;
     private final EventTypeRepository eventTypeRepository;
+    private final PlaceSeatTypeRepository placeSeatTypeRepository;
+    private final SeatTypeRepository seatTypeRepository;
+    private final EventSeatPriceRepository eventSeatPriceRepository;
     @Override
     public CreateEventResult process(CreateEventInput input) {
         if(input.getEventGenre().isEmpty() || input.getEventPlace().isEmpty() ||
@@ -45,7 +49,6 @@ public class CreateEventCore implements CreateEvent {
         EventType type = eventTypeRepository.findEventTypeByName(input.getEventType())
                 .orElseThrow(() -> new UserNotFoundException("Event type with this name not found"));
 
-
         Event event = Event.builder()
                 .eventPlace(place)
                 .eventOrganizator(organizator)
@@ -58,6 +61,19 @@ public class CreateEventCore implements CreateEvent {
                 .build();
 
         eventRepository.save(event);
+
+        input.getSeatTypes().stream().forEach(seat ->{
+        SeatType seatType = seatTypeRepository.findSeatTypeByType(seat.getType())
+                .orElseThrow(() -> new UserNotFoundException("Seat type not found"));
+        PlaceSeatType placeSeatType =  placeSeatTypeRepository.findPlaceSeatTypeByEventPlaceAndSeatType(place, seatType)
+                .orElseThrow(() -> new UserNotFoundException("Place seat type not found"));
+        EventSeatPrice seatPrice = EventSeatPrice.builder()
+                .event(event)
+                .placeSeatType(placeSeatType)
+                .price(seat.getPrice())
+                .build();
+        eventSeatPriceRepository.save(seatPrice);
+        });
 
         for (String eventSeller: input.getEventSellers() ) {
             Optional<EventSeller> seller = eventSellerRepository.findEventSellerByUsername(eventSeller);

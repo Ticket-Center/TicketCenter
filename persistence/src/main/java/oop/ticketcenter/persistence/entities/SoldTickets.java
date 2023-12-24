@@ -19,10 +19,14 @@ public class SoldTickets {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private UUID seatType;
+    @ManyToOne
+    @JoinColumn(name = "seat_type_id")
+    private PlaceSeatType seatType;
 
     private Integer quantity;
 
     @ManyToOne
-    private EventPlace eventPlace;
+    @JoinColumn(name = "event_id")
+    private Event event;
+
 }

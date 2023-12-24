@@ -8,6 +8,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface SeatTypeRepository extends JpaRepository<SeatType, UUID> {
-    //List<SeatType> findAllByEventPlace_Name(String name);
-    Optional<SeatType> findSeatTypeByTypeAndEventPlace(String type, EventPlace place);
+    Optional<SeatType> findSeatTypeByType(String type);
 }
