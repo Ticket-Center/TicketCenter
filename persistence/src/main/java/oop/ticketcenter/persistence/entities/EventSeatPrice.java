@@ -2,21 +2,25 @@ package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.UUID;
+
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Tickets")
-public class Ticket {
-
+@Table(name = "EventSeatPrices")
+public class EventSeatPrice {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private Integer quantity;
+
+    private Integer price;
+
     @ManyToOne
-    private EventSeatPrice eventSeatPrice;
+    private PlaceSeatType placeSeatType;
+
+    @ManyToOne
+    private Event event;
 }
