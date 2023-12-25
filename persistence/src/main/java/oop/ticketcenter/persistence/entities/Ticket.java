@@ -19,4 +19,6 @@ public class Ticket {
     private Integer quantity;
     @ManyToOne
     private EventSeatPrice eventSeatPrice;
+
+    private Boolean isActive;
 }
