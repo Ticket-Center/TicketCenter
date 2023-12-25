@@ -1,6 +1,7 @@
 package oop.ticketcenter.core.services.helpers;
 
 import lombok.Getter;
+import oop.ticketcenter.persistence.entities.Event;
 import oop.ticketcenter.persistence.repositories.EventRepository;
 
 import java.util.List;
@@ -13,13 +14,10 @@ public class GetEventByOwner {
     private EventRepository eventRepository;
 
     @Getter
-    private Set<String> events;
+    private Set<Event> events;
 
     private GetEventByOwner(){
-        this.events = eventRepository.findAllByEventOwner_Username(ActiveUserSingleton.getInstance().getUsername())
-                .stream()
-                .map(event -> event.getTitle())
-                .collect(Collectors.toSet());
+        this.events = eventRepository.findAllByEventOwner_Username(ActiveUserSingleton.getInstance().getUsername());
     }
 
     public static GetEventByOwner getInstance(){
