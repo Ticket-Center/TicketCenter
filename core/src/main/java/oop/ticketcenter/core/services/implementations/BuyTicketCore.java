@@ -7,6 +7,7 @@ import oop.ticketcenter.core.interfaces.tickets.buy.BuyTicketInput;
 import oop.ticketcenter.core.interfaces.tickets.buy.BuyTicketResult;
 import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.persistence.entities.*;
+import oop.ticketcenter.persistence.entities.EventSeatPrice;
 import oop.ticketcenter.persistence.repositories.*;
 import org.springframework.stereotype.Service;
 
@@ -19,20 +20,26 @@ public class BuyTicketCore implements BuyTicket {
     private final EventRepository eventRepository;
     private final SoldTicketsRepository soldTicketsRepository;
     private final ClientRepository clientRepository;
+    private final EventSeatPriceRepository eventSeatPriceRepository;
+    private final PlaceSeatTypeRepository placeSeatTypeRepository;
 
     @Override
     public BuyTicketResult process(BuyTicketInput input) {
         Event event = eventRepository.findEventByTitle(input.getEventTitle())
                 .orElseThrow(() -> new EventDoesNotExistException("Event with this title does not exist"));
-        SeatType type = seatTypeRepository.findSeatTypeByTypeAndEventPlace(input.getTicketType(), event.getEventPlace())
-                        .orElseThrow(() -> new SeatTypeDoesNotExistException("Seat type does not exist"));
-        SoldTickets sold = soldTicketsRepository.findSoldTicketsByEventPlaceAndAndSeatType(event.getEventPlace(), type.getId())
+        SeatType seat = seatTypeRepository.findSeatTypeByType(input.getTicketType())
+                .orElseThrow(() -> new SeatTypeDoesNotExistException("Seat type does not exist"));
+        PlaceSeatType place = placeSeatTypeRepository.findPlaceSeatTypeByEventPlaceAndSeatType(event.getEventPlace(), seat)
+                .orElseThrow(() -> new SeatTypeDoesNotExistException("Place Seat type does not exist"));
+        EventSeatPrice eventSeatPrice = eventSeatPriceRepository.findEventSeatPriceByEventAndPlaceSeatType(event, place)
+                .orElseThrow(() -> new SeatTypeDoesNotExistException("Event Seat price does not exist"));
+        SoldTickets sold = soldTicketsRepository.findSoldTicketsBySeatTypeAndEvent(seat, event)
                 .orElseThrow(() -> new SoldTicketsNotFoundException("Sold tickets not found"));
 
-        /*int quantityLeft = type.getQuantity() - sold.getQuantity();
+        int quantityLeft = place.getQuantity() - sold.getQuantity();
         if(quantityLeft < input.getNumberTickets()){
             throw new NotEnoughTicketsException("Not enough tickets for this event");
-        }*/
+        }
         event.setSoldTickets(event.getSoldTickets() + input.getNumberTickets());
         eventRepository.save(event);
 
@@ -41,8 +48,7 @@ public class BuyTicketCore implements BuyTicket {
 
         Ticket ticket = Ticket.builder()
                 .quantity(input.getNumberTickets())
-                //.event(event)
-                //.seatType(type)
+                .eventSeatPrice(eventSeatPrice)
                 .build();
         ticketRepository.save(ticket);
         Client client = clientRepository.findClientById(ActiveUserSingleton.getInstance().getActiveUser())

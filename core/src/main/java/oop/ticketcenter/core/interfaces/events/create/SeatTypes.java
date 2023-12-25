@@ -9,5 +9,5 @@ import lombok.*;
 @AllArgsConstructor
 public class SeatTypes {
     private String type;
-    private Integer quantity;
+    private Double price;
 }

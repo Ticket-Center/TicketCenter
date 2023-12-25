@@ -21,7 +21,4 @@ public class EventPlace {
 
     @Length(max=60, message = "Name should be 10 characters")
     private String name;
-
-//    @Positive
-//    private Integer maxSeats;
 }

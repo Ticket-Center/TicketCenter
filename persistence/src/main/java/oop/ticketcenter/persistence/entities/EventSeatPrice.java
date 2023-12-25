@@ -16,7 +16,7 @@ public class EventSeatPrice {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private Integer price;
+    private Double price;
 
     @ManyToOne
     private PlaceSeatType placeSeatType;
