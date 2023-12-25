@@ -20,11 +20,13 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class DeleteEventCore implements DeleteEvent {
     private final EventRepository eventRepository;
+
     @Override
     public DeleteEventResult process(DeleteEventInput input) {
-        Event event = eventRepository.findById(UUID.fromString(input.getEventId()))
+        Event event = eventRepository.findEventByTitle(input.getEventTitle())
                 .orElseThrow(() -> new EventDoesNotExistException("Event with this title does not exist"));
-        eventRepository.delete(event);
+        event.setIsArchived(true);
+        eventRepository.save(event);
         return DeleteEventResult.builder().sucessfull(true).build();
     }
 }

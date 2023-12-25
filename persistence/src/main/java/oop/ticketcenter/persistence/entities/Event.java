@@ -44,4 +44,6 @@ public class Event {
 
     @ManyToOne
     private EventPlace eventPlace;
+
+    private Boolean isArchived;
 }
