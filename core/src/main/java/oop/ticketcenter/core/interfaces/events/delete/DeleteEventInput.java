@@ -9,5 +9,5 @@ import oop.ticketcenter.core.interfaces.base.ProcessorInput;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DeleteEventInput implements ProcessorInput {
-    private String eventId;
+    private String eventTitle;
 }

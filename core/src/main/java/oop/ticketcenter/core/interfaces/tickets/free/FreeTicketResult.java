@@ -11,5 +11,5 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FreeTicketResult implements ProcessorResult {
-    private UUID userId;
+ private Boolean isSuccessfull;
 }
