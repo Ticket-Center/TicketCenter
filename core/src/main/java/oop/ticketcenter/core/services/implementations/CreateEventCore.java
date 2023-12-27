@@ -26,6 +26,7 @@ public class CreateEventCore implements CreateEvent {
     private final PlaceSeatTypeRepository placeSeatTypeRepository;
     private final SeatTypeRepository seatTypeRepository;
     private final EventSeatPriceRepository eventSeatPriceRepository;
+    private final SoldTicketsRepository soldTicketsRepository;
     @Override
     public CreateEventResult process(CreateEventInput input) {
         if(input.getEventGenre().isEmpty() || input.getEventPlace().isEmpty() ||
@@ -74,6 +75,12 @@ public class CreateEventCore implements CreateEvent {
                 .price(seat.getPrice())
                 .build();
         eventSeatPriceRepository.save(seatPrice);
+        SoldTickets soldTickets = SoldTickets.builder()
+                .event(event)
+                .seatType(placeSeatType)
+                .quantity(0)
+                .build();
+        soldTicketsRepository.save(soldTickets);
         });
 
         for (String eventSeller: input.getEventSellers() ) {

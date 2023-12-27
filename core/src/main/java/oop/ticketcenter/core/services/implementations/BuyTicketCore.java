@@ -49,6 +49,7 @@ public class BuyTicketCore implements BuyTicket {
         Ticket ticket = Ticket.builder()
                 .quantity(input.getNumberTickets())
                 .eventSeatPrice(eventSeatPrice)
+                .isActive(true)
                 .build();
         ticketRepository.save(ticket);
         Client client = clientRepository.findClientById(ActiveUserSingleton.getInstance().getActiveUser())
