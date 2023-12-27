@@ -58,6 +58,7 @@ public class CreateEventCore implements CreateEvent {
                 .maxTicketsPerPerson(input.getMaxTicketsPerPerson())
                 .soldTickets(0)
                 .title(input.getTitle())
+                .isArchived(false)
                 .build();
 
         eventRepository.save(event);
