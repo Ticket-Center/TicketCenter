@@ -5,5 +5,5 @@ public enum Roles {
     ADMIN,
     ORGANIZER,
     SELLER,
-    OWNER;
+    OWNER
 }

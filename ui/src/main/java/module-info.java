@@ -25,4 +25,6 @@ module oop.ticketcenter.ui {
     opens oop.ticketcenter.ui to javafx.fxml, spring.core;
     exports oop.ticketcenter.ui;
     exports oop.ticketcenter.ui.controllers;
+    exports oop.ticketcenter.ui.model;
+    opens oop.ticketcenter.ui.model to javafx.fxml, spring.core;
 }

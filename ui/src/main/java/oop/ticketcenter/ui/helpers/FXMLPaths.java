@@ -6,9 +6,10 @@ public enum FXMLPaths {
     REGISTER_NEW_USER("/fxmls/register.fxml"),
     NAVIGATION_USER("/fxmls/navigation.fxml"),
     NAVIGATION_ADMIN("/fxmls/navigationAdmin.fxml"),
-    HOME_PAGE("/fxmls/homePage.fxml");
+    HOME_PAGE("/fxmls/homePage.fxml"),
+    TICKET("/fxmls/ticket.fxml");
 
-    private String path;
+    private final String path;
 
     FXMLPaths(String path) {
         this.path = path;

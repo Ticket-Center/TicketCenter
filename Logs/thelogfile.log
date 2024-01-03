@@ -21,3 +21,205 @@
 2023-12-24 17:05:11 INFO  JavaFxApplication:51 - Started application
 2023-12-24 17:05:46 INFO  LoginController:64 - Successful logging in
 2023-12-24 17:05:48 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 10:38:17 INFO  JavaFxApplication:51 - Started application
+2023-12-28 10:38:42 ERROR LoginController:67 - User with this credentials not found
+2023-12-28 10:38:55 INFO  LoginController:64 - Successful logging in
+2023-12-28 10:39:04 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 10:47:11 INFO  JavaFxApplication:51 - Started application
+2023-12-28 10:47:18 ERROR LoginController:67 - User with this credentials not found
+2023-12-28 10:47:22 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 10:47:36 INFO  JavaFxApplication:51 - Started application
+2023-12-28 10:47:42 ERROR LoginController:67 - User with this credentials not found
+2023-12-28 10:48:11 INFO  LoginController:64 - Successful logging in
+2023-12-28 10:48:21 INFO  LoginController:64 - Successful logging in
+2023-12-28 10:48:37 INFO  LoginController:64 - Successful logging in
+2023-12-28 10:48:42 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 11:13:32 INFO  JavaFxApplication:51 - Started application
+2023-12-28 11:13:39 INFO  LoginController:64 - Successful logging in
+2023-12-28 11:13:46 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 11:22:57 INFO  JavaFxApplication:51 - Started application
+2023-12-28 11:23:04 INFO  LoginController:64 - Successful logging in
+2023-12-28 11:23:15 INFO  LoginController:64 - Successful logging in
+2023-12-28 11:28:19 INFO  JavaFxApplication:51 - Started application
+2023-12-28 11:28:28 INFO  LoginController:64 - Successful logging in
+2023-12-28 11:28:36 INFO  LoginController:64 - Successful logging in
+2023-12-28 11:28:45 INFO  LoginController:64 - Successful logging in
+2023-12-28 11:28:52 INFO  LoginController:64 - Successful logging in
+2023-12-28 11:29:01 INFO  LoginController:64 - Successful logging in
+2023-12-28 11:29:44 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 12:32:49 INFO  JavaFxApplication:51 - Started application
+2023-12-28 12:33:00 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 12:33:44 INFO  JavaFxApplication:51 - Started application
+2023-12-28 12:33:51 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:07:05 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:07:17 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:07:19 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 15:08:50 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:08:57 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:12:34 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:12:41 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:13:39 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:13:47 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:14:57 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:15:04 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:15:11 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 15:16:21 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:16:28 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:16:30 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 15:19:16 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:19:23 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:19:32 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:19:34 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 15:23:36 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:24:58 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:31:24 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:31:35 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:32:56 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:33:06 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:38:27 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:38:34 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:38:51 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:38:57 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:41:36 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:41:43 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:42:00 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:42:10 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:42:13 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 15:43:41 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:43:47 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:50:14 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:50:21 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:51:09 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:51:20 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:51:25 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 15:55:11 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:55:18 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 15:56:35 INFO  JavaFxApplication:51 - Started application
+2023-12-28 15:56:43 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 16:01:19 INFO  JavaFxApplication:51 - Started application
+2023-12-28 16:01:27 INFO  LoginController:64 - Successful logging in
+2023-12-28 16:01:55 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 16:03:36 INFO  JavaFxApplication:51 - Started application
+2023-12-28 16:03:43 INFO  LoginController:64 - Successful logging in
+2023-12-28 16:04:04 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 16:08:09 INFO  JavaFxApplication:51 - Started application
+2023-12-28 16:08:17 INFO  LoginController:64 - Successful logging in
+2023-12-28 16:10:44 INFO  JavaFxApplication:51 - Started application
+2023-12-28 16:10:52 INFO  LoginController:64 - Successful logging in
+2023-12-28 16:11:11 INFO  LoginController:64 - Successful logging in
+2023-12-28 16:11:20 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 16:14:29 INFO  JavaFxApplication:51 - Started application
+2023-12-28 16:14:35 INFO  LoginController:64 - Successful logging in
+2023-12-28 16:14:52 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 16:15:11 INFO  JavaFxApplication:51 - Started application
+2023-12-28 16:15:21 INFO  LoginController:64 - Successful logging in
+2023-12-28 16:15:42 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 16:15:51 INFO  JavaFxApplication:51 - Started application
+2023-12-28 16:16:04 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:08:07 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:08:15 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2023-12-28 23:08:17 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 23:11:14 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:11:21 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:14:16 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:15:24 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:15:33 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:16:20 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:16:27 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:16:57 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 23:17:28 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:17:37 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:22:19 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:22:26 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:22:46 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 23:24:01 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:24:08 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:24:24 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 23:24:33 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:24:40 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:24:48 INFO  JavaFxApplication:43 - Ended application
+2023-12-28 23:24:57 INFO  JavaFxApplication:51 - Started application
+2023-12-28 23:25:04 INFO  LoginController:64 - Successful logging in
+2023-12-28 23:25:06 INFO  JavaFxApplication:43 - Ended application
+2023-12-29 21:54:18 INFO  JavaFxApplication:51 - Started application
+2023-12-29 21:54:57 INFO  LoginController:64 - Successful logging in
+2023-12-29 21:56:04 INFO  LoginController:64 - Successful logging in
+2023-12-29 21:57:01 INFO  ForgotPasswordController:49 - Successful generated new password
+2023-12-29 21:57:20 ERROR LoginController:67 - User with this credentials not found
+2023-12-29 21:57:25 INFO  LoginController:64 - Successful logging in
+2023-12-29 21:57:31 INFO  JavaFxApplication:43 - Ended application
+2024-01-03 09:51:36 INFO  JavaFxApplication:51 - Started application
+2024-01-03 09:51:43 INFO  LoginController:64 - Successful logging in
+2024-01-03 09:52:00 INFO  JavaFxApplication:43 - Ended application
+2024-01-03 10:10:44 INFO  JavaFxApplication:51 - Started application
+2024-01-03 10:10:51 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-03 10:11:33 INFO  JavaFxApplication:43 - Ended application
+2024-01-03 10:16:26 INFO  JavaFxApplication:51 - Started application
+2024-01-03 10:16:31 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-03 10:19:38 INFO  JavaFxApplication:51 - Started application
+2024-01-03 10:19:43 INFO  LoginController:64 - Successful logging in
+2024-01-03 10:20:50 INFO  JavaFxApplication:43 - Ended application
+2024-01-03 10:25:34 INFO  JavaFxApplication:51 - Started application
+2024-01-03 10:25:44 INFO  LoginController:64 - Successful logging in
+2024-01-03 10:26:09 INFO  JavaFxApplication:43 - Ended application
+2024-01-03 10:26:35 INFO  JavaFxApplication:51 - Started application
+2024-01-03 10:26:41 INFO  LoginController:64 - Successful logging in
+2024-01-03 10:27:34 INFO  JavaFxApplication:43 - Ended application
+2024-01-03 10:28:07 INFO  JavaFxApplication:51 - Started application
+2024-01-03 10:28:14 INFO  LoginController:64 - Successful logging in
+2024-01-03 10:28:48 INFO  JavaFxApplication:43 - Ended application
+2024-01-03 10:45:23 INFO  JavaFxApplication:51 - Started application
+2024-01-03 10:45:24 INFO  JavaFxApplication:43 - Ended application
+2024-01-03 10:46:27 INFO  JavaFxApplication:51 - Started application
+2024-01-03 10:46:34 INFO  LoginController:64 - Successful logging in
+2024-01-03 10:47:07 INFO  JavaFxApplication:43 - Ended application

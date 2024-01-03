@@ -14,7 +14,7 @@ public class GetEventSeatTypes {
     private static Set<SeatType> seatTypes;
     private static SeatTypeRepository seatTypeRepository;
     private GetEventSeatTypes() {
-        this.seatTypes =  new HashSet<>(seatTypeRepository.findAll());
+        seatTypes =  new HashSet<>(seatTypeRepository.findAll());
     }
 
     public static GetEventSeatTypes getInstance(){
