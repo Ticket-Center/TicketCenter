@@ -9,5 +9,5 @@ public enum Rating {
     THREE_STARS_AND_HALF,
     FOUR_STARS,
     FOUR_STARS_AND_HALF,
-    FIVE_STARS;
+    FIVE_STARS
 }
