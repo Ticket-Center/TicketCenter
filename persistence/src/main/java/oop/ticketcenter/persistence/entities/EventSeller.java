@@ -47,7 +47,7 @@ public class EventSeller {
     @Enumerated(value = EnumType.STRING)
     private Roles role = Roles.SELLER;
 
-    @ManyToMany
+    @ManyToMany(fetch= FetchType.EAGER)
     @JoinTable(
             name = "Event_EventSellers",
             joinColumns = @JoinColumn(name = "EventSellers_id", referencedColumnName = "id"),

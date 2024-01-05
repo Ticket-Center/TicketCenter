@@ -4,6 +4,8 @@ import lombok.*;
 import oop.ticketcenter.core.interfaces.base.ProcessorInput;
 import oop.ticketcenter.persistence.entities.*;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -24,4 +26,5 @@ public class CreateEventInput implements ProcessorInput {
     private String eventPlace;
     private List<String> eventSellers;
     private Set<SeatTypes> seatTypes;
+    private LocalDateTime dateOfEvent;
 }

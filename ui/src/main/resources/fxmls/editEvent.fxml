@@ -36,7 +36,7 @@
                      <children>
                         <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="318.0" prefWidth="270.0" spacing="30.0">
                            <children>
-                              <Label text="EVENT TITLE" textAlignment="CENTER" textFill="WHITE">
+                              <Label text="EVENT OLD TITLE" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="12.0" />
                                  </font>
@@ -44,7 +44,7 @@
                                     <Insets bottom="3.0" left="3.0" />
                                  </padding>
                               </Label>
-                              <Label text="EVENT GENRE" textAlignment="CENTER" textFill="WHITE">
+                              <Label fx:id="lblNewTitle" text="EVENT NEW TITLE" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="12.0" />
                                  </font>
@@ -52,7 +52,7 @@
                                     <Insets bottom="3.0" left="3.0" />
                                  </padding>
                               </Label>
-                              <Label text="EVENT ORGANIZATOR" textAlignment="CENTER" textFill="WHITE">
+                              <Label fx:id="lblGenre" text="EVENT GENRE" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="12.0" />
                                  </font>
@@ -60,7 +60,7 @@
                                     <Insets bottom="3.0" left="3.0" />
                                  </padding>
                               </Label>
-                              <Label text="EVENT PLACE" textAlignment="CENTER" textFill="WHITE">
+                              <Label fx:id="lblOrganizator" text="EVENT ORGANIZATOR" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="12.0" />
                                  </font>
@@ -68,7 +68,7 @@
                                     <Insets bottom="3.0" left="3.0" />
                                  </padding>
                               </Label>
-                              <Label text="EVENT OWNER" textAlignment="CENTER" textFill="WHITE">
+                              <Label fx:id="lblPlace" text="EVENT PLACE" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="12.0" />
                                  </font>
@@ -76,7 +76,15 @@
                                     <Insets bottom="3.0" left="3.0" />
                                  </padding>
                               </Label>
-                              <Label text="EVENT TYPE" textAlignment="CENTER" textFill="WHITE">
+                              <Label fx:id="lblOwner" text="EVENT OWNER" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Copperplate Gothic Bold" size="12.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="3.0" left="3.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="lblType" text="EVENT TYPE" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="12.0" />
                                  </font>
@@ -88,7 +96,8 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="318.0" prefWidth="248.0" spacing="25.0">
                            <children>
-                              <TextField fx:id="eventTitle" onInputMethodTextChanged="#eventTitleEntered" />
+                              <TextField fx:id="eventTitleOld" onAction="#eventTitleEntered" />
+                              <TextField fx:id="eventTitleNew" />
                               <TextField fx:id="eventGenre" />
                               <TextField fx:id="eventOrganizator" />
                               <TextField fx:id="eventPlace" />
@@ -110,7 +119,7 @@
                                     <Insets bottom="3.0" left="3.0" />
                                  </padding>
                               </Label>
-                              <Label text="EVENT SELLERS" textFill="WHITE">
+                              <Label fx:id="lblSellers" text="EVENT SELLERS" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="12.0" />
                                  </font>

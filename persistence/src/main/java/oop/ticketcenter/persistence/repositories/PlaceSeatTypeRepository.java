@@ -13,4 +13,6 @@ public interface PlaceSeatTypeRepository extends JpaRepository<PlaceSeatType, UU
     Optional<PlaceSeatType> findPlaceSeatTypeByEventPlaceAndSeatType(EventPlace place, SeatType seatType);
 
     List<PlaceSeatType> findPlaceSeatTypeByEventPlace(EventPlace place);
+
+    List<PlaceSeatType> findPlaceSeatTypeByEventPlace_Name(String placeName);
 }

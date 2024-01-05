@@ -71,11 +71,11 @@ public class HomePageController {
 
     @FXML
     public void initialize() {
-        if(!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN)){
+        if (!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN)) {
             btnUsers.setVisible(false);
         }
         //if(!(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN) || ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ORGANIZER)||ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER) || ActiveUserSingleton.getInstance().getUserRole().equals(Roles.SELLER))){
-        if(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)){
+        if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)) {
             btnCreate.setVisible(false);
             btnEdit.setVisible(false);
             btnDelete.setVisible(false);
@@ -83,7 +83,7 @@ public class HomePageController {
         lbName.setText(ActiveUserSingleton.getInstance().getUsername());
 
         //Set<Event> events = getEvents.getEvents();
-        Set<Event> events =getEvents.fetchAllEvents();
+        Set<Event> events = getEvents.fetchAllEvents();
 
         int row = 1;
         try {
@@ -124,7 +124,7 @@ public class HomePageController {
     @FXML
     private void logoutuser() throws IOException {
         logout.process(new LogoutInput());
-        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow() , FXMLPaths.LOGIN_FORM.getPath());
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.LOGIN_FORM.getPath());
     }
 
     /*private List<Ticket> tickets(){
@@ -140,4 +140,21 @@ public class HomePageController {
         }
         return ticketList;
     }*/
+
+    @FXML
+    private void createevent() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.CREATE_EVENT.getPath());
+    }
+
+    @FXML
+    private void editEvent() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.EDIT_EVENT.getPath());
+    }
+
+    @FXML
+    private void deleteEvent() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.DELETE_EVENT.getPath());
+    }
+
+
 }
