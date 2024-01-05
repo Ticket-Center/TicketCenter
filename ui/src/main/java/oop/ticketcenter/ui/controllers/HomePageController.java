@@ -140,4 +140,9 @@ public class HomePageController {
         }
         return ticketList;
     }*/
+
+    @FXML
+    private void createevent() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow() , FXMLPaths.CREATE_EVENT.getPath());
+    }
 }

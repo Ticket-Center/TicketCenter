@@ -7,6 +7,7 @@ public enum FXMLPaths {
     NAVIGATION_USER("/fxmls/navigation.fxml"),
     NAVIGATION_ADMIN("/fxmls/navigationAdmin.fxml"),
     HOME_PAGE("/fxmls/homePage.fxml"),
+    CREATE_EVENT("/fxmls/newEvent.fxml"),
     TICKET("/fxmls/ticket.fxml");
 
     private final String path;
