@@ -10,9 +10,10 @@ import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.persistence.entities.Event;
 import oop.ticketcenter.persistence.entities.EventSeatPrice;
 import oop.ticketcenter.persistence.enums.Roles;
+import org.springframework.stereotype.Component;
 
 import java.util.Set;
-
+@Component
 public class TicketController {
     @FXML
     private BorderPane Ticket;
@@ -64,18 +65,20 @@ public class TicketController {
     private TextField txtFPlace;
 
     public void setData(Event event, Set<EventSeatPrice> ticketsInfo){
+        int quantity=0;
         txtFTitle.setText(String.valueOf(event.getTitle()));
         txtFType.setText(event.getEventType().getName());
         txtFGenre.setText(event.getEventGenre().getName());
         txtFPlace.setText(event.getEventPlace().getName());
         txtFDate.setText(String.valueOf(event.getDate()));
-        lbSoldTickets.setText(String.valueOf(event.getSoldTickets()));
 
         ObservableList<String> ticketOptions = FXCollections.observableArrayList();
         for (EventSeatPrice ticket : ticketsInfo) {
             String option = ticket.getPlaceSeatType().getSeatType().getType() + ", " + ticket.getPrice();
             ticketOptions.add(option);
+            quantity+=ticket.getPlaceSeatType().getQuantity();
         }
+        lbSoldTickets.setText("Sold tickets:\n"+ event.getSoldTickets() +"/ "+quantity);
         cbBoxTicket.setItems(ticketOptions);
     }
 

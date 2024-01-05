@@ -2,20 +2,11 @@ package oop.ticketcenter.core.services.helpers;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import oop.ticketcenter.persistence.entities.Event;
-import oop.ticketcenter.persistence.entities.EventGenre;
-import oop.ticketcenter.persistence.entities.EventPlace;
-import oop.ticketcenter.persistence.entities.EventType;
-import oop.ticketcenter.persistence.repositories.EventGenreRepository;
-import oop.ticketcenter.persistence.repositories.EventPlaceRepository;
-import oop.ticketcenter.persistence.repositories.EventRepository;
-import oop.ticketcenter.persistence.repositories.EventTypeRepository;
+import oop.ticketcenter.persistence.entities.*;
+import oop.ticketcenter.persistence.repositories.*;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,6 +17,7 @@ public class GetEvents {
     private final EventTypeRepository eventTypeRepository;
     private final EventGenreRepository eventGenreRepository;
     private final EventPlaceRepository eventPlaceRepository;
+    private final EventSellerRepository eventSellerRepository;
 
     @Getter
     private final Set<Event> events = new HashSet<>();
@@ -35,21 +27,36 @@ public class GetEvents {
         events.addAll(eventRepository.findAll().stream()
                 .filter(event -> event.getIsArchived().equals(false))
                 .collect(Collectors.toSet()));
-        setEventsTypeName();
-        setEventsGenreName();
-        setEventsPlaceName();
+        setEventsTypeName(events);
+        setEventsGenreName(events);
+        setEventsPlaceName(events);
         return events;
     }
 
     public List<String> fetchAllEventsTitles(){
-        List<String> eventTitles = new ArrayList<>(eventRepository.findAll().stream()
+        return new ArrayList<>(eventRepository.findAll().stream()
                 .filter(event -> event.getIsArchived().equals(false))
-                .map(event -> event.getTitle())
+                .map(Event::getTitle)
                 .toList());
-        return eventTitles;
     }
+    public Set<Event> fetchEventsBySeller(String sellerUsername) {
+        Optional<EventSeller> eventSellerOpt = eventSellerRepository.findEventSellerByUsername(sellerUsername);
 
-    private void setEventsTypeName(){
+        if (eventSellerOpt.isPresent()) {
+            Set<Event> sellerEvents = eventSellerOpt.get().getEvents().stream()
+                    .filter(event -> !event.getIsArchived())
+                    .collect(Collectors.toSet());
+
+            // Set the names for the associated types, genres, and places
+            setEventsTypeName(sellerEvents);
+            setEventsGenreName(sellerEvents);
+            setEventsPlaceName(sellerEvents);
+
+            return sellerEvents;
+        }
+        return Collections.emptySet();
+    }
+    private void setEventsTypeName(Set<Event> events){
         for(Event event: events){
             if(event.getEventType()!=null){
                 String name=eventTypeRepository.findById(event.getEventType().getId())
@@ -59,8 +66,7 @@ public class GetEvents {
             }
         }
     }
-
-    private void setEventsGenreName(){
+    private void setEventsGenreName(Set<Event> events){
         for(Event event: events){
             if(event.getEventGenre()!=null){
                 String name=eventGenreRepository.findById(event.getEventGenre().getId())
@@ -71,7 +77,7 @@ public class GetEvents {
         }
     }
 
-    private void setEventsPlaceName(){
+    private void setEventsPlaceName(Set<Event> events){
         for(Event event: events){
             if(event.getEventPlace()!=null){
                 String name=eventPlaceRepository.findById(event.getEventPlace().getId())
