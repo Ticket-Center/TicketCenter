@@ -16,7 +16,8 @@ public class GetEventOwners {
     private final List<String> owners = new ArrayList<>();
     public List<String> getOwners() {
         owners.clear();
-        owners.addAll(eventOwnerRepository.findAll().stream().map(eventOwner -> eventOwner.getUsername()).toList());
+        owners.addAll(eventOwnerRepository.findAll().stream()
+                .map(eventOwner -> eventOwner.getUsername()).toList());
         return owners;
     }
 }
