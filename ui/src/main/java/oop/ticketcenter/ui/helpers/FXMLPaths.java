@@ -10,7 +10,8 @@ public enum FXMLPaths {
     CREATE_EVENT("/fxmls/newEvent.fxml"),
     EDIT_EVENT("/fxmls/editEvent.fxml"),
     DELETE_EVENT("/fxmls/deleteEvent.fxml"),
-    TICKET("/fxmls/ticket.fxml");
+    TICKET("/fxmls/ticket.fxml"),
+    USER_PAGE("/fxmls/userPage.fxml");
 
     private final String path;
 
