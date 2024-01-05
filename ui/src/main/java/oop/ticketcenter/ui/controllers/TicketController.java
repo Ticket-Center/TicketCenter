@@ -1,10 +1,17 @@
 package oop.ticketcenter.ui.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.persistence.entities.Event;
+import oop.ticketcenter.persistence.entities.EventSeatPrice;
+import oop.ticketcenter.persistence.enums.Roles;
+
+import java.util.Set;
 
 public class TicketController {
     @FXML
@@ -14,7 +21,7 @@ public class TicketController {
     private Button btnBuy;
 
     @FXML
-    private ComboBox<?> cbBoxTicket;
+    private ComboBox<String> cbBoxTicket;
 
     @FXML
     private Label lbDate;
@@ -51,18 +58,31 @@ public class TicketController {
 
     @FXML
     private TextField txtFType;
+    @FXML
+    private TextField txtFQuantity;
+    @FXML
+    private TextField txtFPlace;
 
-    /*public void setData(Ticket ticket){
-        txtFTitle.setText(ticket.getTitle());
-        txtFType.setText(ticket.getType());
-        txtFGenre.setText(ticket.getGenre());
-        txtFDate.setText(ticket.getDate());
-    }*/
-
-    public void setData(Event event){
+    public void setData(Event event, Set<EventSeatPrice> ticketsInfo){
         txtFTitle.setText(String.valueOf(event.getTitle()));
-        txtFType.setText(String.valueOf(event.getEventType()));
-        txtFGenre.setText(String.valueOf(event.getEventGenre()));
+        txtFType.setText(event.getEventType().getName());
+        txtFGenre.setText(event.getEventGenre().getName());
+        txtFPlace.setText(event.getEventPlace().getName());
         txtFDate.setText(String.valueOf(event.getDate()));
+        lbSoldTickets.setText(String.valueOf(event.getSoldTickets()));
+
+        ObservableList<String> ticketOptions = FXCollections.observableArrayList();
+        for (EventSeatPrice ticket : ticketsInfo) {
+            String option = ticket.getPlaceSeatType().getSeatType().getType() + ", " + ticket.getPrice();
+            ticketOptions.add(option);
+        }
+        cbBoxTicket.setItems(ticketOptions);
+    }
+
+    @FXML
+    public void initialize() {
+        if(!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)){
+            btnBuy.setVisible(false);
+        }
     }
 }
