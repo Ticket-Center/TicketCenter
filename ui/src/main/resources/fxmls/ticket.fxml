@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="Ticket" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="602.0" style="-fx-background-color: #8553AC;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.ticketcenter.ui.controllers.TicketController">
+<BorderPane fx:id="Ticket" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="592.0" style="-fx-background-color: #8553AC; -fx-border-color: #BDACCF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.ticketcenter.ui.controllers.TicketController">
     <left>
-        <AnchorPane prefHeight="200.0" prefWidth="211.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="200.0" prefWidth="211.0" style="-fx-border-radius: 15;" BorderPane.alignment="CENTER">
             <children>
                 <Label fx:id="lbTitle" layoutX="24.0" layoutY="27.0" text="Title" textFill="WHITE" AnchorPane.rightAnchor="157.6">
                <font>
@@ -39,29 +39,37 @@
     <center>
         <AnchorPane fx:id="lbTicket" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Label fx:id="lbDate" layoutX="100.0" layoutY="25.0" text="Date" textFill="WHITE" AnchorPane.rightAnchor="180.79999999999998">
+                <Label fx:id="lbDate" layoutX="93.0" layoutY="45.0" text="Date" textFill="WHITE" AnchorPane.rightAnchor="187.79999999999998">
                <font>
                   <Font name="Copperplate Gothic Bold" size="12.0" />
                </font></Label>
-                <ComboBox fx:id="cbBoxTicket" layoutX="134.0" layoutY="57.0" prefHeight="26.0" prefWidth="180.0" />
-                <Label layoutX="90.0" layoutY="61.0" text="Ticket" textFill="WHITE" AnchorPane.rightAnchor="181.2">
+                <ComboBox fx:id="cbBoxTicket" layoutX="134.0" layoutY="74.0" prefHeight="26.0" prefWidth="180.0" />
+                <Label layoutX="88.0" layoutY="80.0" text="Ticket" textFill="WHITE" AnchorPane.rightAnchor="183.2">
                <font>
                   <Font name="Copperplate Gothic Bold" size="12.0" />
                </font></Label>
-                <Label fx:id="lbQuantity" layoutX="72.0" layoutY="100.0" text="Quantity" textFill="WHITE" AnchorPane.rightAnchor="181.59999999999997">
+                <Label fx:id="lbQuantity" layoutX="73.0" layoutY="119.0" text="Quantity" textFill="WHITE" AnchorPane.rightAnchor="180.59999999999997">
                <font>
                   <Font name="Copperplate Gothic Bold" size="12.0" />
                </font></Label>
-            <TextField fx:id="txtFDate" editable="false" layoutX="134.0" layoutY="22.0" prefHeight="26.0" prefWidth="178.0" promptText="Date" />
-            <TextField fx:id="txtFQuantity" layoutX="134.0" layoutY="96.0" prefHeight="26.0" prefWidth="178.0" promptText="Quantity" />
+            <TextField fx:id="txtFDate" editable="false" layoutX="134.0" layoutY="39.0" prefHeight="26.0" prefWidth="178.0" promptText="Date" />
+            <TextField fx:id="txtFQuantity" layoutX="134.0" layoutY="113.0" prefHeight="26.0" prefWidth="178.0" promptText="Quantity" />
             </children>
         </AnchorPane>
     </center>
     <right>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="btnBuy" layoutX="86.0" layoutY="73.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="Buy" />
-            <Label fx:id="lbSoldTickets" layoutX="100.0" layoutY="28.0" text="SoldTickets" />
+                <Button fx:id="btnBuy" layoutX="86.0" layoutY="90.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #BDACCF; -fx-border-color: #ffffff;" text="Buy" textFill="WHITE">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="lbSoldTickets" layoutX="88.0" layoutY="41.0" text="SoldTickets" textFill="WHITE">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="12.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </right>

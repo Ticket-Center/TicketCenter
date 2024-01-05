@@ -23,7 +23,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -94,7 +93,7 @@ public class HomePageController {
     private void updateTicketGrid(){
         Set<Event> events = switch (ActiveUserSingleton.getInstance().getUserRole()) {
             case OWNER -> filterEventsForOwner();
-            case SELLER -> filterEventsForSeller();
+            case SELLER -> getEvents.fetchEventsBySeller(ActiveUserSingleton.getInstance().getUsername());
             case ORGANIZER -> filterEventsForOrganizer();
             default -> getEvents.fetchAllEvents();
         };
@@ -127,12 +126,6 @@ public class HomePageController {
                 .filter(event -> event.getEventOwner().getUsername().equals(ActiveUserSingleton.getInstance().getUsername()))
                 .collect(Collectors.toSet());
     }
-    private Set<Event> filterEventsForSeller() {
-        return Collections.emptySet();
-        /*return getEvents.fetchAllEvents().stream()
-                .filter(event -> event.getEventSeller().getUsername().equals(ActiveUserSingleton.getInstance().getUsername()))
-                .collect(Collectors.toSet());*/
-    }
 
     private Set<Event> filterEventsForOrganizer() {
         return getEvents.fetchAllEvents().stream()
@@ -161,5 +154,8 @@ public class HomePageController {
         SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.DELETE_EVENT.getPath());
     }
 
-
+    @FXML
+    public void goToUsers() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnUsers.getScene().getWindow(), FXMLPaths.USER_PAGE.getPath());
+    }
 }
