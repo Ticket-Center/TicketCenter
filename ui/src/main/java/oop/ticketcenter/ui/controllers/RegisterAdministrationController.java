@@ -140,6 +140,7 @@ public class RegisterAdministrationController {
         try {
             RegisterAdministrationResult result = register.process(administrationInput);
             lbResult.setText(result.getStr());
+            restart();
         } catch (UserAlreadyExistsException | IncorrectInputException e) {
             lbResult.setText(e.getMessage());
         }
@@ -148,5 +149,23 @@ public class RegisterAdministrationController {
     @FXML
     private void backToLogIn() throws IOException {
         SceneSwitcher.switchScene((Stage) btnCancel.getScene().getWindow(), FXMLPaths.HOME_PAGE.getPath());
+    }
+
+    private void restart(){
+        uic.setVisible(false);
+        lblUIC.setVisible(false);
+        mol.setVisible(false);
+        lblMol.setVisible(false);
+        molPhone.setVisible(false);
+        lbPhone.setVisible(false);
+        fee.setVisible(false);
+        lblFee.setVisible(false);
+        name.setText("");
+        username.setText("");
+        passFConfirmPassword.setText("");
+        passFPassword.setText("");
+        txtKeyFP.setText("");
+
+        role.setValue("");
     }
 }

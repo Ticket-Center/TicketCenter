@@ -1,6 +1,7 @@
 package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import oop.ticketcenter.persistence.enums.Rating;
@@ -30,7 +31,7 @@ public class EventSeller {
     @Length(min=10,max=10, message = "Uic should be 10 characters")
     private String uic;
 
-    @Length(min=10,max=10, message = "Mol should be 10 characters")
+    //@Length(min=5, message = "Mol should be more than 10 characters")
     private String mol;
 
     private Double fee;

@@ -10,6 +10,9 @@ public enum FXMLPaths {
     CREATE_EVENT("/fxmls/newEvent.fxml"),
     EDIT_EVENT("/fxmls/editEvent.fxml"),
     DELETE_EVENT("/fxmls/deleteEvent.fxml"),
+    DELETE_ADMINISTRATION("/fxmls/deleteAdministration.fxml"),
+    REGISTER_NEW_ADMINISTRATION("/fxmls/registerAdministration.fxml"),
+    EDIT_ADMINISTRATION("/fxmls/editAdministration.fxml"),
     TICKET("/fxmls/ticket.fxml"),
     USER_PAGE("/fxmls/userPage.fxml");
 

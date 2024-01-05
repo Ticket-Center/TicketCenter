@@ -20,6 +20,7 @@ module core {
     exports oop.ticketcenter.core.interfaces.tickets.free;
     exports oop.ticketcenter.core.interfaces.administration.register;
     exports oop.ticketcenter.core.interfaces.administration.owners.register;
+    exports oop.ticketcenter.core.interfaces.administration.delete;
     exports oop.ticketcenter.core.interfaces.administration.owners.edit;
     exports oop.ticketcenter.core.interfaces.administration.organizators.register;
     exports oop.ticketcenter.core.interfaces.administration.organizators.edit;
