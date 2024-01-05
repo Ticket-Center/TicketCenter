@@ -8,5 +8,6 @@ import java.util.UUID;
 
 public interface EventOwnerRepository extends JpaRepository<EventOwner, UUID> {
     Optional<EventOwner> findEventOwnerByUsernameAndPassword(String username, String password);
+    Optional<EventOwner> findEventOwnerByUsernameAndPasswordKey(String username, String passkey);
     Optional<EventOwner> findEventOwnerByUsername(String username);
 }

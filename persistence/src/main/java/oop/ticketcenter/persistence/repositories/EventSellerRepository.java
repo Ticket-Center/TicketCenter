@@ -10,6 +10,7 @@ import java.util.UUID;
 
 public interface EventSellerRepository extends JpaRepository<EventSeller, UUID> {
     Optional<EventSeller> findEventSellerByUsernameAndPassword(String username, String password);
+    Optional<EventSeller> findEventSellerByUsernameAndPasswordKey(String username, String passkey);
     Optional<EventSeller> findEventSellerByUsername(String username);
 
     Set<EventSeller> findEventSellerByEvents(Event evemt);

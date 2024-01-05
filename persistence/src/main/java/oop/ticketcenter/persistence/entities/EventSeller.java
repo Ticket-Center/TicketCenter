@@ -41,6 +41,8 @@ public class EventSeller {
     @Enumerated(EnumType.STRING)
     private Rating rating;
 
+    private String passwordKey;
+
     @Length(min = 10, max = 10, message = "Mol phone should be 10 characters")
     private String molPhone;
 

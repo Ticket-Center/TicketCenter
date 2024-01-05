@@ -36,6 +36,8 @@ public class EventOrganizator {
 
     private Double fee;
 
+    private String passwordKey;
+
     @Length(min = 10, max = 10, message = "Mol phone should be 10 characters")
     private String molPhone;
 
