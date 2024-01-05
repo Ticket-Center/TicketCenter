@@ -267,3 +267,7 @@
 2024-01-05 15:23:39 INFO  JavaFxApplication:43 - Ended application
 2024-01-05 15:44:35 INFO  JavaFxApplication:51 - Started application
 2024-01-05 15:44:37 INFO  JavaFxApplication:43 - Ended application
+2024-01-05 16:16:06 INFO  JavaFxApplication:51 - Started application
+2024-01-05 16:16:13 INFO  LoginController:64 - Successful logging in
+2024-01-05 16:16:30 INFO  LoginController:64 - Successful logging in
+2024-01-05 16:16:34 INFO  JavaFxApplication:43 - Ended application
