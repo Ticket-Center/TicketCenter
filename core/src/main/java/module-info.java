@@ -4,6 +4,7 @@ module core {
     requires spring.context;
     requires persistence;
     requires org.apache.commons.lang3;
+    requires java.sql;
 
     exports oop.ticketcenter.core;
     exports oop.ticketcenter.core.interfaces.users.login;

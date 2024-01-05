@@ -90,6 +90,7 @@ public class HomePageController {
         lbName.setText(ActiveUserSingleton.getInstance().getUsername());
     }
 
+
     private void updateTicketGrid(){
         Set<Event> events = switch (ActiveUserSingleton.getInstance().getUserRole()) {
             case CLIENT -> getEvents.fetchAllEvents();
@@ -127,7 +128,6 @@ public class HomePageController {
                 .filter(event -> event.getEventOwner().getUsername().equals(ActiveUserSingleton.getInstance().getUsername()))
                 .collect(Collectors.toSet());
     }
-
     private Set<Event> filterEventsForSeller() {
         return Collections.emptySet();
         /*return getEvents.fetchAllEvents().stream()
@@ -144,6 +144,37 @@ public class HomePageController {
     @FXML
     private void logoutuser() throws IOException {
         logout.process(new LogoutInput());
-        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow() , FXMLPaths.LOGIN_FORM.getPath());
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.LOGIN_FORM.getPath());
     }
+
+    /*private List<Ticket> tickets(){
+        List<Ticket> ticketList=new ArrayList<>();
+
+        for (int i=0; i<10;i++) {
+            Ticket ticket = new Ticket();
+            ticket.setTitle("proba");
+            ticket.setGenre("genre");
+            ticket.setType("type");
+            ticket.setDate("28.12.2023");
+            ticketList.add(ticket);
+        }
+        return ticketList;
+    }*/
+
+    @FXML
+    private void createevent() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.CREATE_EVENT.getPath());
+    }
+
+    @FXML
+    private void editEvent() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.EDIT_EVENT.getPath());
+    }
+
+    @FXML
+    private void deleteEvent() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.DELETE_EVENT.getPath());
+    }
+
+
 }

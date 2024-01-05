@@ -3,6 +3,7 @@ package oop.ticketcenter.ui.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -13,19 +14,14 @@ import oop.ticketcenter.core.interfaces.events.create.CreateEvent;
 import oop.ticketcenter.core.interfaces.events.create.CreateEventInput;
 import oop.ticketcenter.core.interfaces.events.create.CreateEventResult;
 import oop.ticketcenter.core.interfaces.events.create.SeatTypes;
-import oop.ticketcenter.core.services.helpers.GetEventGenres;
-import oop.ticketcenter.core.services.helpers.GetEventSeatTypes;
-import oop.ticketcenter.core.services.helpers.GetEventSellers;
-import oop.ticketcenter.core.services.helpers.GetEventTypes;
+import oop.ticketcenter.core.services.helpers.*;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class CreateNewEventController {
@@ -43,16 +39,16 @@ public class CreateNewEventController {
     private ChoiceBox<String> eventGenre;
 
     @FXML
-    private TextField eventOrganizator;
+    private ChoiceBox<String> eventOrganizator;
 
     @FXML
-    private TextField eventOwner;
+    private ChoiceBox<String> eventOwner;
 
     @FXML
-    private TextField eventPlace;
+    private ChoiceBox<String> eventPlace;
 
     @FXML
-    private HBox eventSellers;
+    private VBox eventSellers;
 
     @FXML
     private TextField eventTitle;
@@ -75,6 +71,8 @@ public class CreateNewEventController {
     @FXML
     private VBox seatTypesQuantity;
 
+    @FXML
+    private DatePicker dateOfEvent;
 
     @FXML
     private Label wrongInput;
@@ -85,32 +83,70 @@ public class CreateNewEventController {
     @Autowired
     private CreateEvent createEvent;
 
+    @Autowired
+    private GetEventSellers getEventSellers;
 
+    @Autowired
+    private GetEventTypes getEventTypes;
 
+    @Autowired
+    private GetEventGenres getEventGenres;
+
+    @Autowired
+    private GetEventOrganizators getEventOrganizators;
+
+    @Autowired
+    private GetEventPlaces getEventPlaces;
+
+    @Autowired
+    private GetEventOwners getEventOwners;
+
+    @Autowired
+    private GetEventSeatTypes getEventSeatTypes;
     @FXML
     public void initialize() {
-        GetEventSellers getEventSellers = GetEventSellers.getInstance();
-        GetEventTypes getEventTypes = GetEventTypes.getInstance();
-        GetEventGenres getEventGenres = GetEventGenres.getInstance();
-
-       // TODO: load availiable event genres, event sellers, seat types, event types ? could persistence layer be invoked here??????
         ObservableList<String> listGenres = FXCollections.observableArrayList();
-        getEventGenres.getGenres().forEach(genre->{
-            listGenres.add(genre);
-        });
+        listGenres.addAll(getEventGenres.getGenres());
         eventGenre.setItems(listGenres);
 
         ObservableList<String> listEventType = FXCollections.observableArrayList();
-        getEventTypes.getTypes().forEach(type ->{
-            listEventType.add(type);
-        });
+        listEventType.addAll(getEventTypes.getTypes());
         eventType.setItems(listEventType);
 
-        ObservableList<String> listSellers = FXCollections.observableArrayList();
-        getEventSellers.getSellers().forEach(seller -> {
-            listSellers.add(seller);
+        eventSellers.getChildren().clear();
+        List<String> listSellers = new ArrayList<>();
+        listSellers.addAll(getEventSellers.getSellers());
+        listSellers.forEach(seller ->{
+            CheckBox seller1 = new CheckBox(seller.toString());
+            eventSellers.getChildren().add(seller1);
         });
 
+        ObservableList<String> listOrganizators = FXCollections.observableArrayList();
+        listOrganizators.addAll(getEventOrganizators.getOrganizators());
+        eventOrganizator.setItems(listOrganizators);
+
+        ObservableList<String> listOwners = FXCollections.observableArrayList();
+        listOwners.addAll(getEventOwners.getOwners());
+        eventOwner.setItems(listOwners);
+
+        ObservableList<String> listPlaces = FXCollections.observableArrayList();
+        listPlaces.addAll(getEventPlaces.getPlaces());
+        eventPlace.setItems(listPlaces);
+
+        eventPlace.setOnAction((event) -> {
+            seatTypesLabels.getChildren().clear();
+            seatTypesQuantity.getChildren().clear();
+            Map<String, Integer> listSeatTypes = new HashMap<>();
+            listSeatTypes.putAll(getEventSeatTypes.getSeatTypes(eventPlace.getValue()));
+            listSeatTypes.forEach((seatType, quantity) ->{
+                Label label2 = new Label(seatType);
+                seatTypesLabels.getChildren().add(label2);
+                seatTypesLabels.setSpacing(20);
+                TextField textField2 = new TextField();
+                seatTypesQuantity.getChildren().add(textField2);
+                seatTypesQuantity.setSpacing(20);
+            });
+        });
     }
 
     @FXML
@@ -122,14 +158,15 @@ public class CreateNewEventController {
     void createevent() {
         CreateEventInput input = CreateEventInput.builder()
                 .title(eventTitle.getText())
-                .maxTicketsPerPerson(Integer.getInteger(maxTicketsPerPerson.getText()))
+                .maxTicketsPerPerson(Integer.valueOf(maxTicketsPerPerson.getText()))
                 .eventGenre(eventGenre.getValue())
                 .eventType(eventType.getValue())
-                .eventOwnerUsername(eventOwner.getText())
-                .eventOrganizatorUsername(eventOrganizator.getText())
-                .eventPlace(eventPlace.getText())
+                .eventOwnerUsername(eventOwner.getValue())
+                .eventOrganizatorUsername(eventOrganizator.getValue())
+                .eventPlace(eventPlace.getValue())
                 .eventSellers(getEventSellers())
                 .seatTypes(getSeatTypes())
+                .dateOfEvent(dateOfEvent.getValue().atStartOfDay())
                 .build();
         wrongInput.setText("");
         try {
@@ -143,26 +180,35 @@ public class CreateNewEventController {
 
     }
 
-    @FXML
-    void enteredEventPlace(){
-        GetEventSeatTypes getEventSeatTypes = GetEventSeatTypes.getInstance();
-
-        ObservableList<Map<String, Integer>> listSeatTypes = FXCollections.observableArrayList();
-        listSeatTypes.add(getEventSeatTypes.getSeatTypes(eventPlace.getText()));
-        listSeatTypes.forEach(seatType ->{
-            Label label2 = new Label(seatType.toString());
-            seatTypesLabels.getChildren().add(label2);
-            TextField textField2 = new TextField(seatType.get(seatType.toString()).toString());
-            seatTypesQuantity.getChildren().add(textField2);
-        });
-    }
 
     private List<String> getEventSellers(){
-        return null;
+        List<String> sellersPressed = new ArrayList<>();
+        ObservableList<Node> sellers = eventSellers.getChildren();
+        sellers.forEach(checkbox ->{
+            if(((CheckBox) checkbox).isSelected()){
+                sellersPressed.add(((CheckBox) checkbox).getText());
+            }
+        });
+        return sellersPressed;
     }
 
     private Set<SeatTypes> getSeatTypes(){
-        return null;
+        Set<SeatTypes> seatTypesSet = new HashSet<>();
+        ObservableList<Node> seatsLabels = seatTypesLabels.getChildren();
+        ObservableList<Node> seatsPrice = seatTypesQuantity.getChildren();
+
+        var ref = new Object() {
+            int index = 0;
+        };
+        seatsLabels.forEach(seatType ->{
+            SeatTypes newSeat = SeatTypes.builder()
+                    .type(((Label)seatType).getText())
+                    .price(Double.valueOf(((TextField)seatsPrice.get(ref.index)).getText()))
+                    .build();
+            seatTypesSet.add(newSeat);
+            ref.index++;
+        });
+        return seatTypesSet;
     }
 
 }
