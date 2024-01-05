@@ -93,11 +93,10 @@ public class HomePageController {
 
     private void updateTicketGrid(){
         Set<Event> events = switch (ActiveUserSingleton.getInstance().getUserRole()) {
-            case CLIENT -> getEvents.fetchAllEvents();
             case OWNER -> filterEventsForOwner();
             case SELLER -> filterEventsForSeller();
             case ORGANIZER -> filterEventsForOrganizer();
-            default -> Collections.emptySet();
+            default -> getEvents.fetchAllEvents();
         };
 
         Set<EventSeatPrice> ticketsInfo=getTicketInfo.fetchAllEventSeatPrice();
@@ -146,20 +145,6 @@ public class HomePageController {
         logout.process(new LogoutInput());
         SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.LOGIN_FORM.getPath());
     }
-
-    /*private List<Ticket> tickets(){
-        List<Ticket> ticketList=new ArrayList<>();
-
-        for (int i=0; i<10;i++) {
-            Ticket ticket = new Ticket();
-            ticket.setTitle("proba");
-            ticket.setGenre("genre");
-            ticket.setType("type");
-            ticket.setDate("28.12.2023");
-            ticketList.add(ticket);
-        }
-        return ticketList;
-    }*/
 
     @FXML
     private void createevent() throws IOException {

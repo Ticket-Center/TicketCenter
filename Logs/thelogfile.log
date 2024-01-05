@@ -223,3 +223,12 @@
 2024-01-03 10:46:27 INFO  JavaFxApplication:51 - Started application
 2024-01-03 10:46:34 INFO  LoginController:64 - Successful logging in
 2024-01-03 10:47:07 INFO  JavaFxApplication:43 - Ended application
+2024-01-05 16:30:09 INFO  JavaFxApplication:51 - Started application
+2024-01-05 16:30:20 ERROR LoginController:69 - 
+/D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-05 16:36:12 INFO  JavaFxApplication:51 - Started application
+2024-01-05 16:48:38 INFO  JavaFxApplication:51 - Started application
+2024-01-05 16:49:38 INFO  JavaFxApplication:51 - Started application
+2024-01-05 16:49:45 INFO  LoginController:64 - Successful logging in
+2024-01-05 16:49:53 INFO  JavaFxApplication:43 - Ended application
