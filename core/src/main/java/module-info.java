@@ -14,6 +14,7 @@ module core {
     exports oop.ticketcenter.core.interfaces.events.create;
     exports oop.ticketcenter.core.interfaces.events.delete;
     exports oop.ticketcenter.core.interfaces.events.edit;
+    exports oop.ticketcenter.core.interfaces.events.filter.bydate;
     exports oop.ticketcenter.core.interfaces.tickets.get.byevent;
     exports oop.ticketcenter.core.interfaces.tickets.get.byowner;
     exports oop.ticketcenter.core.interfaces.tickets.buy;

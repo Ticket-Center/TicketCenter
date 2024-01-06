@@ -286,3 +286,24 @@
 2024-01-05 19:04:47 INFO  JavaFxApplication:51 - Started application
 2024-01-05 19:04:54 INFO  LoginController:64 - Successful logging in
 2024-01-05 19:05:21 INFO  JavaFxApplication:43 - Ended application
+2024-01-06 10:42:36 INFO  JavaFxApplication:51 - Started application
+2024-01-06 10:43:03 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:37:05 INFO  JavaFxApplication:51 - Started application
+2024-01-06 11:37:33 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:38:09 INFO  JavaFxApplication:51 - Started application
+2024-01-06 11:38:15 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:40:31 INFO  JavaFxApplication:51 - Started application
+2024-01-06 11:40:42 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:41:33 INFO  JavaFxApplication:43 - Ended application
+2024-01-06 11:41:53 INFO  JavaFxApplication:51 - Started application
+2024-01-06 11:42:01 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:42:28 INFO  JavaFxApplication:43 - Ended application
+2024-01-06 11:45:46 INFO  JavaFxApplication:51 - Started application
+2024-01-06 11:45:56 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:48:54 INFO  JavaFxApplication:51 - Started application
+2024-01-06 11:49:09 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:50:28 INFO  JavaFxApplication:51 - Started application
+2024-01-06 11:50:38 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:51:31 INFO  JavaFxApplication:51 - Started application
+2024-01-06 11:51:40 INFO  LoginController:64 - Successful logging in
+2024-01-06 11:52:07 INFO  JavaFxApplication:43 - Ended application
