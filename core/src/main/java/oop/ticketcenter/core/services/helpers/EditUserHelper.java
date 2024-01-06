@@ -24,7 +24,7 @@ public class EditUserHelper {
 
     private final EventOwnerRepository eventOwnerRepository;
     private final EventOrganizatorRepository eventOrganizatorRepository;
-    private EventSellerRepository eventSellerRepository;
+    private final EventSellerRepository eventSellerRepository;
 
     public EditUserModel getEditUser(String username) {
         Optional<EventOwner> owner = eventOwnerRepository.findEventOwnerByUsername(username);

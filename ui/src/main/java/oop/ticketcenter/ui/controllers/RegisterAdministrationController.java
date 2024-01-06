@@ -140,6 +140,7 @@ public class RegisterAdministrationController {
         try {
             RegisterAdministrationResult result = register.process(administrationInput);
             lbResult.setText(result.getStr());
+            btnRegister.setDisable(false);
             restart();
         } catch (UserAlreadyExistsException | IncorrectInputException e) {
             lbResult.setText(e.getMessage());
@@ -152,6 +153,16 @@ public class RegisterAdministrationController {
     }
 
     private void restart(){
+        name.setText("");
+        username.setText("");
+        passFConfirmPassword.setText("");
+        passFPassword.setText("");
+        txtKeyFP.setText("");
+        role.setValue("");
+        uic.setText("");
+        mol.setText("");
+        molPhone.setText("");
+        fee.setText("");
         uic.setVisible(false);
         lblUIC.setVisible(false);
         mol.setVisible(false);
@@ -160,12 +171,7 @@ public class RegisterAdministrationController {
         lbPhone.setVisible(false);
         fee.setVisible(false);
         lblFee.setVisible(false);
-        name.setText("");
-        username.setText("");
-        passFConfirmPassword.setText("");
-        passFPassword.setText("");
-        txtKeyFP.setText("");
 
-        role.setValue("");
+
     }
 }

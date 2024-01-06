@@ -96,11 +96,18 @@ public class EditAdministrationController {
         EditAdministrationInput administrationInput = EditAdministrationInput.builder()
                 .name(name.getText())
                 .username(username.getText())
-                .fee(Double.valueOf(fee.getText()))
-                .molPhone(molPhone.getText())
-                .mol(mol.getText())
                 .role(editAdministrationRole)
                 .build();
+        if(editAdministrationRole.equals(Roles.OWNER.name())){
+            administrationInput.setFee(null);
+            administrationInput.setMol(null);
+            administrationInput.setMolPhone(null);
+        }
+        else {
+            administrationInput.setFee(Double.valueOf(fee.getText()));
+            administrationInput.setMolPhone(molPhone.getText());
+            administrationInput.setMol(mol.getText());
+        }
         try {
             EditAdministrationResult result = editAdministration.process(administrationInput);
             lbResult.setText(result.getStr());
