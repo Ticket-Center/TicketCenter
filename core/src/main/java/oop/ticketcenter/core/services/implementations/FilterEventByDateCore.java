@@ -31,7 +31,7 @@ public class FilterEventByDateCore implements FilterEventByDate {
     @Override
     public FilterEventByDateResult process(FilterEventByDateInput input) {
 
-        Set<Event> events = getEvents.fetchAllEvents().stream()
+        Set<Event> events = input.getEvents().stream()
                 .filter(event ->
                         event.getDate().after(Date.valueOf(input.getStartDate())) && event.getDate().before(Date.valueOf(input.getEndDate()))
                         || input.getEndDate().equals(input.getStartDate()) && event.getDate().toLocalDateTime().isEqual(input.getStartDate().atStartOfDay())

@@ -91,10 +91,13 @@ public class HomePageController {
     @Autowired
     private FilterEventByDate filterEventByDate;
 
+    private Set<Event> events;
+
     @FXML
     public void initialize() {
         visibilityForButtons();
-        updateTicketGrid(eventsVisibleByRole());
+        events = eventsVisibleByRole();
+        updateTicketGrid(events);
     }
 
     private void visibilityForButtons() {
@@ -195,6 +198,7 @@ public class HomePageController {
             FilterEventByDateInput input = FilterEventByDateInput.builder()
                     .startDate(startDate.getValue())
                     .endDate(endDate.getValue())
+                    .events(events)
                     .build();
 
             FilterEventByDateResult result = filterEventByDate.process(input);
