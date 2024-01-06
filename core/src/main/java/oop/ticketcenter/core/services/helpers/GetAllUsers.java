@@ -1,6 +1,9 @@
 package oop.ticketcenter.core.services.helpers;
 
 import lombok.RequiredArgsConstructor;
+import oop.ticketcenter.persistence.entities.EventOrganizator;
+import oop.ticketcenter.persistence.entities.EventOwner;
+import oop.ticketcenter.persistence.entities.EventSeller;
 import oop.ticketcenter.persistence.repositories.EventOrganizatorRepository;
 import oop.ticketcenter.persistence.repositories.EventOwnerRepository;
 import oop.ticketcenter.persistence.repositories.EventSellerRepository;
@@ -20,9 +23,9 @@ public class GetAllUsers {
     private final List<String> users = new ArrayList<>();
     public List<String> getUsers() {
         users.clear();
-        users.addAll(eventOrganizatorRepository.findAll().stream().map(eventOrganizator -> eventOrganizator.getUsername()).toList());
-        users.addAll(eventOwnerRepository.findAll().stream().map(eventOwner -> eventOwner.getUsername()).collect(Collectors.toSet()));
-        users.addAll(eventSellerRepository.findAll().stream().map(eventSeller -> eventSeller.getUsername()).collect(Collectors.toList()));
+        users.addAll(eventOrganizatorRepository.findAll().stream().map(EventOrganizator::getUsername).toList());
+        users.addAll(eventOwnerRepository.findAll().stream().map(EventOwner::getUsername).collect(Collectors.toSet()));
+        users.addAll(eventSellerRepository.findAll().stream().map(EventSeller::getUsername).collect(Collectors.toList()));
         return users;
     }
 }
