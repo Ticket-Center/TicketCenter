@@ -3,6 +3,7 @@ package oop.ticketcenter.ui.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -14,6 +15,7 @@ import oop.ticketcenter.core.interfaces.users.logout.LogoutInput;
 import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.core.services.helpers.GetEvents;
 import oop.ticketcenter.core.services.helpers.GetTicketInfo;
+import oop.ticketcenter.core.services.helpers.Notifications;
 import oop.ticketcenter.persistence.entities.Event;
 import oop.ticketcenter.persistence.entities.EventSeatPrice;
 import oop.ticketcenter.persistence.enums.Roles;
@@ -71,17 +73,24 @@ public class HomePageController {
     @Autowired
     private GetTicketInfo getTicketInfo;
 
+    @Autowired
+    private Notifications notifications;
+
     @FXML
     public void initialize() {
         visibilityForButtons();
         updateTicketGrid();
+        if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.SELLER) ||
+                ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER)) {
+            showNotifications();
+        }
     }
 
-    private void visibilityForButtons(){
-        if(!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN)){
+    private void visibilityForButtons() {
+        if (!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN)) {
             btnUsers.setVisible(false);
         }
-        if(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)){
+        if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)) {
             btnCreate.setVisible(false);
             btnEdit.setVisible(false);
             btnDelete.setVisible(false);
@@ -90,7 +99,7 @@ public class HomePageController {
     }
 
 
-    private void updateTicketGrid(){
+    private void updateTicketGrid() {
         Set<Event> events = switch (ActiveUserSingleton.getInstance().getUserRole()) {
             case OWNER -> filterEventsForOwner();
             case SELLER -> getEvents.fetchEventsBySeller(ActiveUserSingleton.getInstance().getUsername());
@@ -98,7 +107,7 @@ public class HomePageController {
             default -> getEvents.fetchAllEvents();
         };
 
-        Set<EventSeatPrice> ticketsInfo=getTicketInfo.fetchAllEventSeatPrice();
+        Set<EventSeatPrice> ticketsInfo = getTicketInfo.fetchAllEventSeatPrice();
 
         int row = 1;
         try {
@@ -112,7 +121,7 @@ public class HomePageController {
                         .filter(ticket -> ticket.getEvent().getId().equals(event.getId()))
                         .collect(Collectors.toSet());
 
-                ticketController.setData(event, filteredTicketInfo);
+                ticketController.setData(event, filteredTicketInfo, notifications);
 
                 ticketGrid.add(box, 0, row++);
                 GridPane.setMargin(box, new Insets(10));
@@ -121,6 +130,7 @@ public class HomePageController {
             e.printStackTrace();
         }
     }
+
     private Set<Event> filterEventsForOwner() {
         return getEvents.fetchAllEvents().stream()
                 .filter(event -> event.getEventOwner().getUsername().equals(ActiveUserSingleton.getInstance().getUsername()))
@@ -133,9 +143,20 @@ public class HomePageController {
                 .collect(Collectors.toSet());
     }
 
+    private void showNotifications() {
+        Set<String> notificationsSet = notifications.checkForNotifications(ActiveUserSingleton.getInstance().getActiveUser());
+        if (notificationsSet.isEmpty()) return;
+        notificationsSet.forEach(notific -> {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText(notific);
+            a.show();
+        });
+    }
+
     @FXML
     private void logoutuser() throws IOException {
         logout.process(new LogoutInput());
+        notifications.removeReceivedNotifications();
         SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.LOGIN_FORM.getPath());
     }
 

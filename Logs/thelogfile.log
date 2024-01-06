@@ -286,3 +286,92 @@
 2024-01-05 19:04:47 INFO  JavaFxApplication:51 - Started application
 2024-01-05 19:04:54 INFO  LoginController:64 - Successful logging in
 2024-01-05 19:05:21 INFO  JavaFxApplication:43 - Ended application
+2024-01-06 17:30:23 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:30:52 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 17:32:30 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:32:42 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 17:34:53 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:35:19 INFO  LoginController:64 - Successful logging in
+2024-01-06 17:37:31 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:37:41 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 17:40:07 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:40:14 INFO  LoginController:64 - Successful logging in
+2024-01-06 17:41:20 INFO  LoginController:64 - Successful logging in
+2024-01-06 17:41:59 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:44:24 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:44:33 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 17:45:19 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:45:28 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 17:46:08 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:46:10 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:46:47 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:51:28 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:51:40 INFO  LoginController:64 - Successful logging in
+2024-01-06 17:52:53 INFO  LoginController:64 - Successful logging in
+2024-01-06 17:53:55 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:55:07 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 17:55:31 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:55:41 INFO  LoginController:64 - Successful logging in
+2024-01-06 17:58:42 INFO  JavaFxApplication:51 - Started application
+2024-01-06 17:59:41 INFO  LoginController:64 - Successful logging in
+2024-01-06 18:00:11 INFO  LoginController:64 - Successful logging in
+2024-01-06 18:17:00 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:17:08 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 18:26:27 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:26:29 INFO  JavaFxApplication:43 - Ended application
+2024-01-06 18:26:43 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:30:20 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:33:31 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:33:55 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:34:02 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 18:36:19 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:40:17 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 18:41:26 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:52:02 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 18:52:11 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:52:48 ERROR LoginController:69 - 
+/C:/repos/TicketCenterProject/ui/target/classes/fxmls/homePage.fxml
+
+2024-01-06 18:56:46 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:58:05 INFO  LoginController:64 - Successful logging in
+2024-01-06 18:58:44 INFO  JavaFxApplication:43 - Ended application
+2024-01-06 18:59:20 INFO  JavaFxApplication:51 - Started application
+2024-01-06 18:59:28 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:05:27 INFO  JavaFxApplication:51 - Started application
+2024-01-06 19:05:45 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:13:55 INFO  JavaFxApplication:51 - Started application
+2024-01-06 19:14:06 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:15:07 INFO  JavaFxApplication:51 - Started application
+2024-01-06 19:15:21 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:15:41 INFO  JavaFxApplication:51 - Started application
+2024-01-06 19:16:48 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:18:40 INFO  JavaFxApplication:51 - Started application
+2024-01-06 19:20:31 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:30:09 INFO  JavaFxApplication:51 - Started application
+2024-01-06 19:30:23 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:31:06 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:31:22 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:31:39 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:31:56 INFO  LoginController:64 - Successful logging in
+2024-01-06 19:39:43 INFO  JavaFxApplication:51 - Started application
+2024-01-06 19:39:56 INFO  LoginController:64 - Successful logging in
