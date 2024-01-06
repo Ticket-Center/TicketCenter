@@ -55,18 +55,18 @@ public class UserPageController {
         private Logout logout;
 
         @FXML
-        void createEvent(MouseEvent event) {
-
+        void createUser() throws IOException {
+                SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.REGISTER_NEW_ADMINISTRATION.getPath());
         }
 
         @FXML
-        void deleteEvent(MouseEvent event) {
-
+        void deleteUser() throws IOException {
+                SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.DELETE_ADMINISTRATION.getPath());
         }
 
         @FXML
-        void editEvent(MouseEvent event) {
-
+        void editUser() throws IOException {
+                SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.EDIT_ADMINISTRATION.getPath());
         }
 
         @FXML

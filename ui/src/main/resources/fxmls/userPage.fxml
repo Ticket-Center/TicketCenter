@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="oop.ticketcenter.ui.controllers.UserPageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.ticketcenter.ui.controllers.UserPageController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="839.0">
          <left>
@@ -92,17 +91,17 @@
                   <Insets left="160.0" />
                </BorderPane.margin>
                <children>
-                  <Button fx:id="btnCreate" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefWidth="80.0" style="-fx-background-color: #BDACCF;" text="Create" textFill="WHITE">
+                  <Button fx:id="btnCreate" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#createUser" prefWidth="80.0" style="-fx-background-color: #BDACCF;" text="Create" textFill="WHITE">
                      <font>
                         <Font name="Copperplate Gothic Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnEdit" layoutX="103.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#editEvent" prefHeight="22.0" prefWidth="80.0" style="-fx-background-color: #BDACCF;" text="Edit" textFill="WHITE">
+                  <Button fx:id="btnEdit" layoutX="103.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#editUser" prefHeight="22.0" prefWidth="80.0" style="-fx-background-color: #BDACCF;" text="Edit" textFill="WHITE">
                      <font>
                         <Font name="Copperplate Gothic Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnDelete" layoutX="192.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#deleteEvent" prefWidth="80.0" style="-fx-background-color: #BDACCF;" text="Delete" textFill="WHITE">
+                  <Button fx:id="btnDelete" layoutX="192.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#deleteUser" prefWidth="80.0" style="-fx-background-color: #BDACCF;" text="Delete" textFill="WHITE">
                      <font>
                         <Font name="Copperplate Gothic Bold" size="12.0" />
                      </font>
