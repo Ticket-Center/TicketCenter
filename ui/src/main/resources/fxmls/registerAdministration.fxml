@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.ticketcenter.ui.controllers.RegisterAdministrationController">
+    <left>
+        <AnchorPane prefHeight="258.0" prefWidth="80.0" style="-fx-background-color: #8553AC;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logoNoBG.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lbPhone" layoutX="330.0" layoutY="109.0" text="MOL Phone:" textAlignment="RIGHT" />
+                <Label fx:id="lblMol" layoutX="363.0" layoutY="73.0" text="MOL:" textAlignment="RIGHT" />
+                <Label fx:id="lbRegistrationForm" layoutX="87.0" layoutY="24.0" text="Registration Form" textFill="#8553ac">
+                    <font>
+                        <Font name="Copperplate Gothic Bold" size="28.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lbFirstName" layoutX="93.0" layoutY="73.0" text="Name:" />
+                <Label fx:id="lbLastName" layoutX="97.0" layoutY="109.0" text="Role:" />
+                <Label fx:id="lbUsername" layoutX="72.0" layoutY="144.0" text="Username:" />
+                <Label fx:id="lbPassword" layoutX="75.0" layoutY="182.0" text="Password:" />
+                <Label fx:id="lbConfirmPassword" layoutX="29.0" layoutY="216.0" text="Confirm Password:" />
+                <Button fx:id="btnRegister" layoutX="300.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#register" style="-fx-background-color: #BDACCF;" text="Register New User" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                    <font>
+                        <Font name="Copperplate Gothic Bold" size="12.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="name" layoutX="152.0" layoutY="69.0" promptText="First Name" />
+                <TextField fx:id="username" layoutX="152.0" layoutY="141.0" promptText="Username" />
+                <TextField fx:id="molPhone" layoutX="420.0" layoutY="105.0" promptText="MOL Phone" />
+                <TextField fx:id="mol" layoutX="420.0" layoutY="69.0" promptText="MOL Name" />
+                <PasswordField fx:id="passFPassword" layoutX="152.0" layoutY="178.0" promptText="Password" />
+                <PasswordField fx:id="passFConfirmPassword" layoutX="152.0" layoutY="212.0" promptText="Confirm Password" />
+                <Label fx:id="lblUIC" layoutX="366.0" layoutY="145.0" text="UIC:" textAlignment="RIGHT" />
+                <TextField fx:id="uic" layoutX="423.0" layoutY="140.0" promptText="UIC" />
+                <Button fx:id="btnCancel" layoutX="219.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#backToLogIn" style="-fx-background-color: #BDACCF;" text="Cancel" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                    <font>
+                        <Font name="Copperplate Gothic Bold" size="12.0" />
+                    </font>
+                </Button>
+            <Label fx:id="lbResult" layoutX="20.0" layoutY="366.0" />
+            <ChoiceBox fx:id="role" layoutX="152.0" layoutY="105.0" prefHeight="26.0" prefWidth="148.0" />
+            <Label fx:id="lblFee" layoutX="366.0" layoutY="183.0" text="Fee:" textAlignment="RIGHT" />
+            <TextField fx:id="fee" layoutX="423.0" layoutY="178.0" promptText="Fee" />
+            <Label fx:id="lbKeyFP" layoutX="18.0" layoutY="251.0" text="Key Forgot Password:" />
+            <TextField fx:id="txtKeyFP" layoutX="152.0" layoutY="247.0" promptText="Key Forgot Password" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
