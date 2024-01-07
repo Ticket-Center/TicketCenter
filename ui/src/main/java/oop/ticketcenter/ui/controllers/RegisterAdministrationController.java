@@ -98,6 +98,7 @@ public class RegisterAdministrationController {
     public void initialize() {
         ObservableList<String> listRoles = FXCollections.observableArrayList();
         listRoles.addAll(Arrays.stream(Roles.values()).map(value -> value.name()).toList());
+        listRoles.removeAll(Roles.ADMIN.name(), Roles.CLIENT.name());
         role.setItems(listRoles);
 
         uic.setVisible(false);
