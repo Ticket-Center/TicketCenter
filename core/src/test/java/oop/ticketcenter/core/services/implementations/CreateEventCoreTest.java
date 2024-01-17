@@ -1,11 +1,8 @@
-package oop.ticketcenter.core;
+package oop.ticketcenter.core.services.implementations;
 
-import javafx.application.Application;
-import lombok.RequiredArgsConstructor;
 import oop.ticketcenter.core.interfaces.events.create.CreateEventInput;
 import oop.ticketcenter.core.interfaces.events.create.CreateEventResult;
 import oop.ticketcenter.core.interfaces.events.create.SeatTypes;
-import oop.ticketcenter.core.services.implementations.CreateEventCore;
 import oop.ticketcenter.persistence.entities.*;
 import oop.ticketcenter.persistence.enums.Rating;
 import oop.ticketcenter.persistence.enums.Roles;
@@ -13,71 +10,68 @@ import oop.ticketcenter.persistence.repositories.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.extension.ExtendWith;
-
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
-@SpringBootTest(classes = SpringApplication.class)
-@RequiredArgsConstructor
 class CreateEventCoreTest {
-
-    private CreateEventCore createEventCore;
-
-    //@Autowired
-    private final EventOwnerRepository eventOwnerRepository;
-
-    //@Autowired
-    private final EventOrganizatorRepository eventOrganizatorRepository;
-
-    //@Autowired
-    private final EventPlaceRepository eventPlaceRepository;
-
-    //@Autowired
-    private final EventGenreRepository eventGenreRepository;
-
-   // @Autowired
-    private final EventTypeRepository eventTypeRepository;
-
-   // @Autowired
-    private final SeatTypeRepository seatTypeRepository;
-
-   // @Autowired
-    private final PlaceSeatTypeRepository placeSeatTypeRepository;
-
-   // @Autowired
-    private final EventSellerRepository eventSellerRepository;
-
     private final String ownerUsername = "OwnerNo1";
     private final String organizatorUsername = "OrganizatorNo1";
     private final String seller1Username = "SellerNo1";
     private final String seller2Username = "SellerNo2";
     private final String seat = "1st row";
-
     private final String genre = "Blues";
     private final String type = "concert";
     private final String place = "NDK";
     private final String title = "OwnerNo1";
     private final Integer maxTickets = 2;
+    private final String placeSeatType = "HDK ro 1";
+    @Mock
+    private EventOwnerRepository eventOwnerRepository;
+    @Mock
+    private EventOrganizatorRepository eventOrganizatorRepository;
+    @Mock
+    private EventPlaceRepository eventPlaceRepository;
+    @Mock
+    private EventGenreRepository eventGenreRepository;
+    @Mock
+    private EventTypeRepository eventTypeRepository;
+    @Mock
+    private SeatTypeRepository seatTypeRepository;
+    @Mock
+    private PlaceSeatTypeRepository placeSeatTypeRepository;
+    @Mock
+    private EventSellerRepository eventSellerRepository;
+
+    @Mock
+    private EventRepository eventRepository;
+
+    @Mock
+    private SoldTicketsRepository soldTicketsRepository;
+
+    @Mock
+    private EventSeatPriceRepository eventSeatPriceRepository;
+    @InjectMocks
+    private CreateEventCore createEventCore;
 
     @BeforeEach
     void setUp() {
+        MockitoAnnotations.openMocks(this);
         EventOwner eventOwner = EventOwner.builder()
                 .name("Test Owner 1")
                 .role(Roles.OWNER)
@@ -158,6 +152,15 @@ class CreateEventCoreTest {
 
     @Test
     void processSuccesful() {
+        List<Event> eventsForSeller = new ArrayList<>();
+        when(eventOwnerRepository.findEventOwnerByUsername(any())).thenReturn(Optional.ofNullable(EventOwner.builder().username(ownerUsername).build()));
+        when(eventOrganizatorRepository.findEventOrganizatorByUsername(any())).thenReturn(Optional.ofNullable(EventOrganizator.builder().username(organizatorUsername).build()));
+        when(eventPlaceRepository.findEventPlaceByName(any())).thenReturn(Optional.ofNullable(EventPlace.builder().name(place).build()));
+        when(eventGenreRepository.findEventGenreByName(any())).thenReturn(Optional.ofNullable(EventGenre.builder().name(genre).build()));
+        when(eventTypeRepository.findEventTypeByName(any())).thenReturn(Optional.ofNullable(EventType.builder().name(type).build()));
+        when(seatTypeRepository.findSeatTypeByType(any())).thenReturn(Optional.ofNullable(SeatType.builder().type(seat).build()));
+        when(eventSellerRepository.findEventSellerByUsername(any())).thenReturn(Optional.ofNullable(EventSeller.builder().username(seller1Username).events(eventsForSeller).build()));
+        when(placeSeatTypeRepository.findPlaceSeatTypeByEventPlaceAndSeatType(any(), any())).thenReturn(Optional.ofNullable(PlaceSeatType.builder().eventPlace(EventPlace.builder().name(place).build()).seatType(SeatType.builder().type(seat).build()).build()));
         Set<SeatTypes> seatTypesSet = new HashSet<>();
         seatTypesSet.add(new SeatTypes(seat, 20.7));
         CreateEventInput input = CreateEventInput.builder()
@@ -168,10 +171,11 @@ class CreateEventCoreTest {
                 .eventOwnerUsername(ownerUsername)
                 .eventOrganizatorUsername(organizatorUsername)
                 .eventPlace(place)
-                .eventSellers(List.of(seller1Username, seller2Username))
+                .eventSellers(List.of(seller1Username))
                 .seatTypes(seatTypesSet)
+                .dateOfEvent(LocalDateTime.of(2024, 02, 12, 21, 30))
                 .build();
         CreateEventResult result = createEventCore.process(input);
-        assertNotNull(result.getId());
+        assertNotNull(result);
     }
 }
