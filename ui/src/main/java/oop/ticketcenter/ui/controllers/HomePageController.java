@@ -5,11 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import oop.ticketcenter.core.exceptions.FilterByDateException;
+import oop.ticketcenter.core.interfaces.events.filter.bydate.FilterEventByDate;
+import oop.ticketcenter.core.interfaces.events.filter.bydate.FilterEventByDateInput;
+import oop.ticketcenter.core.interfaces.events.filter.bydate.FilterEventByDateResult;
 import oop.ticketcenter.core.interfaces.users.logout.Logout;
 import oop.ticketcenter.core.interfaces.users.logout.LogoutInput;
 import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
@@ -44,6 +49,9 @@ public class HomePageController {
     private Button btnEvents;
 
     @FXML
+    private Button btnFilter;
+
+    @FXML
     private Button btnLogOut;
 
     @FXML
@@ -56,6 +64,9 @@ public class HomePageController {
     private Label lbName;
 
     @FXML
+    private Label wrongInput;
+
+    @FXML
     private VBox navigationBar;
 
     @FXML
@@ -63,6 +74,12 @@ public class HomePageController {
 
     @FXML
     private VBox vboxTicket;
+
+    @FXML
+    private DatePicker startDate;
+
+    @FXML
+    private DatePicker endDate;
 
     @Autowired
     private Logout logout;
@@ -74,16 +91,22 @@ public class HomePageController {
     private GetTicketInfo getTicketInfo;
 
     @Autowired
+    private FilterEventByDate filterEventByDate;
+
+    private Set<Event> events;
+
+    @Autowired
     private Notifications notifications;
 
     @FXML
     public void initialize() {
         visibilityForButtons();
-        updateTicketGrid();
         if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.SELLER) ||
                 ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER)) {
             showNotifications();
         }
+        events = eventsVisibleByRole();
+        updateTicketGrid(events);
     }
 
     private void visibilityForButtons() {
@@ -99,14 +122,8 @@ public class HomePageController {
     }
 
 
+    private void updateTicketGrid(Set<Event> events) {
     private void updateTicketGrid() {
-        Set<Event> events = switch (ActiveUserSingleton.getInstance().getUserRole()) {
-            case OWNER -> filterEventsForOwner();
-            case SELLER -> getEvents.fetchEventsBySeller(ActiveUserSingleton.getInstance().getUsername());
-            case ORGANIZER -> filterEventsForOrganizer();
-            default -> getEvents.fetchAllEvents();
-        };
-
         Set<EventSeatPrice> ticketsInfo = getTicketInfo.fetchAllEventSeatPrice();
 
         int row = 1;
@@ -129,6 +146,16 @@ public class HomePageController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private Set<Event> eventsVisibleByRole() {
+        Set<Event> events = switch (ActiveUserSingleton.getInstance().getUserRole()) {
+            case OWNER -> filterEventsForOwner();
+            case SELLER -> getEvents.fetchEventsBySeller(ActiveUserSingleton.getInstance().getUsername());
+            case ORGANIZER -> filterEventsForOrganizer();
+            default -> getEvents.fetchAllEvents();
+        };
+        return events;
     }
 
     private Set<Event> filterEventsForOwner() {
@@ -178,5 +205,26 @@ public class HomePageController {
     @FXML
     public void goToUsers() throws IOException {
         SceneSwitcher.switchScene((Stage) btnUsers.getScene().getWindow(), FXMLPaths.USER_PAGE.getPath());
+    }
+
+    @FXML
+    void filterevents() {
+        try {
+            ticketGrid.getChildren().clear();
+            wrongInput.setText("");
+            if (endDate.getValue().isBefore(startDate.getValue())) {
+                throw new FilterByDateException("End date should be in the future");
+            }
+            FilterEventByDateInput input = FilterEventByDateInput.builder()
+                    .startDate(startDate.getValue())
+                    .endDate(endDate.getValue())
+                    .events(events)
+                    .build();
+
+            FilterEventByDateResult result = filterEventByDate.process(input);
+            updateTicketGrid(result.getEvents());
+        } catch (RuntimeException e) {
+            wrongInput.setText(e.getMessage());
+        }
     }
 }

@@ -31,4 +31,6 @@ public class EventOwner {
     @Length(max = 20, message = "Username must be less than {max} symbols")
     private String username;
 
+    private String passwordKey;
+
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.ticketcenter.ui.controllers.RegisterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.ticketcenter.ui.controllers.RegisterController">
     <left>
         <AnchorPane prefHeight="258.0" prefWidth="80.0" style="-fx-background-color: #8553AC;" BorderPane.alignment="CENTER">
             <children>
@@ -37,7 +37,7 @@
                 <Label fx:id="lbUsername" layoutX="119.0" layoutY="146.0" text="Username:" AnchorPane.rightAnchor="294.4" />
                 <Label fx:id="lbPassword" layoutX="122.0" layoutY="184.0" text="Password:" AnchorPane.rightAnchor="294.4" />
                 <Label fx:id="lbConfirmPassword" layoutX="77.0" layoutY="218.0" text="Confirm Password:" AnchorPane.rightAnchor="294.4" />
-                <Button fx:id="btnRegister" layoutX="300.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#register" style="-fx-background-color: #BDACCF;" text="Register New User" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                <Button fx:id="btnRegister" layoutX="299.0" layoutY="384.0" mnemonicParsing="false" onMouseClicked="#register" style="-fx-background-color: #BDACCF;" text="Register New User" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                     <font>
                         <Font name="Copperplate Gothic Bold" size="12.0" />
                     </font>
@@ -51,12 +51,12 @@
                 <PasswordField fx:id="passFConfirmPassword" layoutX="199.0" layoutY="214.0" promptText="Confirm Password" AnchorPane.leftAnchor="199.0" />
                 <Label fx:id="lbKeyFP" layoutX="62.0" layoutY="325.0" text="Key Forgot Password:" AnchorPane.rightAnchor="294.0" />
                 <TextField fx:id="txtKeyFP" layoutX="199.0" layoutY="321.0" promptText="Key Forgot Password" AnchorPane.leftAnchor="199.0" />
-                <Button fx:id="btnCancel" layoutX="219.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#backToLogIn" style="-fx-background-color: #BDACCF;" text="Cancel" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                <Button fx:id="btnCancel" layoutX="218.0" layoutY="384.0" mnemonicParsing="false" onMouseClicked="#backToLogIn" style="-fx-background-color: #BDACCF;" text="Cancel" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                     <font>
                         <Font name="Copperplate Gothic Bold" size="12.0" />
                     </font>
                 </Button>
-            <Label fx:id="lbResult" layoutX="20.0" layoutY="366.0" />
+            <Label fx:id="lbResult" layoutX="20.0" layoutY="355.0" prefHeight="18.0" prefWidth="422.0" textFill="RED" />
             </children>
         </AnchorPane>
     </center>

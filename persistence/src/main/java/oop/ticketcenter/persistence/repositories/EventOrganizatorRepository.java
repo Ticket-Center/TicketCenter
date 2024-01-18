@@ -9,5 +9,6 @@ import java.util.UUID;
 public interface EventOrganizatorRepository extends JpaRepository<EventOrganizator, UUID> {
 
     Optional<EventOrganizator> findEventOrganizatorByUsernameAndPassword(String username, String password);
+    Optional<EventOrganizator> findEventOrganizatorByUsernameAndPasswordKey(String username, String passkey);
     Optional<EventOrganizator> findEventOrganizatorByUsername(String username);
 }
