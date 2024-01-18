@@ -123,7 +123,6 @@ public class HomePageController {
 
 
     private void updateTicketGrid(Set<Event> events) {
-    private void updateTicketGrid() {
         Set<EventSeatPrice> ticketsInfo = getTicketInfo.fetchAllEventSeatPrice();
 
         int row = 1;
