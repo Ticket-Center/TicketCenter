@@ -33,5 +33,5 @@ module core {
     opens oop.ticketcenter.core.services.helpers to spring.beans, spring.core;
     opens oop.ticketcenter.core.services.implementations to spring.beans;
     exports oop.ticketcenter.core.interfaces.administration.edit;
-    exports oop.ticketcenter.core.validator;
+    exports oop.ticketcenter.core.validators;
 }

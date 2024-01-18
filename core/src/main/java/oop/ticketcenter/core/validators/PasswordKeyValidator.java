@@ -1,12 +1,13 @@
-package oop.ticketcenter.core.validator;
+package oop.ticketcenter.core.validators;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class PasswordValidator implements InputValidator<String>{
-    private static final int MIN_LENGTH = 8;
+public class PasswordKeyValidator implements InputValidator<String> {
+
+    private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 255;
 
     @Override

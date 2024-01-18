@@ -11,7 +11,7 @@ import oop.ticketcenter.core.exceptions.UserAlreadyExistsException;
 import oop.ticketcenter.core.interfaces.users.register.RegisterInput;
 import oop.ticketcenter.core.interfaces.users.register.RegisterResult;
 import oop.ticketcenter.core.services.implementations.RegisterCore;
-import oop.ticketcenter.core.validator.*;
+import oop.ticketcenter.core.validators.*;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,39 +112,28 @@ public class RegisterController {
                 .address(txtFAddress.getText())
                 .passwordKey(txtKeyFP.getText())
                 .build();
-        if (!lengthNameValidator.isValid(input.getFirstName())){
-            lbResult.setText("First name should be between 1 and 60 characters");
-            return;
-        }
-        if (!lengthNameValidator.isValid(input.getLastName())){
-            lbResult.setText("Last name should be between 1 and 60 characters");
-            return;
-        }
-        if (!lengthNameValidator.isValid(input.getUsername())){
-            lbResult.setText("Username should be between 1 and 60 characters");
-            return;
-        }
-        if(!passwordValidator.isValid(input.getPassword())){
-            lbResult.setText("Password should be between 8 and 255 characters");
-            return;
-        }
-        if(!phoneValidator.isValid(input.getPhone())){
-            lbResult.setText("Phone should be 10 digits");
-            return;
-        }
-        if(!addressValidator.isValid(input.getAddress())){
-            lbResult.setText("Address should be between 1 and 100 characters");
-            return;
-        }
-        if(!passwordKeyValidator.isValid(input.getPasswordKey())){
-            lbResult.setText("Password key should be between 1 and 255 characters");
-            return;
-        }
-        try{
+        validateAndSetResult(lengthNameValidator.isValid(input.getFirstName()), "First name should be between 1 and 60 characters");
+        validateAndSetResult(lengthNameValidator.isValid(input.getLastName()), "Last name should be between 1 and 60 characters");
+        validateAndSetResult(lengthNameValidator.isValid(input.getUsername()), "Username should be between 1 and 60 characters");
+        validateAndSetResult(passwordValidator.isValid(input.getPassword()), "Password should be between 8 and 255 characters");
+        validateAndSetResult(passwordValidator.isValid(input.getConfirmPassword()), "Confirm Password should be between 8 and 255 characters");
+        validateAndSetResult(phoneValidator.isValid(input.getPhone()), "Phone should be 10 digits");
+        validateAndSetResult(addressValidator.isValid(input.getAddress()), "Address should be between 1 and 100 characters");
+        validateAndSetResult(passwordKeyValidator.isValid(input.getPasswordKey()), "Password key should be between 1 and 255 characters");
+
+        try {
             RegisterResult result = register.process(input);
             lbResult.setText(result.getStr());
-        }catch(UserAlreadyExistsException | IncorrectInputException e){
+            SceneSwitcher.switchScene((Stage) btnRegister.getScene().getWindow() , FXMLPaths.LOGIN_FORM.getPath());
+        } catch (UserAlreadyExistsException | IncorrectInputException e) {
             lbResult.setText(e.getMessage());
+        }
+    }
+
+    private void validateAndSetResult(boolean isValid, String errorMessage) {
+        if (!isValid) {
+            lbResult.setText(errorMessage);
+            throw new IncorrectInputException(errorMessage);
         }
     }
 
