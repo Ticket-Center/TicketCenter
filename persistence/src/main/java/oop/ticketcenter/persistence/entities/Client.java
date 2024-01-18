@@ -2,8 +2,8 @@ package oop.ticketcenter.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
 import oop.ticketcenter.persistence.enums.Roles;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
 import java.util.UUID;
