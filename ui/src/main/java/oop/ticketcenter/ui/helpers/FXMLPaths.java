@@ -15,7 +15,9 @@ public enum FXMLPaths {
     EDIT_ADMINISTRATION("/fxmls/editAdministration.fxml"),
     TICKET("/fxmls/ticket.fxml"),
     USER_PAGE("/fxmls/userPage.fxml"),
-    USER("/fxmls/user.fxml");
+    USER("/fxmls/user.fxml"),
+    SELLER_PAGE("/fxmls/sellerPage.fxml"),
+    EDIT_RATING_SELLER("/fxmls/editRatingSeller.fxml");
 
     private final String path;
 

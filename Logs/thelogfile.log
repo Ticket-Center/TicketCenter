@@ -294,3 +294,46 @@
 2024-01-07 12:50:26 INFO  LoginController:64 - Successful logging in
 2024-01-07 12:51:18 INFO  JavaFxApplication:43 - Ended application
 
+2024-01-19 14:20:19 INFO  JavaFxApplication:51 - Started application
+2024-01-19 14:21:02 ERROR LoginController:67 - User with this credentials not found
+2024-01-19 14:21:23 INFO  LoginController:64 - Successful logging in
+2024-01-19 14:21:43 INFO  JavaFxApplication:43 - Ended application
+2024-01-19 14:22:43 INFO  JavaFxApplication:51 - Started application
+2024-01-19 14:22:51 INFO  LoginController:64 - Successful logging in
+2024-01-19 14:23:30 INFO  JavaFxApplication:43 - Ended application
+2024-01-19 14:36:54 INFO  JavaFxApplication:51 - Started application
+2024-01-19 14:37:01 INFO  LoginController:64 - Successful logging in
+2024-01-19 14:37:10 INFO  LoginController:64 - Successful logging in
+2024-01-19 14:37:18 INFO  LoginController:64 - Successful logging in
+2024-01-19 14:37:26 INFO  LoginController:64 - Successful logging in
+2024-01-19 14:37:35 INFO  LoginController:64 - Successful logging in
+2024-01-19 14:37:46 INFO  JavaFxApplication:43 - Ended application
+2024-01-19 15:27:00 INFO  JavaFxApplication:51 - Started application
+2024-01-19 15:27:06 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:29:13 ERROR LoginController:67 - User with this credentials not found
+2024-01-19 15:29:17 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:30:10 ERROR LoginController:67 - User with this credentials not found
+2024-01-19 15:30:17 ERROR LoginController:67 - User with this credentials not found
+2024-01-19 15:30:28 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:31:30 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:32:20 INFO  JavaFxApplication:43 - Ended application
+2024-01-19 15:35:21 INFO  JavaFxApplication:51 - Started application
+2024-01-19 15:35:28 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:36:30 INFO  JavaFxApplication:43 - Ended application
+2024-01-19 15:50:41 INFO  JavaFxApplication:51 - Started application
+2024-01-19 15:50:49 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:51:18 INFO  JavaFxApplication:43 - Ended application
+2024-01-19 15:52:02 INFO  JavaFxApplication:51 - Started application
+2024-01-19 15:52:10 ERROR LoginController:67 - User with this credentials not found
+2024-01-19 15:52:15 ERROR LoginController:67 - User with this credentials not found
+2024-01-19 15:52:27 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:57:05 INFO  JavaFxApplication:51 - Started application
+2024-01-19 15:57:11 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:57:27 INFO  JavaFxApplication:43 - Ended application
+2024-01-19 15:57:54 INFO  JavaFxApplication:51 - Started application
+2024-01-19 15:58:00 INFO  LoginController:64 - Successful logging in
+2024-01-19 15:58:09 INFO  JavaFxApplication:43 - Ended application
+2024-01-19 16:00:12 INFO  JavaFxApplication:51 - Started application
+2024-01-19 16:00:17 INFO  LoginController:64 - Successful logging in
+2024-01-19 16:01:08 INFO  LoginController:64 - Successful logging in
+2024-01-19 16:01:20 INFO  JavaFxApplication:43 - Ended application

@@ -79,6 +79,9 @@ public class HomePageController {
     @FXML
     private DatePicker endDate;
 
+    @FXML
+    private Button btnSellers;
+
     @Autowired
     private Logout logout;
 
@@ -108,6 +111,9 @@ public class HomePageController {
             btnCreate.setVisible(false);
             btnEdit.setVisible(false);
             btnDelete.setVisible(false);
+        }
+        if(!(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ORGANIZER) || ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER))){
+            btnSellers.setVisible(false);
         }
         lbName.setText(ActiveUserSingleton.getInstance().getUsername());
     }
@@ -185,6 +191,11 @@ public class HomePageController {
     @FXML
     public void goToUsers() throws IOException {
         SceneSwitcher.switchScene((Stage) btnUsers.getScene().getWindow(), FXMLPaths.USER_PAGE.getPath());
+    }
+
+    @FXML
+    public void goToSellers() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnSellers.getScene().getWindow(), FXMLPaths.SELLER_PAGE.getPath());
     }
 
     @FXML

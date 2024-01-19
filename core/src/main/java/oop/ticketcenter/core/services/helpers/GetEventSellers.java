@@ -5,10 +5,7 @@ import oop.ticketcenter.persistence.entities.EventSeller;
 import oop.ticketcenter.persistence.repositories.EventSellerRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
@@ -29,5 +26,9 @@ public class GetEventSellers {
         allSellers.clear();
         allSellers.addAll(eventSellerRepository.findAll());
         return allSellers;
+    }
+
+    public Set<EventSeller> getSellersByEventIds(Set<UUID> eventIds) {
+        return eventSellerRepository.findByEvents_IdIn(eventIds);
     }
 }
