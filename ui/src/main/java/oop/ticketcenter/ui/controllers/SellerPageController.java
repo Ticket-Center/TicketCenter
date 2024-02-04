@@ -3,6 +3,8 @@ package oop.ticketcenter.ui.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -65,14 +67,27 @@ public class SellerPageController {
     @Autowired
     private GetEvents getEvents;
 
+    private Set<EventSeller> retrievedSellers;
     @FXML
     void editSeller() throws IOException {
-        SceneSwitcher.switchScene((Stage) btnEdit.getScene().getWindow(), FXMLPaths.EDIT_RATING_SELLER.getPath());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPaths.EDIT_RATING_SELLER.getPath()));
+        Parent root = loader.load();
+        EditRatingSellerController editRatingSellerController = loader.getController();
+        editRatingSellerController.setSellers(retrievedSellers);
+
+        Stage stage = (Stage) btnEdit.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        // Even though we have a SceneSwitcher tool, we're using FXMLLoader directly here.
+        // It's simpler this way because passing the Parent root to the SceneSwitcher is tricky in this case.
+        // So, we're just doing it manually to make sure everything runs smoothly.
     }
 
     @FXML
     public void goToEvent() throws IOException {
         SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.HOME_PAGE.getPath());
+
     }
 
     @FXML
@@ -96,6 +111,7 @@ public class SellerPageController {
         }
         sellers=eventSellers.getSellersByEventIds(eventsId);
         updateSellerGrid(sellers);
+        retrievedSellers=sellers;
     }
 
     private void updateSellerGrid(Set<EventSeller> sellers){

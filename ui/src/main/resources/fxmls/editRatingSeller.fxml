@@ -30,7 +30,7 @@
                      </font>
                   </Button>
                   <AnchorPane layoutX="9.0" layoutY="101.0" />
-                  <Label fx:id="wrongInput" layoutX="124.0" layoutY="51.0" prefHeight="18.0" prefWidth="177.0" />
+                  <Label fx:id="wrongInput" layoutX="27.0" layoutY="51.0" prefHeight="46.0" prefWidth="454.0" />
                   <Label fx:id="lbSeller" layoutX="86.0" layoutY="105.0" text="Seller" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="356.4">
                      <font>
                         <Font name="Copperplate Gothic Bold" size="14.0" />
