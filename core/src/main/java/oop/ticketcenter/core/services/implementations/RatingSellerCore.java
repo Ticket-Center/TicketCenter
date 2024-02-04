@@ -30,7 +30,9 @@ public class RatingSellerCore implements RatingSeller {
         double currentRatingValue = currentRating.getValue();
         double newRatingValue = newRating.getValue();
         double averageRatingValue = (currentRatingValue + newRatingValue) / 2.0;
-        int roundedAverageRatingValue = (int) Math.round(averageRatingValue);
+
+        double roundedAverageRatingValue = Math.round(averageRatingValue * 2) / 2.0;
+
         return Rating.getByValue(roundedAverageRatingValue);
     }
 }

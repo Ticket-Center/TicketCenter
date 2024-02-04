@@ -22,6 +22,10 @@ public enum Rating {
             if (rating.getValue() == value) {
                 return rating;
             }
+            else{
+                if(value<1) return Rating.ONE_STAR;
+                else if(value>5) return Rating.FIVE_STARS;
+            }
         }
         throw new IllegalArgumentException("No rating found with value: " + value);
     }
