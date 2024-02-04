@@ -35,22 +35,22 @@
                      <center>
                         <VBox id="navigation" fx:id="navigationBar" prefHeight="350.0" prefWidth="158.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label fx:id="lbName" alignment="CENTER" prefHeight="50.0" prefWidth="150.0" text="Name" textAlignment="CENTER" textFill="WHITE">
+                              <Label fx:id="lbName" alignment="CENTER" prefHeight="50.0" prefWidth="159.0" text="Name" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="13.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #8553AC;" text="Profile" textFill="WHITE">
+                              <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#goToProfile" prefHeight="50.0" prefWidth="159.0" style="-fx-background-color: #8553AC;" text="Profile" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnEvents" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#goToEvent" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #8553AC;" text="Events" textFill="WHITE">
+                              <Button fx:id="btnEvents" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#goToEvent" prefHeight="50.0" prefWidth="159.0" style="-fx-background-color: #8553AC;" text="Events" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnUsers" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #8553AC;" text="Users" textFill="WHITE">
+                              <Button fx:id="btnUsers" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="159.0" style="-fx-background-color: #8553AC;" text="Users" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="13.0" />
                                  </font>

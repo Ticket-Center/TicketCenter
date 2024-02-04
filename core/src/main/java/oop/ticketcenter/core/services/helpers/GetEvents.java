@@ -18,6 +18,8 @@ public class GetEvents {
     private final EventGenreRepository eventGenreRepository;
     private final EventPlaceRepository eventPlaceRepository;
     private final EventSellerRepository eventSellerRepository;
+    private final EventOwnerRepository eventOwnerRepository;
+    private final EventOrganizatorRepository eventOrganizatorRepository;
 
     @Getter
     private final Set<Event> events = new HashSet<>();
@@ -47,7 +49,6 @@ public class GetEvents {
                     .filter(event -> !event.getIsArchived())
                     .collect(Collectors.toSet());
 
-            // Set the names for the associated types, genres, and places
             setEventsTypeName(sellerEvents);
             setEventsGenreName(sellerEvents);
             setEventsPlaceName(sellerEvents);
@@ -87,4 +88,30 @@ public class GetEvents {
             }
         }
     }
+    public Set<UUID> fetchEventIdByOwner(String ownerUsername) {
+        Optional<EventOwner> eventOwnerOpt = eventOwnerRepository.findEventOwnerByUsername(ownerUsername);
+
+        if (eventOwnerOpt.isPresent()) {
+            EventOwner eventOwner = eventOwnerOpt.get();
+            return eventRepository.findByEventOwner(eventOwner).stream()
+                    .filter(event -> !event.getIsArchived())
+                    .map(Event::getId)
+                    .collect(Collectors.toSet());
+        }
+        return Collections.emptySet();
+    }
+
+    public Set<UUID> fetchEventIdByOrganizator(String organizatorUsername) {
+        Optional<EventOrganizator> eventOrganizatorOpt = eventOrganizatorRepository.findEventOrganizatorByUsername(organizatorUsername);
+
+        if (eventOrganizatorOpt.isPresent()) {
+            EventOrganizator eventOrganizator = eventOrganizatorOpt.get();
+            return eventRepository.findByEventOrganizator(eventOrganizator).stream()
+                    .filter(event -> !event.getIsArchived())
+                    .map(Event::getId)
+                    .collect(Collectors.toSet());
+        }
+        return Collections.emptySet();
+    }
+
 }

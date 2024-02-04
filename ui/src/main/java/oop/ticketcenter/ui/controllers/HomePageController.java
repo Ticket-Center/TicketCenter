@@ -81,6 +81,9 @@ public class HomePageController {
     @FXML
     private DatePicker endDate;
 
+    @FXML
+    private Button btnSellers;
+
     @Autowired
     private Logout logout;
 
@@ -117,6 +120,9 @@ public class HomePageController {
             btnCreate.setVisible(false);
             btnEdit.setVisible(false);
             btnDelete.setVisible(false);
+        }
+        if(!(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ORGANIZER) || ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER))){
+            btnSellers.setVisible(false);
         }
         lbName.setText(ActiveUserSingleton.getInstance().getUsername());
     }
@@ -207,6 +213,11 @@ public class HomePageController {
     }
 
     @FXML
+    public void goToSellers() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnSellers.getScene().getWindow(), FXMLPaths.SELLER_PAGE.getPath());
+    }
+
+    @FXML
     void filterevents() {
         try {
             ticketGrid.getChildren().clear();
@@ -225,5 +236,9 @@ public class HomePageController {
         } catch (RuntimeException e) {
             wrongInput.setText(e.getMessage());
         }
+    }
+
+    public void goToProfile() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnProfile.getScene().getWindow(), FXMLPaths.PROFILE_PAGE.getPath());
     }
 }
