@@ -1,13 +1,32 @@
 package oop.ticketcenter.persistence.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum Rating {
-    ONE_STAR,
-    ONE_STAR_AND_HALF,
-    TWO_STARS,
-    TWO_STARS_AND_HALF,
-    THREE_STARS,
-    THREE_STARS_AND_HALF,
-    FOUR_STARS,
-    FOUR_STARS_AND_HALF,
-    FIVE_STARS
+    ONE_STAR(1),
+    ONE_STAR_AND_HALF(1.5),
+    TWO_STARS(2),
+    TWO_STARS_AND_HALF(2.5),
+    THREE_STARS(3),
+    THREE_STARS_AND_HALF(3.5),
+    FOUR_STARS(4),
+    FOUR_STARS_AND_HALF(4.5),
+    FIVE_STARS(5);
+
+    private final double value;
+    public static Rating getByValue(double value) {
+        for (Rating rating : values()) {
+            if (rating.getValue() == value) {
+                return rating;
+            }
+            else{
+                if(value<1) return Rating.ONE_STAR;
+                else if(value>5) return Rating.FIVE_STARS;
+            }
+        }
+        throw new IllegalArgumentException("No rating found with value: " + value);
+    }
 }

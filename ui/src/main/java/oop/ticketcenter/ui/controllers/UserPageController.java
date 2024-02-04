@@ -12,10 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import oop.ticketcenter.core.interfaces.users.logout.Logout;
 import oop.ticketcenter.core.interfaces.users.logout.LogoutInput;
-import oop.ticketcenter.core.services.helpers.GetClients;
-import oop.ticketcenter.core.services.helpers.GetEventOrganizators;
-import oop.ticketcenter.core.services.helpers.GetEventOwners;
-import oop.ticketcenter.core.services.helpers.GetEventSellers;
+import oop.ticketcenter.core.services.helpers.*;
 import oop.ticketcenter.persistence.entities.Client;
 import oop.ticketcenter.persistence.entities.EventOrganizator;
 import oop.ticketcenter.persistence.entities.EventOwner;
@@ -106,6 +103,7 @@ public class UserPageController {
         @FXML
         public void initialize() {
                 loadUsers();
+                lbName.setText(ActiveUserSingleton.getInstance().getUsername());
         }
 
         private void loadUsers() {
@@ -137,5 +135,8 @@ public class UserPageController {
                                 e.printStackTrace();
                         }
                 }
+        }
+        public void goToProfile() throws IOException {
+                SceneSwitcher.switchScene((Stage) btnProfile.getScene().getWindow(), FXMLPaths.PROFILE_PAGE.getPath());
         }
 }
