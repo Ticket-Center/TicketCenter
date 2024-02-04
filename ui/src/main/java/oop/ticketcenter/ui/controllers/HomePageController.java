@@ -218,4 +218,8 @@ public class HomePageController {
             wrongInput.setText(e.getMessage());
         }
     }
+
+    public void goToProfile() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnProfile.getScene().getWindow(), FXMLPaths.PROFILE_PAGE.getPath());
+    }
 }

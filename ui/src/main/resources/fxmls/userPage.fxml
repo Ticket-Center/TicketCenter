@@ -40,7 +40,7 @@
                                     <Font name="Copperplate Gothic Bold" size="13.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="159.0" style="-fx-background-color: #8553AC;" text="Profile" textFill="WHITE">
+                              <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#goToProfile" prefHeight="50.0" prefWidth="159.0" style="-fx-background-color: #8553AC;" text="Profile" textFill="WHITE">
                                  <font>
                                     <Font name="Copperplate Gothic Bold" size="13.0" />
                                  </font>

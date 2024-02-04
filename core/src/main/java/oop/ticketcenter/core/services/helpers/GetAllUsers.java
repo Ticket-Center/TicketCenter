@@ -25,7 +25,7 @@ public class GetAllUsers {
         users.clear();
         users.addAll(eventOrganizatorRepository.findAll().stream().map(EventOrganizator::getUsername).toList());
         users.addAll(eventOwnerRepository.findAll().stream().map(EventOwner::getUsername).collect(Collectors.toSet()));
-        users.addAll(eventSellerRepository.findAll().stream().map(EventSeller::getUsername).collect(Collectors.toList()));
+        users.addAll(eventSellerRepository.findAll().stream().map(EventSeller::getUsername).toList());
         return users;
     }
 }

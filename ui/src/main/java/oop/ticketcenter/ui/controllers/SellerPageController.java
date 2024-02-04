@@ -133,4 +133,8 @@ public class SellerPageController {
             e.printStackTrace();
         }
     }
+
+    public void goToProfile() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnProfile.getScene().getWindow(), FXMLPaths.PROFILE_PAGE.getPath());
+    }
 }

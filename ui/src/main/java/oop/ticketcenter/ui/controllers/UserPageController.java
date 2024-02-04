@@ -136,4 +136,7 @@ public class UserPageController {
                         }
                 }
         }
+        public void goToProfile() throws IOException {
+                SceneSwitcher.switchScene((Stage) btnProfile.getScene().getWindow(), FXMLPaths.PROFILE_PAGE.getPath());
+        }
 }
