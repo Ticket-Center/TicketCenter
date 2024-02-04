@@ -137,6 +137,9 @@ public class ProfilePageController {
     private void initialize(){
         visibilityForControls();
         populateUserProfileInformation();
+        if(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)){
+            updateTicketGrid();
+        }
     }
     private void visibilityForControls() {
         if (!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN)) {
@@ -256,14 +259,18 @@ public class ProfilePageController {
         return false;
     }
 
+    private void updateTicketGrid(){
+
+    }
+
     @FXML
     void editUser() {
 
     }
 
     @FXML
-    void newPassword() {
-
+    void newPassword() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnSellers.getScene().getWindow(), FXMLPaths.NEW_PASSWORD.getPath());
     }
 
     @FXML

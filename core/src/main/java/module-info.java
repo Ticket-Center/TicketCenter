@@ -34,5 +34,6 @@ module core {
     opens oop.ticketcenter.core.services.implementations to spring.beans;
     exports oop.ticketcenter.core.interfaces.administration.edit;
     exports oop.ticketcenter.core.validators;
-    exports oop.ticketcenter.core.interfaces.users.rating;
+    exports oop.ticketcenter.core.interfaces.administration.sellers.rating;
+    exports oop.ticketcenter.core.interfaces.users.changePassword;
 }

@@ -1,4 +1,4 @@
-package oop.ticketcenter.core.interfaces.users.rating;
+package oop.ticketcenter.core.interfaces.administration.sellers.rating;
 
 import oop.ticketcenter.core.interfaces.base.Processor;
 

@@ -2,9 +2,9 @@ package oop.ticketcenter.core.services.implementations;
 
 import lombok.RequiredArgsConstructor;
 import oop.ticketcenter.core.exceptions.UserNotFoundException;
-import oop.ticketcenter.core.interfaces.users.rating.RatingSeller;
-import oop.ticketcenter.core.interfaces.users.rating.RatingSellerInput;
-import oop.ticketcenter.core.interfaces.users.rating.RatingSellerResult;
+import oop.ticketcenter.core.interfaces.administration.sellers.rating.RatingSeller;
+import oop.ticketcenter.core.interfaces.administration.sellers.rating.RatingSellerInput;
+import oop.ticketcenter.core.interfaces.administration.sellers.rating.RatingSellerResult;
 import oop.ticketcenter.persistence.entities.EventSeller;
 import oop.ticketcenter.persistence.enums.Rating;
 import oop.ticketcenter.persistence.repositories.EventSellerRepository;

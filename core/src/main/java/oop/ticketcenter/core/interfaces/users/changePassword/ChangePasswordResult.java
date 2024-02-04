@@ -1,12 +1,14 @@
-package oop.ticketcenter.core.interfaces.users.rating;
+package oop.ticketcenter.core.interfaces.users.changePassword;
 
 import lombok.*;
 import oop.ticketcenter.core.interfaces.base.ProcessorResult;
+
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RatingSellerResult implements ProcessorResult {
+public class ChangePasswordResult implements ProcessorResult {
     private boolean successful;
+
 }
