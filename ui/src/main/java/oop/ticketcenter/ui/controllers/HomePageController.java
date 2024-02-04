@@ -3,6 +3,7 @@ package oop.ticketcenter.ui.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -19,6 +20,7 @@ import oop.ticketcenter.core.interfaces.users.logout.LogoutInput;
 import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.core.services.helpers.GetEvents;
 import oop.ticketcenter.core.services.helpers.GetTicketInfo;
+import oop.ticketcenter.core.services.helpers.Notifications;
 import oop.ticketcenter.persistence.entities.Event;
 import oop.ticketcenter.persistence.entities.EventSeatPrice;
 import oop.ticketcenter.persistence.enums.Roles;
@@ -96,9 +98,16 @@ public class HomePageController {
 
     private Set<Event> events;
 
+    @Autowired
+    private Notifications notifications;
+
     @FXML
     public void initialize() {
         visibilityForButtons();
+        if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.SELLER) ||
+                ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER)) {
+            showNotifications();
+        }
         events = eventsVisibleByRole();
         updateTicketGrid(events);
     }
@@ -120,7 +129,6 @@ public class HomePageController {
 
 
     private void updateTicketGrid(Set<Event> events) {
-
         Set<EventSeatPrice> ticketsInfo = getTicketInfo.fetchAllEventSeatPrice();
 
         int row = 1;
@@ -135,7 +143,7 @@ public class HomePageController {
                         .filter(ticket -> ticket.getEvent().getId().equals(event.getId()))
                         .collect(Collectors.toSet());
 
-                ticketController.setData(event, filteredTicketInfo);
+                ticketController.setData(event, filteredTicketInfo, notifications);
 
                 ticketGrid.add(box, 0, row++);
                 GridPane.setMargin(box, new Insets(10));
@@ -167,9 +175,20 @@ public class HomePageController {
                 .collect(Collectors.toSet());
     }
 
+    private void showNotifications() {
+        Set<String> notificationsSet = notifications.checkForNotifications(ActiveUserSingleton.getInstance().getActiveUser());
+        if (notificationsSet.isEmpty()) return;
+        notificationsSet.forEach(notific -> {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText(notific);
+            a.show();
+        });
+    }
+
     @FXML
     private void logoutuser() throws IOException {
         logout.process(new LogoutInput());
+        notifications.removeReceivedNotifications();
         SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.LOGIN_FORM.getPath());
     }
 

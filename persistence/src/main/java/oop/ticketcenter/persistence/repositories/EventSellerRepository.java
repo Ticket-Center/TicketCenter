@@ -15,6 +15,6 @@ public interface EventSellerRepository extends JpaRepository<EventSeller, UUID> 
     Optional<EventSeller> findEventSellerByUsername(String username);
 
     Set<EventSeller> findEventSellerByEvents(Event event);
-
     Set<EventSeller> findByEvents_IdIn(Collection<UUID> eventIds);
+
 }
