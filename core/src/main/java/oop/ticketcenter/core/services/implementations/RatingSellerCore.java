@@ -12,14 +12,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class EditRatingCore implements RatingSeller {
+public class RatingSellerCore implements RatingSeller {
     private final EventSellerRepository eventSellerRepository;
+
     @Override
     public RatingSellerResult process(RatingSellerInput input) {
-        EventSeller seller=eventSellerRepository.findEventSellerByUsername(input.getSellerName())
-                .orElseThrow(()->new UserNotFoundException("Seller with this username is not found"));
+        EventSeller seller = eventSellerRepository.findEventSellerByUsername(input.getSellerName())
+                .orElseThrow(() -> new UserNotFoundException("Seller with this username is not found"));
 
-        seller.setRating(calculateAverageRating(seller.getRating(),input.getRating()));
+        seller.setRating(calculateAverageRating(seller.getRating(), input.getRating()));
         eventSellerRepository.save(seller);
 
         return RatingSellerResult.builder().successful(true).build();
@@ -29,7 +30,7 @@ public class EditRatingCore implements RatingSeller {
         double currentRatingValue = currentRating.getValue();
         double newRatingValue = newRating.getValue();
         double averageRatingValue = (currentRatingValue + newRatingValue) / 2.0;
-        //int roundedAverageRatingValue = (int) Math.round(averageRatingValue);
-        return Rating.getByValue(averageRatingValue);
+        int roundedAverageRatingValue = (int) Math.round(averageRatingValue);
+        return Rating.getByValue(roundedAverageRatingValue);
     }
 }

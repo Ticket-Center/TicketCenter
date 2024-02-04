@@ -70,15 +70,16 @@ public class SellerPageController {
     private Set<EventSeller> retrievedSellers;
     @FXML
     void editSeller() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPaths.EDIT_RATING_SELLER.getPath()));
-        Parent root = loader.load();
-        EditRatingSellerController editRatingSellerController = loader.getController();
-        editRatingSellerController.setSellers(retrievedSellers);
-
-        Stage stage = (Stage) btnEdit.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPaths.EDIT_RATING_SELLER.getPath()));
+//        Parent root = loader.load();
+//        EditRatingSellerController editRatingSellerController = loader.getController();
+//        editRatingSellerController.setSellers(retrievedSellers);
+//
+//        Stage stage = (Stage) btnEdit.getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+        SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.EDIT_RATING_SELLER.getPath());
         // Even though we have a SceneSwitcher tool, we're using FXMLLoader directly here.
         // It's simpler this way because passing the Parent root to the SceneSwitcher is tricky in this case.
         // So, we're just doing it manually to make sure everything runs smoothly.
