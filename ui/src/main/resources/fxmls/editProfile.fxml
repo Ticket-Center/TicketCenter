@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="266.0" prefWidth="600.0" style="-fx-background-color: #8553AC;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.ticketcenter.ui.controllers.EditProfileController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0">
+         <left>
+            <AnchorPane prefHeight="300.0" prefWidth="602.0" style="-fx-background-color: #8553AC;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lbEditProfile" layoutX="232.0" layoutY="27.0" text="Edit Profile" textFill="WHITE">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonEdit" layoutX="450.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#editProfile" prefHeight="33.0" prefWidth="90.0" style="-fx-background-color: #BDACCF;" text="Edit" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonBack" layoutX="327.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="33.0" prefWidth="90.0" style="-fx-background-color: #BDACCF;" text="Back" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <AnchorPane layoutX="9.0" layoutY="101.0" />
+                  <Label fx:id="wrongInput" layoutX="27.0" layoutY="51.0" prefHeight="19.0" prefWidth="274.0" />
+                  <Label fx:id="lbPhone" layoutX="346.0" layoutY="140.0" text="Phone" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="171.60000000000002">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lbKeyPassword" layoutX="288.0" layoutY="100.0" text="Key Password" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="167.20000000000005">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lbAddress" layoutX="337.0" layoutY="180.0" text="Address" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lbName" layoutX="54.0" layoutY="100.0" text="Name" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lbLastName" layoutX="14.0" layoutY="140.0" text="Last Name" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="txtFName" layoutX="119.0" layoutY="97.0" />
+                  <TextField fx:id="txtFLastName" layoutX="119.0" layoutY="137.0" />
+                  <TextField fx:id="txtFKeyPassword" layoutX="420.0" layoutY="97.0" />
+                  <TextField fx:id="txtFPhone" layoutX="421.0" layoutY="137.0" />
+                  <TextField fx:id="txtFAddress" layoutX="421.0" layoutY="177.0" />
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

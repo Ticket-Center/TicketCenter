@@ -264,8 +264,8 @@ public class ProfilePageController {
     }
 
     @FXML
-    void editUser() {
-
+    void editUser() throws IOException {
+        SceneSwitcher.switchScene((Stage) btnEdit.getScene().getWindow(), FXMLPaths.EDIT_PROFILE.getPath());
     }
 
     @FXML

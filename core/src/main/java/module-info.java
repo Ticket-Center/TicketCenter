@@ -36,4 +36,5 @@ module core {
     exports oop.ticketcenter.core.validators;
     exports oop.ticketcenter.core.interfaces.administration.sellers.rating;
     exports oop.ticketcenter.core.interfaces.users.changePassword;
+    exports oop.ticketcenter.core.interfaces.users.edit;
 }
