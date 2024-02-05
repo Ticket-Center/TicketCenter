@@ -16,8 +16,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDateTime;
 import java.time.temporal.TemporalAccessor;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +32,7 @@ public class CreateEventCore implements CreateEvent {
     private final SeatTypeRepository seatTypeRepository;
     private final EventSeatPriceRepository eventSeatPriceRepository;
     private final SoldTicketsRepository soldTicketsRepository;
+    private final NotificationRepository notificationRepository;
 
     @Override
     public CreateEventResult process(CreateEventInput input) {
@@ -92,12 +92,21 @@ public class CreateEventCore implements CreateEvent {
             soldTicketsRepository.save(soldTickets);
         });
 
+        List<UUID> sellersToBeNotified = new ArrayList<>();
         for (String eventSeller : input.getEventSellers()) {
             EventSeller seller = eventSellerRepository.findEventSellerByUsername(eventSeller)
                     .orElseThrow(() -> new UserNotFoundException("Event seller with this username not found"));;
             seller.getEvents().add(event);
+            sellersToBeNotified.add(seller.getId());
             eventSellerRepository.save(seller);
         }
+
+        Notification notification = Notification.builder()
+                .message("New event is created for you: " + event.getTitle())
+                .isReceived(false)
+                .receivers(sellersToBeNotified)
+                .build();
+        notificationRepository.save(notification);
         return CreateEventResult.builder()
                 .id(event.getId())
                 .build();

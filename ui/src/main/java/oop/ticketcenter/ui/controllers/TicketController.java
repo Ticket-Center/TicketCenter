@@ -7,12 +7,18 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
+import oop.ticketcenter.core.services.helpers.Notifications;
 import oop.ticketcenter.persistence.entities.Event;
 import oop.ticketcenter.persistence.entities.EventSeatPrice;
+import oop.ticketcenter.persistence.entities.Notification;
 import oop.ticketcenter.persistence.enums.Roles;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
+
 @Component
 public class TicketController {
     @FXML
@@ -64,7 +70,7 @@ public class TicketController {
     @FXML
     private TextField txtFPlace;
 
-    public void setData(Event event, Set<EventSeatPrice> ticketsInfo){
+    public void setData(Event event, Set<EventSeatPrice> ticketsInfo, Notifications notifications){
         int quantity=0;
         txtFTitle.setText(String.valueOf(event.getTitle()));
         txtFType.setText(event.getEventType().getName());
@@ -78,6 +84,7 @@ public class TicketController {
             ticketOptions.add(option);
             quantity+=ticket.getPlaceSeatType().getQuantity();
         }
+        notifications.quantityNotifications(quantity, event);
         lbSoldTickets.setText("Sold tickets:\n"+ event.getSoldTickets() +"/ "+quantity);
         cbBoxTicket.setItems(ticketOptions);
     }

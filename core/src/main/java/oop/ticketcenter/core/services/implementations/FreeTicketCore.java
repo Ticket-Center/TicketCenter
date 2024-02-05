@@ -21,6 +21,7 @@ public class FreeTicketCore implements FreeTicket {
     private final TicketRepository ticketRepository;
     private final SoldTicketsRepository soldTicketsRepository;
     private final EventRepository eventRepository;
+
     @Override
     public FreeTicketResult process(FreeTicketInput input) {
         Ticket ticket = ticketRepository.findById(input.getTicketId())
@@ -30,7 +31,6 @@ public class FreeTicketCore implements FreeTicket {
         SeatType seat = ticket.getEventSeatPrice().getPlaceSeatType().getSeatType();
         SoldTickets sold = soldTicketsRepository.findSoldTicketsBySeatTypeAndEvent(seat, event)
                 .orElseThrow(() -> new SoldTicketsNotFoundException("Sold tickets not found"));
-
 
         event.setSoldTickets(event.getSoldTickets() - ticket.getQuantity());
         eventRepository.save(event);
