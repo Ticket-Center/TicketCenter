@@ -1,9 +1,12 @@
 package oop.ticketcenter.ui.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -11,6 +14,8 @@ import oop.ticketcenter.core.interfaces.users.logout.Logout;
 import oop.ticketcenter.core.interfaces.users.logout.LogoutInput;
 import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.core.services.helpers.GetAll;
+import oop.ticketcenter.core.services.helpers.GetClients;
+import oop.ticketcenter.core.services.helpers.GetTickets;
 import oop.ticketcenter.persistence.entities.*;
 import oop.ticketcenter.persistence.enums.Roles;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
@@ -19,7 +24,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 public class ProfilePageController {
@@ -133,23 +142,55 @@ public class ProfilePageController {
     @Autowired
     private GetAll getAllUsers;
 
+    @Autowired
+    private GetTickets getTickets;
+
+    @Autowired
+    private GetClients getClients;
+
     @FXML
-    private void initialize(){
+    private void initialize() {
         visibilityForControls();
         populateUserProfileInformation();
-        if(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)){
-            updateTicketGrid();
+
+        Set<Ticket> allTickets = getTickets.fetchAllTickets();
+
+        if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)) {
+            String username = ActiveUserSingleton.getInstance().getUsername();
+            Set<Ticket> clientTickets = filterTicketsByUsername(allTickets, username);
+
+            updateTicketGrid(clientTickets);
         }
     }
+
+    private Set<Ticket> filterTicketsByUsername(Set<Ticket> allTickets, String username) {
+        Client client = getClients.getClients().stream()
+                .filter(c -> c.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
+
+        if (client == null) {
+            return new HashSet<>();
+        }
+
+        List<UUID> ticketIds = client.getTickets().stream()
+                .map(Ticket::getId)
+                .toList();
+
+        return allTickets.stream()
+                .filter(ticket -> ticketIds.contains(ticket.getId()))
+                .collect(Collectors.toSet());
+    }
+
     private void visibilityForControls() {
         if (!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN)) {
             btnUsers.setVisible(false);
         }
-        if(!(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ORGANIZER) || ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER))){
+        if (!(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ORGANIZER) || ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER))) {
             btnSellers.setVisible(false);
         }
         lbName.setText(ActiveUserSingleton.getInstance().getUsername());
-        if(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN)){
+        if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ADMIN)) {
             commonForVisibility(lbAddress, txtFAddress, lbPhone, txtFPhone, lbUIC, txtFUIC, lbFee, txtFFee);
             lbMOL.setVisible(false);
             txtFMOL.setVisible(false);
@@ -157,7 +198,7 @@ public class ProfilePageController {
             txtFMolPhone.setVisible(false);
             lbKey.setVisible(false);
             txtFKey.setVisible(false);
-        }else if(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER)){
+        } else if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.OWNER)) {
             lbLastName.setVisible(false);
             txtFLastName.setVisible(false);
             lbAddress.setVisible(false);
@@ -172,14 +213,14 @@ public class ProfilePageController {
             txtFMOL.setVisible(false);
             lbMOLPhone.setVisible(false);
             txtFMolPhone.setVisible(false);
-        }else if(ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ORGANIZER) || ActiveUserSingleton.getInstance().getUserRole().equals(Roles.SELLER)) {
+        } else if (ActiveUserSingleton.getInstance().getUserRole().equals(Roles.ORGANIZER) || ActiveUserSingleton.getInstance().getUserRole().equals(Roles.SELLER)) {
             lbLastName.setVisible(false);
             txtFLastName.setVisible(false);
             lbAddress.setVisible(false);
             txtFAddress.setVisible(false);
             lbPhone.setVisible(false);
             txtFPhone.setVisible(false);
-        }else {
+        } else {
             commonForVisibility(lbUIC, txtFUIC, lbFee, txtFFee, lbMOL, txtFMOL, lbMOLPhone, txtFMolPhone);
         }
 
@@ -196,7 +237,7 @@ public class ProfilePageController {
         txtFMolPhone.setVisible(false);
     }
 
-    private void populateUserProfileInformation(){
+    private void populateUserProfileInformation() {
         String activeUsername = ActiveUserSingleton.getInstance().getUsername();
         Set<Object> allUsers = getAllUsers.getAllUsers();
 
@@ -219,15 +260,15 @@ public class ProfilePageController {
                     txtFKey.setText(user.getPasswordKey());
                     break;
                 }
-            }else if (userObj instanceof EventOrganizator) {
+            } else if (userObj instanceof EventOrganizator) {
                 EventOrganizator user = (EventOrganizator) userObj;
                 if (checkCommonForPopulation(activeUsername, user.getUsername(), user.getName(), user.getRole(), user.getUic(), user.getFee(), user.getMol(), user.getMolPhone(), user.getPasswordKey()))
                     break;
-            }else if (userObj instanceof EventSeller) {
+            } else if (userObj instanceof EventSeller) {
                 EventSeller user = (EventSeller) userObj;
                 if (checkCommonForPopulation(activeUsername, user.getUsername(), user.getName(), user.getRole(), user.getUic(), user.getFee(), user.getMol(), user.getMolPhone(), user.getPasswordKey()))
                     break;
-            }else if (userObj instanceof Client) {
+            } else if (userObj instanceof Client) {
                 Client user = (Client) userObj;
                 if (user.getUsername().equals(activeUsername)) {
                     txtFName.setText(user.getFirstname());
@@ -259,10 +300,6 @@ public class ProfilePageController {
         return false;
     }
 
-    private void updateTicketGrid(){
-
-    }
-
     @FXML
     void editUser() throws IOException {
         SceneSwitcher.switchScene((Stage) btnEdit.getScene().getWindow(), FXMLPaths.EDIT_PROFILE.getPath());
@@ -288,8 +325,29 @@ public class ProfilePageController {
         logout.process(new LogoutInput());
         SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.LOGIN_FORM.getPath());
     }
+
     @FXML
     public void goToEvent() throws IOException {
         SceneSwitcher.switchScene((Stage) btnEvents.getScene().getWindow(), FXMLPaths.HOME_PAGE.getPath());
+    }
+
+    private void updateTicketGrid(Set<Ticket> clientTickets) {
+        int row = 1;
+        try {
+            for (Ticket ticket : clientTickets) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource(FXMLPaths.SOLD_TICKET.getPath()));
+                BorderPane box = fxmlLoader.load();
+                SoldTicketController soldTicketController = fxmlLoader.getController();
+
+                soldTicketController.setData(ticket);
+
+                ticketGrid.add(box, 0, row++);
+                GridPane.setMargin(box, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 }

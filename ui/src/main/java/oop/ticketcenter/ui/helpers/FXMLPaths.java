@@ -20,7 +20,8 @@ public enum FXMLPaths {
     EDIT_RATING_SELLER("/fxmls/editRatingSeller.fxml"),
     PROFILE_PAGE("/fxmls/profilePage.fxml"),
     NEW_PASSWORD("/fxmls/newPassword.fxml"),
-    EDIT_PROFILE("/fxmls/editProfile.fxml");
+    EDIT_PROFILE("/fxmls/editProfile.fxml"),
+    SOLD_TICKET("/fxmls/soldTicket.fxml");
 
     private final String path;
 

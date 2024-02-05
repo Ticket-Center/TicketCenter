@@ -46,7 +46,7 @@ public class Client {
 
     private String passwordKey;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "Client_Tickets",
             joinColumns = @JoinColumn(name = "Clients_id", referencedColumnName = "id"),
