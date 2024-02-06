@@ -13,6 +13,8 @@ import oop.ticketcenter.core.services.implementations.EditProfileCore;
 import oop.ticketcenter.persistence.enums.Roles;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -88,6 +90,7 @@ public class EditProfileController {
     }
 
     public void editProfile() {
+        Logger logger = Logger.getLogger(this.getClass().getName());
         EditProfileInput input=EditProfileInput.builder()
                 .firstName(txtFName.getText())
                 .lastName(txtFLastName.getText())
@@ -102,9 +105,10 @@ public class EditProfileController {
         try {
             EditProfileResult result=editProfileCore.process(input);
             wrongInput.setText("Successfully changed profile");
+            logger.log(Level.INFO,"Successfully changed profile");
         }catch (RuntimeException e){
             wrongInput.setText(e.getMessage());
-            e.printStackTrace();
+            logger.log(Level.ERROR,e.getMessage());
         }
     }
 }

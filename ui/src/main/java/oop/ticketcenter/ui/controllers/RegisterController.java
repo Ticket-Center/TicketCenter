@@ -14,6 +14,8 @@ import oop.ticketcenter.core.services.implementations.RegisterCore;
 import oop.ticketcenter.core.validators.*;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -102,6 +104,7 @@ public class RegisterController {
 
     @FXML
     private void register() throws IOException {
+        Logger logger= Logger.getLogger(this.getClass().getName());
         RegisterInput input = RegisterInput.builder()
                 .firstName(txtFFirstName.getText())
                 .lastName(txtFLastName.getText())
@@ -125,7 +128,9 @@ public class RegisterController {
             RegisterResult result = register.process(input);
             lbResult.setText(result.getStr());
             SceneSwitcher.switchScene((Stage) btnRegister.getScene().getWindow() , FXMLPaths.LOGIN_FORM.getPath());
+            logger.log(Level.INFO,"Successful registration");
         } catch (UserAlreadyExistsException | IncorrectInputException e) {
+            logger.log(Level.ERROR, e.getMessage());
             lbResult.setText(e.getMessage());
         }
     }

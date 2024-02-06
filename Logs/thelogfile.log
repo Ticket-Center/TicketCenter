@@ -440,4 +440,28 @@
 2024-02-04 17:12:44 INFO  JavaFxApplication:43 - Ended application
 2024-02-04 17:13:47 INFO  JavaFxApplication:51 - Started application
 2024-02-04 17:13:59 INFO  LoginController:64 - Successful logging in
-2024-02-04 17:15:21 INFO  JavaFxApplication:43 - Ended application
+2024-02-04 17:15:21 INFO  JavaFxApplication:43 - Ended application2024-02-06 15:10:34 INFO  JavaFxApplication:51 - Started application
+2024-02-06 15:10:54 INFO  LoginController:64 - Successful logging in
+2024-02-06 15:11:40 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 15:26:30 INFO  JavaFxApplication:51 - Started application
+2024-02-06 15:26:59 INFO  RegisterController:131 - Successful registration
+2024-02-06 15:27:17 INFO  LoginController:64 - Successful logging in
+2024-02-06 15:27:36 INFO  EditProfileController:108 - Successfully changed profile
+2024-02-06 15:27:55 INFO  NewPasswordController:69 - Successfully changed password
+2024-02-06 15:41:50 INFO  LoginController:64 - Successful logging in
+2024-02-06 15:41:58 INFO  SellerPageController:120 - Seller displayed successfully
+2024-02-06 15:41:58 INFO  SellerPageController:120 - Seller displayed successfully
+2024-02-06 15:42:19 INFO  LoginController:64 - Successful logging in
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:41 INFO  JavaFxApplication:43 - Ended application

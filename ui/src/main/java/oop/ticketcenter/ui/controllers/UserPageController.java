@@ -19,6 +19,8 @@ import oop.ticketcenter.persistence.entities.EventOwner;
 import oop.ticketcenter.persistence.entities.EventSeller;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -115,6 +117,7 @@ public class UserPageController {
 
 
         private <T> void loadEntities(Set<T> entities, Function<T, String> nameExtractor, Function<T, String> usernameExtractor, Function<T, String> roleExtractor) {
+                Logger logger = Logger.getLogger(this.getClass().getName());
                 int row = userGrid.getRowCount();
 
                 for (T entity : entities) {
@@ -131,7 +134,9 @@ public class UserPageController {
 
                                 userGrid.add(box, 0, row++);
                                 GridPane.setMargin(box, new Insets(10));
+                                logger.log(Level.INFO,"Successfully displayed user");
                         } catch (IOException e) {
+                                logger.log(Level.ERROR,e.getMessage());
                                 e.printStackTrace();
                         }
                 }
