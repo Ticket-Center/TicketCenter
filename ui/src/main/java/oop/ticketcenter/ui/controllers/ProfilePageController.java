@@ -18,6 +18,7 @@ import oop.ticketcenter.core.services.helpers.GetClients;
 import oop.ticketcenter.core.services.helpers.GetTickets;
 import oop.ticketcenter.persistence.entities.*;
 import oop.ticketcenter.persistence.enums.Roles;
+import oop.ticketcenter.ui.AppContext;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -337,6 +338,7 @@ public class ProfilePageController {
             for (Ticket ticket : clientTickets) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource(FXMLPaths.SOLD_TICKET.getPath()));
+                fxmlLoader.setControllerFactory(AppContext.getInstance().getContext()::getBean);
                 BorderPane box = fxmlLoader.load();
                 SoldTicketController soldTicketController = fxmlLoader.getController();
 

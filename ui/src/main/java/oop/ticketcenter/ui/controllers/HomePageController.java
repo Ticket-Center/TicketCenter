@@ -24,6 +24,7 @@ import oop.ticketcenter.core.services.helpers.Notifications;
 import oop.ticketcenter.persistence.entities.Event;
 import oop.ticketcenter.persistence.entities.EventSeatPrice;
 import oop.ticketcenter.persistence.enums.Roles;
+import oop.ticketcenter.ui.AppContext;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -136,6 +137,7 @@ public class HomePageController {
             for (Event event : events) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource(FXMLPaths.TICKET.getPath()));
+                fxmlLoader.setControllerFactory(AppContext.getInstance().getContext()::getBean);
                 BorderPane box = fxmlLoader.load();
                 TicketController ticketController = fxmlLoader.getController();
 

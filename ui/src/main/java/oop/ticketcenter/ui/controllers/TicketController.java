@@ -96,24 +96,35 @@ public class TicketController {
 
     @FXML
     public void initialize() {
-        if(!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)){
+        if (!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)) {
             btnBuy.setVisible(false);
+        } else {
+            btnBuy.setOnAction(event -> buyTicket());
         }
     }
 
+    @FXML
     public void buyTicket() {
-        BuyTicketInput input= BuyTicketInput.builder()
+        BuyTicketInput input = BuyTicketInput.builder()
                 .eventTitle(txtFTitle.getText())
-                .numberTickets(Integer.parseInt(txtFQuantity.getText()))
-                .ticketType(cbBoxTicket.getValue())
+                .numberTickets(Integer.valueOf(txtFQuantity.getText()))
+                .ticketType(extractTicketType(cbBoxTicket.getValue()))
                 .build();
-
-        try{
-            BuyTicketResult result=buyTicketCore.process(input);
+        try {
+            BuyTicketResult result = buyTicketCore.process(input);
             lbResult.setText("Successfully bought ticket");
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             lbResult.setText(e.getMessage());
             e.printStackTrace();
         }
     }
+
+    private String extractTicketType(String ticketType) {
+        if (ticketType != null && ticketType.contains(",")) {
+            return ticketType.substring(0, ticketType.indexOf(",")).trim();
+        } else {
+            throw new IllegalArgumentException("Invalid ticket type format.");
+        }
+    }
+
 }
