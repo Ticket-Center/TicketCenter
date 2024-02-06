@@ -638,3 +638,53 @@
 2024-02-06 22:08:16 INFO  JavaFxApplication:51 - Started application
 2024-02-06 22:08:22 INFO  LoginController:64 - Successful logging in
 2024-02-06 22:08:44 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:12:11 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:12:19 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:12:32 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:13:05 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:13:12 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:13:22 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:14:17 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:14:23 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:14:25 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:23:50 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:23:57 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:25:41 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:33:18 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:33:24 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:34:55 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:40:16 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:40:23 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:41:27 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:42:05 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:42:25 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:42:33 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:42:39 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:42:54 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:43:00 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:43:11 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:44:10 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:44:16 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:44:32 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:45:28 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:55:27 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:55:37 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:55:53 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:56:07 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:56:14 ERROR LoginController:67 - User with this credentials not found
+2024-02-06 22:56:18 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:56:34 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 22:56:54 INFO  JavaFxApplication:51 - Started application
+2024-02-06 22:57:02 INFO  LoginController:64 - Successful logging in
+2024-02-06 22:58:20 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 23:07:04 INFO  JavaFxApplication:51 - Started application
+2024-02-06 23:07:11 INFO  LoginController:64 - Successful logging in
+2024-02-06 23:08:38 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 23:09:11 INFO  JavaFxApplication:51 - Started application
+2024-02-06 23:09:22 INFO  LoginController:64 - Successful logging in
+2024-02-06 23:09:45 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 23:10:14 INFO  JavaFxApplication:51 - Started application
+2024-02-06 23:10:16 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 23:10:34 INFO  JavaFxApplication:51 - Started application
+2024-02-06 23:10:42 INFO  LoginController:64 - Successful logging in
+2024-02-06 23:12:38 INFO  JavaFxApplication:43 - Ended application

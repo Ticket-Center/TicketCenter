@@ -56,7 +56,7 @@
          <right>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnFree" layoutX="85.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#freeTicket" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #BDACCF; -fx-border-color: #ffffff;" text="Free" textFill="WHITE">
+                  <Button fx:id="btnFree" layoutX="85.0" layoutY="77.0" mnemonicParsing="false" onAction="#freeTicket" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #BDACCF; -fx-border-color: #ffffff;" text="Free" textFill="WHITE">
                      <font>
                         <Font name="Copperplate Gothic Bold" size="13.0" />
                      </font>

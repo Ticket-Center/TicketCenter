@@ -71,7 +71,7 @@ public class TicketController {
     @Autowired
     private BuyTicketCore buyTicketCore;
 
-    public void setData(Event event, String seatType, Double price,Integer soldTickets, Integer allTicketsForSeatType, Notifications notifications){
+    public void setData(Event event, String seatType, Double price, Notifications notifications){
         int quantity=0;
         txtFTitle.setText(String.valueOf(event.getTitle()));
         txtFType.setText(event.getEventType().getName());
@@ -82,7 +82,6 @@ public class TicketController {
         txtFPrice.setText(price.toString());
 
         notifications.quantityNotifications(quantity, event);
-        //lbSoldTickets.setText("Sold tickets:\n"+ soldTickets +"/ "+allTicketsForSeatType);
     }
 
     @FXML
@@ -110,7 +109,7 @@ public class TicketController {
                 e.printStackTrace();
             }
         } else {
-            throw new RuntimeException();
+            throw new RuntimeException("No data for tickets");
         }
     }
 
