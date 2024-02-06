@@ -24,8 +24,10 @@ import oop.ticketcenter.core.services.helpers.Notifications;
 import oop.ticketcenter.persistence.entities.Event;
 import oop.ticketcenter.persistence.entities.EventSeatPrice;
 import oop.ticketcenter.persistence.enums.Roles;
+import oop.ticketcenter.ui.AppContext;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import oop.ticketcenter.ui.helpers.TicketData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -136,6 +138,7 @@ public class HomePageController {
             for (Event event : events) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource(FXMLPaths.TICKET.getPath()));
+                fxmlLoader.setControllerFactory(AppContext.getInstance().getContext()::getBean);
                 BorderPane box = fxmlLoader.load();
                 TicketController ticketController = fxmlLoader.getController();
 
@@ -143,10 +146,15 @@ public class HomePageController {
                         .filter(ticket -> ticket.getEvent().getId().equals(event.getId()))
                         .collect(Collectors.toSet());
 
-                ticketController.setData(event, filteredTicketInfo, notifications);
-
-                ticketGrid.add(box, 0, row++);
-                GridPane.setMargin(box, new Insets(10));
+                for (EventSeatPrice ticket : filteredTicketInfo) {
+                    String seatType = ticket.getPlaceSeatType().getSeatType().getType();
+                    Double price = ticket.getPrice();
+                    ticketController.setData(event, seatType, price, notifications);
+                    Button buyButton = (Button) box.lookup("#btnBuy");
+                    buyButton.setUserData(new TicketData(event, seatType, price));
+                    ticketGrid.add(box, 0, row++);
+                    GridPane.setMargin(box, new Insets(10));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

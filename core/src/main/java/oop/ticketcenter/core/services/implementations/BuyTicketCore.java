@@ -27,13 +27,13 @@ public class BuyTicketCore implements BuyTicket {
     public BuyTicketResult process(BuyTicketInput input) {
         Event event = eventRepository.findEventByTitle(input.getEventTitle())
                 .orElseThrow(() -> new EventDoesNotExistException("Event with this title does not exist"));
-        SeatType seat = seatTypeRepository.findSeatTypeByType(input.getTicketType())
-                .orElseThrow(() -> new SeatTypeDoesNotExistException("Seat type does not exist"));
+        SeatType seat=seatTypeRepository.findSeatTypeByType(input.getTicketType())
+                .orElseThrow(()->new SeatTypeDoesNotExistException("Seat type does not exist"));
         PlaceSeatType place = placeSeatTypeRepository.findPlaceSeatTypeByEventPlaceAndSeatType(event.getEventPlace(), seat)
                 .orElseThrow(() -> new SeatTypeDoesNotExistException("Place Seat type does not exist"));
         EventSeatPrice eventSeatPrice = eventSeatPriceRepository.findEventSeatPriceByEventAndPlaceSeatType(event, place)
                 .orElseThrow(() -> new SeatTypeDoesNotExistException("Event Seat price does not exist"));
-        SoldTickets sold = soldTicketsRepository.findSoldTicketsBySeatTypeAndEvent(seat, event)
+        SoldTickets sold = soldTicketsRepository.findSoldTicketsBySeatTypeAndEvent(place, event)
                 .orElseThrow(() -> new SoldTicketsNotFoundException("Sold tickets not found"));
 
         int quantityLeft = place.getQuantity() - sold.getQuantity();

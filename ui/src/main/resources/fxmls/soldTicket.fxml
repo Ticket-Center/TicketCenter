@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.ticketcenter.ui.controllers.SoldTicketController">
    <top>
       <BorderPane fx:id="Ticket" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="658.0" style="-fx-background-color: #8553AC; -fx-border-color: #BDACCF;" BorderPane.alignment="CENTER">
@@ -50,13 +49,14 @@
                         <Font name="Copperplate Gothic Bold" size="12.0" />
                      </font>
                   </Label>
+                  <Label fx:id="lbResult" layoutX="64.0" layoutY="151.0" prefHeight="18.0" prefWidth="198.0" />
                </children>
             </AnchorPane>
          </center>
          <right>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnFree" layoutX="85.0" layoutY="77.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #BDACCF; -fx-border-color: #ffffff;" text="Free" textFill="WHITE">
+                  <Button fx:id="btnFree" layoutX="85.0" layoutY="77.0" mnemonicParsing="false" onAction="#freeTicket" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #BDACCF; -fx-border-color: #ffffff;" text="Free" textFill="WHITE">
                      <font>
                         <Font name="Copperplate Gothic Bold" size="13.0" />
                      </font>

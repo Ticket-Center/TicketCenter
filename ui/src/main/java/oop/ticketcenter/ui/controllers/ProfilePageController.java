@@ -18,8 +18,10 @@ import oop.ticketcenter.core.services.helpers.GetClients;
 import oop.ticketcenter.core.services.helpers.GetTickets;
 import oop.ticketcenter.persistence.entities.*;
 import oop.ticketcenter.persistence.enums.Roles;
+import oop.ticketcenter.ui.AppContext;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import oop.ticketcenter.ui.helpers.SoldTicketData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -335,12 +337,16 @@ public class ProfilePageController {
         int row = 1;
         try {
             for (Ticket ticket : clientTickets) {
+                if(!ticket.getIsActive()) break;
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource(FXMLPaths.SOLD_TICKET.getPath()));
+                fxmlLoader.setControllerFactory(AppContext.getInstance().getContext()::getBean);
                 BorderPane box = fxmlLoader.load();
                 SoldTicketController soldTicketController = fxmlLoader.getController();
 
                 soldTicketController.setData(ticket);
+                Button freeButton=(Button) box.lookup("#btnFree");
+                freeButton.setUserData(new SoldTicketData(ticket));
 
                 ticketGrid.add(box, 0, row++);
                 GridPane.setMargin(box, new Insets(10));
