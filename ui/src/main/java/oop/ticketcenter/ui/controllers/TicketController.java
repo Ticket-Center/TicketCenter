@@ -98,8 +98,6 @@ public class TicketController {
     public void initialize() {
         if (!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)) {
             btnBuy.setVisible(false);
-        } else {
-            btnBuy.setOnAction(event -> buyTicket());
         }
     }
 
