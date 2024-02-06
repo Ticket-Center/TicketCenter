@@ -341,6 +341,7 @@ public class ProfilePageController {
                 SoldTicketController soldTicketController = fxmlLoader.getController();
 
                 soldTicketController.setData(ticket);
+                soldTicketController.setTicketId(ticket.getId());
 
                 ticketGrid.add(box, 0, row++);
                 GridPane.setMargin(box, new Insets(10));

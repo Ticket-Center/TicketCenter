@@ -6,18 +6,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import oop.ticketcenter.core.interfaces.tickets.buy.BuyTicketInput;
+import oop.ticketcenter.core.interfaces.tickets.buy.BuyTicketResult;
 import oop.ticketcenter.core.services.helpers.ActiveUserSingleton;
 import oop.ticketcenter.core.services.helpers.Notifications;
+import oop.ticketcenter.core.services.implementations.BuyTicketCore;
 import oop.ticketcenter.persistence.entities.Event;
 import oop.ticketcenter.persistence.entities.EventSeatPrice;
-import oop.ticketcenter.persistence.entities.Notification;
 import oop.ticketcenter.persistence.enums.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
 @Component
 public class TicketController {
@@ -69,6 +69,11 @@ public class TicketController {
     private TextField txtFQuantity;
     @FXML
     private TextField txtFPlace;
+    @FXML
+    private Label lbResult;
+
+    @Autowired
+    private BuyTicketCore buyTicketCore;
 
     public void setData(Event event, Set<EventSeatPrice> ticketsInfo, Notifications notifications){
         int quantity=0;
@@ -93,6 +98,22 @@ public class TicketController {
     public void initialize() {
         if(!ActiveUserSingleton.getInstance().getUserRole().equals(Roles.CLIENT)){
             btnBuy.setVisible(false);
+        }
+    }
+
+    public void buyTicket() {
+        BuyTicketInput input= BuyTicketInput.builder()
+                .eventTitle(txtFTitle.getText())
+                .numberTickets(Integer.parseInt(txtFQuantity.getText()))
+                .ticketType(cbBoxTicket.getValue())
+                .build();
+
+        try{
+            BuyTicketResult result=buyTicketCore.process(input);
+            lbResult.setText("Successfully bought ticket");
+        }catch (RuntimeException e){
+            lbResult.setText(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
