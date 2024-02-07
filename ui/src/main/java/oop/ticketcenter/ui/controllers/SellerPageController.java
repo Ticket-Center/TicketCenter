@@ -19,6 +19,8 @@ import oop.ticketcenter.persistence.entities.EventSeller;
 import oop.ticketcenter.persistence.enums.Roles;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -102,6 +104,7 @@ public class SellerPageController {
     }
 
     private void updateSellerGrid(Set<EventSeller> sellers){
+        Logger logger = Logger.getLogger(this.getClass().getName());
         int row=1;
 
         try {
@@ -114,8 +117,10 @@ public class SellerPageController {
 
                 sellerGrid.add(box, 0, row++);
                 GridPane.setMargin(box, new Insets(10));
+                logger.log(Level.INFO, "Seller displayed successfully");
             }
         } catch (IOException e) {
+            logger.log(Level.ERROR,e.getMessage());
             e.printStackTrace();
         }
     }

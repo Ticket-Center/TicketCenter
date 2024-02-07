@@ -440,6 +440,32 @@
 2024-02-04 17:12:44 INFO  JavaFxApplication:43 - Ended application
 2024-02-04 17:13:47 INFO  JavaFxApplication:51 - Started application
 2024-02-04 17:13:59 INFO  LoginController:64 - Successful logging in
+2024-02-04 17:15:21 INFO  JavaFxApplication:43 - Ended application2024-02-06 15:10:34 INFO  JavaFxApplication:51 - Started application
+2024-02-06 15:10:54 INFO  LoginController:64 - Successful logging in
+2024-02-06 15:11:40 INFO  JavaFxApplication:43 - Ended application
+2024-02-06 15:26:30 INFO  JavaFxApplication:51 - Started application
+2024-02-06 15:26:59 INFO  RegisterController:131 - Successful registration
+2024-02-06 15:27:17 INFO  LoginController:64 - Successful logging in
+2024-02-06 15:27:36 INFO  EditProfileController:108 - Successfully changed profile
+2024-02-06 15:27:55 INFO  NewPasswordController:69 - Successfully changed password
+2024-02-06 15:41:50 INFO  LoginController:64 - Successful logging in
+2024-02-06 15:41:58 INFO  SellerPageController:120 - Seller displayed successfully
+2024-02-06 15:41:58 INFO  SellerPageController:120 - Seller displayed successfully
+2024-02-06 15:42:19 INFO  LoginController:64 - Successful logging in
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:21 INFO  UserPageController:137 - Successfully displayed user
+2024-02-06 15:42:41 INFO  JavaFxApplication:43 - Ended application
+
 2024-02-04 17:15:21 INFO  JavaFxApplication:43 - Ended application2024-02-06 14:39:18 INFO  JavaFxApplication:51 - Started application
 2024-02-06 14:39:27 INFO  LoginController:64 - Successful logging in
 2024-02-06 14:39:57 INFO  JavaFxApplication:43 - Ended application
@@ -455,7 +481,7 @@
 2024-02-06 16:46:15 INFO  JavaFxApplication:51 - Started application
 2024-02-06 16:46:24 INFO  LoginController:64 - Successful logging in
 2024-02-06 16:53:16 INFO  JavaFxApplication:51 - Started application
-2024-02-06 16:53:22 ERROR LoginController:69 - 
+2024-02-06 16:53:22 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 17:01:20 INFO  JavaFxApplication:51 - Started application
@@ -537,56 +563,56 @@
 2024-02-06 20:05:23 INFO  LoginController:64 - Successful logging in
 2024-02-06 20:05:29 INFO  JavaFxApplication:43 - Ended application
 2024-02-06 20:16:03 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:16:10 ERROR LoginController:69 - 
+2024-02-06 20:16:10 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:19:38 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:20:08 ERROR LoginController:69 - 
+2024-02-06 20:20:08 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:21:56 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:22:07 ERROR LoginController:69 - 
+2024-02-06 20:22:07 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:24:19 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:24:32 ERROR LoginController:69 - 
+2024-02-06 20:24:32 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:27:18 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:27:25 ERROR LoginController:69 - 
+2024-02-06 20:27:25 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:29:12 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:29:18 ERROR LoginController:69 - 
+2024-02-06 20:29:18 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:30:23 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:30:30 ERROR LoginController:69 - 
+2024-02-06 20:30:30 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:31:03 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:31:53 ERROR LoginController:69 - 
+2024-02-06 20:31:53 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:32:51 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:36:51 ERROR LoginController:69 - 
+2024-02-06 20:36:51 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:37:48 INFO  JavaFxApplication:51 - Started application
 2024-02-06 20:37:54 INFO  LoginController:64 - Successful logging in
 2024-02-06 20:38:08 INFO  JavaFxApplication:43 - Ended application
 2024-02-06 20:44:43 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:44:51 ERROR LoginController:69 - 
+2024-02-06 20:44:51 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:44:56 INFO  JavaFxApplication:43 - Ended application
 2024-02-06 20:47:39 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:47:46 ERROR LoginController:69 - 
+2024-02-06 20:47:46 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:47:48 INFO  JavaFxApplication:43 - Ended application
 2024-02-06 20:51:42 INFO  JavaFxApplication:51 - Started application
-2024-02-06 20:51:49 ERROR LoginController:69 - 
+2024-02-06 20:51:49 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 20:51:56 INFO  JavaFxApplication:43 - Ended application
@@ -618,7 +644,7 @@
 2024-02-06 21:45:34 INFO  JavaFxApplication:51 - Started application
 2024-02-06 21:45:41 INFO  LoginController:64 - Successful logging in
 2024-02-06 21:48:18 INFO  JavaFxApplication:51 - Started application
-2024-02-06 21:48:25 ERROR LoginController:69 - 
+2024-02-06 21:48:25 ERROR LoginController:69 -
 /D:/5%20semestar/TicketCenter/ui/target/classes/fxmls/homePage.fxml
 
 2024-02-06 21:48:31 INFO  JavaFxApplication:43 - Ended application

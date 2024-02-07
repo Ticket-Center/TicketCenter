@@ -10,6 +10,8 @@ import oop.ticketcenter.core.interfaces.users.changePassword.ChangePasswordResul
 import oop.ticketcenter.core.services.implementations.ChangePasswordCore;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -55,6 +57,7 @@ public class NewPasswordController {
     }
 
     public void changePassword() {
+        Logger logger = Logger.getLogger(this.getClass().getName());
         ChangePasswordInput input =ChangePasswordInput.builder()
                 .currentPassword(txtPFCurrentPassword.getText())
                 .newPassword(txtPFNewPassword.getText())
@@ -63,8 +66,10 @@ public class NewPasswordController {
         try{
             ChangePasswordResult result=changePasswordCore.process(input);
             wrongInput.setText("Successfully changed password");
+            logger.log(Level.INFO,"Successfully changed password");
         }catch(RuntimeException e){
             wrongInput.setText(e.getMessage());
+            logger.log(Level.ERROR,e.getMessage());
         }
     }
 }

@@ -18,6 +18,8 @@ import oop.ticketcenter.persistence.enums.Rating;
 import oop.ticketcenter.persistence.enums.Roles;
 import oop.ticketcenter.ui.helpers.FXMLPaths;
 import oop.ticketcenter.ui.helpers.SceneSwitcher;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -85,6 +87,7 @@ public class EditRatingSellerController {
 
     @FXML
     void editRating() {
+        Logger logger = Logger.getLogger(this.getClass().getName());
         RatingSellerInput input = RatingSellerInput.builder()
                 .sellerName(cbSeller.getValue())
                 .rating(cbRating.getValue())
@@ -92,9 +95,11 @@ public class EditRatingSellerController {
         try {
             RatingSellerResult result = ratingSeller.process(input);
             wrongInput.setText("Rating updated successfully");
+            logger.log(Level.INFO,"Rating updated successfully");
         } catch (RuntimeException e) {
             wrongInput.setText(e.getMessage());
             e.printStackTrace();
+            logger.log(Level.ERROR,e.getMessage());
         }
     }
 
