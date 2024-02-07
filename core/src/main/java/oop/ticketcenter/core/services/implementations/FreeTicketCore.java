@@ -6,10 +6,7 @@ import oop.ticketcenter.core.exceptions.TicketNotFoundException;
 import oop.ticketcenter.core.interfaces.tickets.free.FreeTicket;
 import oop.ticketcenter.core.interfaces.tickets.free.FreeTicketInput;
 import oop.ticketcenter.core.interfaces.tickets.free.FreeTicketResult;
-import oop.ticketcenter.persistence.entities.Event;
-import oop.ticketcenter.persistence.entities.SeatType;
-import oop.ticketcenter.persistence.entities.SoldTickets;
-import oop.ticketcenter.persistence.entities.Ticket;
+import oop.ticketcenter.persistence.entities.*;
 import oop.ticketcenter.persistence.repositories.EventRepository;
 import oop.ticketcenter.persistence.repositories.SoldTicketsRepository;
 import oop.ticketcenter.persistence.repositories.TicketRepository;
@@ -28,7 +25,7 @@ public class FreeTicketCore implements FreeTicket {
                 .orElseThrow(() -> new TicketNotFoundException("Ticket with this id not found"));
 
         Event event = ticket.getEventSeatPrice().getEvent();
-        SeatType seat = ticket.getEventSeatPrice().getPlaceSeatType().getSeatType();
+        PlaceSeatType seat = ticket.getEventSeatPrice().getPlaceSeatType();
         SoldTickets sold = soldTicketsRepository.findSoldTicketsBySeatTypeAndEvent(seat, event)
                 .orElseThrow(() -> new SoldTicketsNotFoundException("Sold tickets not found"));
 
